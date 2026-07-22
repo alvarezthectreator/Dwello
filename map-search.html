@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Map Search — Dwelro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* ── HEADER ── */
+        
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: all .3s ease;
+        }
+        
+        .top-part {
+            background: transparent;
+            transition: background .3s ease;
+        }
+        
+        .nav-row {
+            background: transparent;
+            border-top: 1px solid rgba(255, 255, 255, .3);
+            transition: all .3s ease;
+        }
+        
+        .site-header.scrolled .top-part,
+        .site-header.hovered .top-part {
+            background: #fff;
+            box-shadow: 0 1px 0 #e8e8e8;
+        }
+        
+        .site-header.scrolled .nav-row,
+        .site-header.hovered .nav-row {
+            background: #fff;
+            border-top-color: #e8e8e8;
+        }
+        
+        .logo-white {
+            transition: opacity .3s ease, visibility .3s ease;
+        }
+        
+        .logo-black {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s ease, visibility .3s ease;
+        }
+        
+        .site-header.scrolled .logo-white,
+        .site-header.hovered .logo-white {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .site-header.scrolled .logo-black,
+        .site-header.hovered .logo-black {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .hdr-icon path,
+        .hdr-icon circle {
+            stroke: #fff;
+            transition: stroke .3s ease;
+        }
+        
+        .site-header.scrolled .hdr-icon path,
+        .site-header.scrolled .hdr-icon circle,
+        .site-header.hovered .hdr-icon path,
+        .site-header.hovered .hdr-icon circle {
+            stroke: #171717;
+        }
+        
+        .nav-link {
+            color: #171717;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            display: block;
+            padding: 13px 15px;
+            transition: color .3s ease;
+            white-space: nowrap;
+        }
+        
+        .site-header.scrolled .nav-link,
+        .site-header.hovered .nav-link {
+            color: #171717;
+        }
+        
+        .nav-link:hover {
+            opacity: .6;
+        }
+        
+        .search-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            transition: color .3s ease;
+        }
+        
+        .site-header.scrolled .search-input,
+        .site-header.hovered .search-input {
+            color: #171717;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, .45);
+            transition: color .3s ease;
+        }
+        
+        .site-header.scrolled .search-input::placeholder,
+        .site-header.hovered .search-input::placeholder {
+            color: rgba(23, 23, 23, .35);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #e8e8e8;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all .3s ease;
+        }
+        
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .desktop-only-icons {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .desktop-only-icons {
+                display: flex;
+            }
+            .desktop-search {
+                display: flex;
+            }
+            .mobile-menu-btn,
+            .mobile-search-icon {
+                display: none;
+            }
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+        
+         :root {
+            --navy: #1a3a5c;
+            --navy-dk: #0f2640;
+            --navy-lt: #e8eef5;
+            --ink: #171717;
+            --muted: #888;
+            --border: #ebebeb;
+            --bg: #fafafa;
+            --white: #fff;
+            --gold: #c9a84c;
+            --serif: 'DM Serif Display', serif;
+            --sans: 'DM Sans', sans-serif;
+        }
+        
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 500;
+            height: 60px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 20px;
+        }
+        
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 20px;
+            color: var(--navy);
+            text-decoration: none;
+            flex-shrink: 0
+        }
+        
+        .nav-logo span {
+            color: var(--gold)
+        }
+        
+        .search-wrap {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .search-wrap input {
+            width: 100%;
+            height: 38px;
+            border: 1.5px solid var(--border);
+            border-radius: 6px;
+            padding: 0 38px 0 14px;
+            font-family: var(--sans);
+            font-size: 13px;
+            transition: border-color .2s;
+        }
+        
+        .search-wrap input:focus {
+            outline: none;
+            border-color: var(--navy)
+        }
+        
+        .search-wrap button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 38px;
+            background: var(--navy);
+            border: none;
+            border-radius: 0 6px 6px 0;
+            color: #fff;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        
+        .search-wrap button:hover {
+            background: var(--navy-dk)
+        }
+        
+        .type-tabs {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .type-tab {
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            background: none;
+            cursor: pointer;
+            color: var(--muted);
+            transition: all .15s;
+            white-space: nowrap;
+        }
+        
+        .type-tab.active {
+            background: var(--navy);
+            color: #fff;
+            border-color: var(--navy)
+        }
+        
+        .type-tab:hover:not(.active) {
+            border-color: var(--navy);
+            color: var(--navy)
+        }
+        
+        .nav-back {
+            margin-left: auto;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            flex-shrink: 0
+        }
+        
+        .app-body {
+            position: fixed;
+            top: 120px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+        }
+        
+        .left-panel {
+            width: 420px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--border);
+            background: var(--white);
+            overflow: hidden;
+        }
+        
+        .panel-header {
+            padding: 14px 18px 10px;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+        
+        .panel-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px
+        }
+        
+        .result-count {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--navy)
+        }
+        
+        .sort-select {
+            height: 32px;
+            padding: 0 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            font-family: var(--sans);
+            color: var(--ink);
+        }
+        
+        .filter-chips {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap
+        }
+        
+        .chip {
+            padding: 4px 12px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            background: none;
+            color: #555;
+            transition: all .15s;
+            white-space: nowrap;
+        }
+        
+        .chip.active,
+        .chip:hover {
+            background: var(--navy-lt);
+            border-color: var(--navy);
+            color: var(--navy)
+        }
+        
+        .price-row {
+            display: flex;
+            gap: 8px;
+            padding: 10px 18px;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .price-row label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            flex-shrink: 0
+        }
+        
+        .price-input {
+            flex: 1;
+            height: 32px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 0 8px;
+            font-size: 12px;
+            font-family: var(--sans);
+        }
+        
+        .price-sep {
+            font-size: 11px;
+            color: var(--muted)
+        }
+        
+        .apply-btn {
+            height: 32px;
+            padding: 0 14px;
+            background: var(--navy);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        
+        .apply-btn:hover {
+            background: var(--navy-dk)
+        }
+        
+        .listings-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 14px
+        }
+        
+        .listings-scroll::-webkit-scrollbar {
+            width: 4px
+        }
+        
+        .listings-scroll::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 2px
+        }
+        
+        .prop-card {
+            display: flex;
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: border-color .2s, box-shadow .2s, transform .2s;
+            overflow: hidden;
+        }
+        
+        .prop-card:hover {
+            border-color: var(--navy);
+            box-shadow: 0 4px 20px rgba(26, 58, 92, .12);
+            transform: translateY(-1px);
+        }
+        
+        .prop-card.highlighted {
+            border-color: var(--gold);
+            box-shadow: 0 4px 24px rgba(201, 168, 76, .2);
+            transform: translateY(-1px)
+        }
+        
+        .card-img {
+            width: 130px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+        
+        .card-img-placeholder {
+            width: 100%;
+            height: 100%;
+            min-height: 110px;
+            background: var(--navy-lt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--navy);
+            color: #fff;
+            padding: 3px 8px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 2px;
+        }
+        
+        .card-badge.new {
+            background: var(--gold)
+        }
+        
+        .card-body {
+            padding: 12px 14px;
+            flex: 1;
+            min-width: 0
+        }
+        
+        .card-price {
+            font-family: var(--serif);
+            font-size: 19px;
+            color: var(--navy);
+            margin-bottom: 3px
+        }
+        
+        .card-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+        
+        .card-addr {
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+        
+        .card-meta {
+            display: flex;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #555
+        }
+        
+        .card-footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .card-type {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: var(--navy-lt);
+            color: var(--navy)
+        }
+        
+        .card-view {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid var(--navy);
+            background: none;
+            color: var(--navy);
+            padding: 4px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .card-view:hover {
+            background: var(--navy);
+            color: #fff
+        }
+        
+        .skel {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1.5px solid var(--border);
+            margin-bottom: 12px;
+            display: flex;
+            height: 120px
+        }
+        
+        .skel-img {
+            width: 130px;
+            background: #eee;
+            animation: pulse 1.5s infinite
+        }
+        
+        .skel-body {
+            flex: 1;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+        
+        .skel-line {
+            background: #eee;
+            border-radius: 4px;
+            animation: pulse 1.5s infinite
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: .5
+            }
+            50% {
+                opacity: 1
+            }
+        }
+        
+        .state-msg {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--muted);
+        }
+        
+        .state-msg .icon {
+            font-size: 40px;
+            margin-bottom: 12px
+        }
+        
+        .state-msg h3 {
+            font-family: var(--serif);
+            font-size: 20px;
+            color: var(--navy);
+            margin-bottom: 8px
+        }
+        
+        .state-msg p {
+            font-size: 13px;
+            line-height: 1.7
+        }
+        
+        .error-box {
+            margin: 14px auto 0;
+            max-width: 340px;
+            text-align: left;
+            background: #fff8f8;
+            border: 1px solid #ffc5c5;
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 12px;
+            color: #c0392b;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        
+        #map {
+            flex: 1;
+            z-index: 1;
+            height: 100%;
+            /* ← add this */
+            width: 100%;
+            /* ← add this */
+        }
+        
+        .leaflet-popup-content-wrapper {
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .15);
+            border: none;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .leaflet-popup-content {
+            margin: 0!important;
+            width: 220px!important
+        }
+        
+        .map-popup img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            display: block
+        }
+        
+        .map-popup-body {
+            padding: 10px 12px
+        }
+        
+        .map-popup-price {
+            font-family: var(--serif);
+            font-size: 16px;
+            color: var(--navy);
+            margin-bottom: 2px
+        }
+        
+        .map-popup-addr {
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 6px
+        }
+        
+        .map-popup-meta {
+            font-size: 11px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 8px
+        }
+        
+        .map-popup-btn {
+            display: block;
+            width: 100%;
+            padding: 7px;
+            background: var(--navy);
+            color: #fff;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .map-popup-btn:hover {
+            background: var(--navy-dk)
+        }
+        
+        .price-label {
+            background: var(--navy);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+            transition: background .15s, transform .15s;
+            transform-origin: center bottom;
+            position: relative;
+        }
+        
+        .price-label::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--navy);
+            border-bottom: none;
+        }
+        
+        .price-label:hover,
+        .price-label.active {
+            background: var(--gold);
+            transform: scale(1.1)
+        }
+        
+        .price-label.active::after {
+            border-top-color: var(--gold)
+        }
+        
+        #mapLoading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, .92);
+            border-radius: 8px;
+            padding: 16px 24px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+            z-index: 400;
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--navy-lt);
+            border-top-color: var(--navy);
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+        
+        @media(max-width:768px) {
+            .app-body {
+                flex-direction: column
+            }
+            .left-panel {
+                width: 100%;
+                height: 50%;
+                border-right: none;
+                border-bottom: 1px solid var(--border)
+            }
+            #map {
+                height: 50%
+            }
+            .type-tabs {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header" id="siteHeader">
+        <div class="top-part w-full">
+            <div class="max-w-screen-xl mx-auto px-5 py-3 flex items-center justify-between relative">
+                <div class="flex items-center gap-3 flex-1">
+                    <button class="mobile-menu-btn items-center justify-center" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <svg class="hdr-icon" width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M10.5 13H1M17 7H1M17 1H1" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </button>
+                    <div class="desktop-search flex items-center gap-2 flex-1 max-w-xs">
+                        <svg class="hdr-icon flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15 15L11.38 11.38M1 7.03C1 3.7 3.7 1 7.03 1C10.37 1 13.07 3.7 13.07 7.03C13.07 10.37 10.37 13.07 7.03 13.07C3.7 13.07 1 10.37 1 7.03Z" stroke-width="1.2" stroke-linecap="round"/></svg>
+                        <input type="text" placeholder="Search properties…" class="search-input text-xs w-full" style="font-size:13px;font-family:'DM Sans',sans-serif;" />
+                    </div>
+                    <button class="mobile-search-icon flex items-center justify-center" aria-label="Search">
+                    <svg class="hdr-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15 15L11.38 11.38M1 7.03C1 3.7 3.7 1 7.03 1C10.37 1 13.07 3.7 13.07 7.03C13.07 10.37 10.37 13.07 7.03 13.07C3.7 13.07 1 10.37 1 7.03Z" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </button>
+                </div>
+                <div class="absolute left-1/2 -translate-x-1/2" style="top:50%;transform:translate(-50%,-50%);">
+                    <a href="index.html" class="block relative">
+                        <div class="logo-white" style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#fff;letter-spacing:-.5px;white-space:nowrap;line-height:1;">Dwelro</div>
+                        <div class="logo-black" style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#171717;letter-spacing:-.5px;white-space:nowrap;line-height:1;">Dwelro</div>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4 flex-1 justify-end">
+                    <a href="/wishlist" class="desktop-only-icons flex items-center justify-center" aria-label="Saved">
+                        <svg class="hdr-icon" width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M2.01 2.02C0.66 3.39 0.66 5.58 2.01 6.95L8 13C9.99 10.99 11.99 8.97 13.99 6.96C15.34 5.59 15.34 3.39 13.99 2.03C12.63 0.67 10.46 0.67 9.11 2.03L8 3.14L6.89 2.02C5.54 0.66 3.37 0.66 2.01 2.02Z" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="/account" class="desktop-only-icons flex items-center justify-center" aria-label="Account">
+                        <svg class="hdr-icon" width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M8 8.23C9.85 8.23 11.35 6.73 11.35 4.88C11.35 3.03 9.85 1.54 8 1.54C6.15 1.54 4.66 3.03 4.66 4.88C4.66 6.73 6.15 8.23 8 8.23Z" stroke-width="1.3" stroke-linecap="round"/><path d="M2.7 16.46H13.3C14.48 16.46 15.38 15.45 14.84 14.41C14.03 12.88 12.19 11.06 8 11.06C3.81 11.06 1.97 12.88 1.16 14.41C0.62 15.45 1.52 16.46 2.7 16.46Z" stroke-width="1.3" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="/contact" class="desktop-only-icons" style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#fff;text-decoration:none;transition:color .3s;background:rgba(255,255,255,.15);padding:8px 16px;border-radius:2px;backdrop-filter:blur(6px);"
+                        id="ctaNavLink">Book a Call</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-row w-full desktop-nav-wrap" id="navRow">
+            <div class="max-w-screen-xl mx-auto px-5 flex justify-center">
+                <nav class="flex items-center">
+                    <div onmouseenter="showDrop('buy')" onmouseleave="scheduleDrop()"><a href="buy.html" class="nav-link">Buy</a></div>
+                    <div onmouseenter="showDrop('rent')" onmouseleave="scheduleDrop()"><a href="rent.html" class="nav-link">Rent</a></div>
+                    <div onmouseenter="showDrop('sell')" onmouseleave="scheduleDrop()"><a href="sell.html" class="nav-link">Sell</a></div>
+
+
+                    <div onmouseenter="showDrop('invest')" onmouseleave="scheduleDrop()"><a href="Investment.html" class="nav-link">Investment</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="listings.php" class="nav-link">Listings</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="map-search.html" class="nav-link">Map Search</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="agents.php" class="nav-link">Our Agents</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="about.html" class="nav-link">About</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="blog.html" class="nav-link">Blog</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="contact.html" class="nav-link">Contact Us</a></div>
+                </nav>
+            </div>
+        </div>
+        <!-- DROPDOWNS -->
+        <div class="dropdown-menu" id="drop-buy" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-8 flex gap-10">
+                <div class="w-1/2 grid grid-cols-3 gap-8">
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">Property Type</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">HDB Flats</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Condominiums</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Landed Homes</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Executive Condos</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Penthouses</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">By District</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">Core Central (D1–D11)</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Rest of Central</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">East Region</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">North Region</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">West Region</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">Budget Range</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">Under $1M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">$1M – $2M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">$2M – $5M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Above $5M</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-1/2">
+                    <a href="#" class="block relative overflow-hidden" style="height:300px;"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;" alt="Luxury" />
+                        <div style="position:absolute;inset:0;background:rgba(0,0,0,.32);"></div>
+                        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff;">
+                            <h3 style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">LUXURY COLLECTION</h3>
+                            <p style="font-size:12px;margin-bottom:16px;opacity:.9;">Exclusive high-end residences, curated for discerning buyers.</p><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:1px;">VIEW LUXURY LISTINGS</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-rent" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex gap-8"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Residential Rentals</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Short-Term Leases</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Expat Housing</a>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-sell" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex gap-8"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Free Valuation</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">List Your Property</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Seller's Guide</a>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-invest" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex flex-wrap gap-6"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Investment Analysis</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Overseas Properties</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">REITs Guide</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Market Reports</a></div>
+        </div>
+    </header>
+    <div id="dropBackdrop" onclick="closeDrop()" style="position:fixed;inset:0;z-index:100;display:none;"></div>
+
+    <div class="app-body">
+        <div class="left-panel">
+            <div class="panel-header">
+                <div class="panel-header-top">
+                    <span class="result-count" id="resultCount">— Properties</span>
+                    <select class="sort-select" id="sortSel" onchange="App.sortAndRender()">
+                        <option value="default">Recommended</option>
+                        <option value="price_asc">Price ↑</option>
+                        <option value="price_desc">Price ↓</option>
+                        <option value="beds_desc">Most Beds</option>
+                        <option value="sqft_desc">Largest</option>
+                    </select>
+                </div>
+                <div class="filter-chips">
+    <button class="chip active" onclick="App.setChip('all', this)">All</button>
+    <button class="chip" onclick="App.setChip('condo', this)">Condo</button>
+    <button class="chip" onclick="App.setChip('landed', this)">Landed</button>
+    <button class="chip" onclick="App.setChip('hdb', this)">HDB</button>
+    <button class="chip" onclick="App.setChip('commercial', this)">Commercial</button>
+    <button class="chip" onclick="App.setChip('overseas', this)">Overseas</button>
+</div>
+
+
+                <input class="price-input" id="minPrice" type="number" placeholder="Min $" />
+                <span class="price-sep">–</span>
+                <input class="price-input" id="maxPrice" type="number" placeholder="Max $" />
+                <button class="apply-btn" onclick="App.sortAndRender()">Apply</button>
+            </div>
+            <div class="listings-scroll" id="listingsScroll">
+                <div class="state-msg">
+                    <div class="icon">🏠</div>
+                    <h3>Loading properties…</h3>
+                    <p>Fetching your Dwelro listings</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="flex:1;position:relative;height:100%">
+            <div id="mapStatus" class="map-status">Map initializing…</div>
+            <div id="mapLoading">
+                <div class="spinner"></div> Fetching listings…
+            </div>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // ── DROPDOWNS ──
+        var dropTimer;
+
+        function showDrop(n) {
+            clearTimeout(dropTimer);
+            document.getElementById('siteHeader').classList.add('hovered');
+            ['buy', 'rent', 'sell', 'invest'].forEach(function(x) {
+                var el = document.getElementById('drop-' + x);
+                if (el) el.classList.remove('show');
+            });
+            var el = document.getElementById('drop-' + n);
+            if (el) {
+                el.classList.add('show');
+                document.getElementById('dropBackdrop').style.display = 'block';
+            }
+        }
+
+        function closeDrop() {
+            dropTimer = setTimeout(function() {
+                ['buy', 'rent', 'sell', 'invest'].forEach(function(x) {
+                    var el = document.getElementById('drop-' + x);
+                    if (el) el.classList.remove('show');
+                });
+                if (!document.getElementById('siteHeader').classList.contains('scrolled')) document.getElementById('siteHeader').classList.remove('hovered');
+                document.getElementById('dropBackdrop').style.display = 'none';
+            }, 120);
+        }
+
+        function scheduleDrop() {
+            closeDrop();
+        }
+
+        function cancelDrop() {
+            clearTimeout(dropTimer);
+        }
+
+        // ── MOBILE MENU ──
+        function toggleMobileMenu() {
+            var m = document.getElementById('mobileMenu');
+            m.classList.toggle('open');
+            document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+        }
+
+        const App = (() => {
+                    let listings = [],
+                        filtered = [],
+                        markers = [];
+                    let activeType = 'sale',
+                        activeCat = 'all';
+                    let map;
+
+                    function initMap() {
+                        console.log('map-search: initMap');
+                        map = L.map('map').setView([1.3521, 103.8198], 11); // Singapore coordinates as default
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '© OpenStreetMap contributors',
+                            maxZoom: 19
+                        }).addTo(map);
+                        setStatus('Map initialized. Loading listings...');
+                        setTimeout(() => {
+                            if (map) map.invalidateSize(true);
+                        }, 500);
+                    }
+
+                    function setStatus(message) {
+                        const el = document.getElementById('mapStatus');
+                        if (el) el.textContent = message;
+                    }
+
+                    async function fetchListings(filters = {}) {
+                        console.log('map-search: fetchListings start', filters);
+                        showLoading(true);
+                        showSkeletons();
+                        clearMap();
+
+                        const params = new URLSearchParams();
+                        if (filters.category) params.append('category', filters.category);
+                        if (filters.listing_type) params.append('listing_type', filters.listing_type);
+                        if (filters.min_price) params.append('min_price', filters.min_price);
+                        if (filters.max_price) params.append('max_price', filters.max_price);
+                        if (filters.bedrooms) params.append('bedrooms', filters.bedrooms);
+
+                        const url = `api.php?action=map-properties&${params.toString()}`;
+
+                        try {
+                            const res = await fetch(url);
+                            const data = await res.json();
+                            console.log('map-search: fetch result', url, res.status, data);
+
+                            if (!res.ok) {
+                                throw new Error(data.error || 'Failed to fetch properties');
+                            }
+
+                            listings = data;
+                            if (!listings.length) {
+                                showEmpty('your search');
+                                setStatus('No listings were returned by the API.');
+                                return;
+                            }
+
+
+
+                            // Calculate map bounds
+                            const coords = listings.filter(p => p.latitude && p.longitude);
+                            if (coords.length) {
+                                const lats = coords.map(p => p.latitude);
+                                const lngs = coords.map(p => p.longitude);
+                                const bounds = [
+                                    [Math.min(...lats), Math.min(...lngs)],
+                                    [Math.max(...lats), Math.max(...lngs)]
+                                ];
+
+                                // Add some padding
+                                const latPadding = (bounds[1][0] - bounds[0][0]) * 0.1;
+                                const lngPadding = (bounds[1][1] - bounds[0][1]) * 0.1;
+
+                                map.fitBounds([
+                                    [bounds[0][0] - latPadding, bounds[0][1] - lngPadding],
+                                    [bounds[1][0] + latPadding, bounds[1][1] + lngPadding]
+                                ]);
+                            }
+
+                            sortAndRender();
+
+                        } catch (e) {
+                            showError('Failed to load properties: ' + e.message);
+                            setStatus('Fetch failed: ' + e.message);
+                        } finally {
+                            showLoading(false);
+                        }
+                    }
+
+                    function sortAndRender() {
+                        const sort = document.getElementById('sortSel').value;
+                        const minP = parseFloat(document.getElementById('minPrice').value) || 0;
+                        const maxP = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+
+                        filtered = listings.filter(p => {
+                            const price = p.price || 0;
+                            const matchCat = activeCat === 'all' || (p.category || '').toLowerCase().includes(activeCat.toLowerCase());
+                            return matchCat && price >= minP && price <= maxP;
+                        });
+
+                        if (sort === 'price_asc') filtered.sort((a, b) => (a.price || 0) - (b.price || 0));
+                        if (sort === 'price_desc') filtered.sort((a, b) => (b.price || 0) - (a.price || 0));
+                        if (sort === 'beds_desc') filtered.sort((a, b) => (b.bedrooms || 0) - (a.bedrooms || 0));
+                        if (sort === 'sqft_desc') filtered.sort((a, b) => (b.floor_area_sqft || 0) - (a.floor_area_sqft || 0));
+
+                        document.getElementById('resultCount').textContent = filtered.length + ' Properties';
+                        renderCards();
+                        renderMarkers();
+                    }
+
+                    function renderCards() {
+                        const scroll = document.getElementById('listingsScroll');
+                        if (!filtered.length) {
+                            showEmpty('your filters');
+                            return;
+                        }
+                        scroll.innerHTML = filtered.map((p, i) => {
+                                    const price = p.price || 0;
+                                    const addr = p.address || p.title || 'Address unavailable';
+                                    const beds = p.bedrooms || '—',
+                                        baths = p.bathrooms || '—';
+                                    const sqft = p.floor_area_sqft ? p.floor_area_sqft.toLocaleString() : '—';
+                                    const type = p.category ? p.category.charAt(0).toUpperCase() + p.category.slice(1) : 'Property';
+                                    const img = p.cover_image_url || null;
+                                    const isNew = p.created_at && (new Date() - new Date(p.created_at)) < (7 * 24 * 60 * 60 * 1000); // 7 days
+                                    return `
+                <div class="prop-card" id="card-${i}" onclick="App.selectCard(${i})">
+                    <div class="card-img">
+                        ${isNew ? '<div class="card-badge new">New</div>' : ''}
+                        ${img ? `<img src="${img}" alt="" loading="lazy"/>` : '<div class="card-img-placeholder">🏠</div>'}
+                    </div>
+                    <div class="card-body">
+                        <div class="card-price">${fmtPrice(price)}</div>
+                        <div class="card-title">${p.title || addr}</div>
+                        <div class="card-addr">${p.area || ''}, ${p.district || ''}</div>
+                        <div class="card-meta">
+                            <span>🛏 ${beds}</span><span>🛁 ${baths}</span>
+                            ${sqft !== '—' ? `<span>📏 ${sqft} sqft</span>` : ''}
+                        </div>
+                        <div class="card-footer-row">
+                            <span class="card-type">${type}</span>
+                            <button class="card-view" onclick="event.stopPropagation(); App.viewProperty(${i})">View</button>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function renderMarkers() {
+            clearMap();
+            filtered.forEach((p, i) => {
+                if (!p.latitude || !p.longitude) return;
+                const price = p.price || 0;
+                const label = price >= 1e6 ? `$${(price / 1e6).toFixed(1)}M` : price >= 1000 ? `$${Math.round(price / 1000)}K` : `$${price}`;
+                const icon = L.divIcon({ className: '', html: `<div class="price-label" id="pin-${i}">${label}</div>`, iconAnchor: [0, 0] });
+                const addr = p.address || p.title || '';
+                const img = p.cover_image_url || null;
+                const marker = L.marker([p.latitude, p.longitude], { icon })
+                    .addTo(map)
+                    .on('click', () => selectCard(i))
+                    .bindPopup(`
+                        <div class="map-popup">
+                            ${img ? `<img src="${img}" alt="">` : ''}
+                            <div class="map-popup-body">
+                                <div class="map-popup-price">${p.price_display || fmtPrice(price)}</div>
+                                <div class="map-popup-addr">${p.title || addr}</div>
+                                <div class="map-popup-meta">🛏 ${p.bedrooms || '—'} &nbsp; 🛁 ${p.bathrooms || '—'} &nbsp; 📏 ${p.floor_area_sqft ? p.floor_area_sqft.toLocaleString() : '—'} sqft</div>
+                                <button class="map-popup-btn" onclick="App.viewProperty(${i})">View Details</button>
+                            </div>
+                        </div>`, { maxWidth: 220 });
+                markers.push({ marker, index: i });
+            });
+        }
+
+        function selectCard(i) {
+            document.querySelectorAll('.prop-card').forEach(c => c.classList.remove('highlighted'));
+            const card = document.getElementById(`card-${i}`);
+            if (card) { card.classList.add('highlighted'); card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+            document.querySelectorAll('.price-label').forEach(p => p.classList.remove('active'));
+            const pin = document.getElementById(`pin-${i}`);
+            if (pin) pin.classList.add('active');
+            const item = filtered[i];
+            if (item?.latitude && item?.longitude) map.panTo([item.latitude, item.longitude], { animate: true });
+        }
+
+        function viewProperty(i) {
+            const item = filtered[i];
+            if (item?.id) {
+                window.location.href = `property.php?id=${item.id}`;
+            }
+        }
+
+        function clearMap() { markers.forEach(m => map.removeLayer(m.marker)); markers = []; }
+
+        function fmtPrice(p) {
+            if (!p) return 'Price N/A';
+            // Use price_display if available, otherwise format the price
+            if (activeType === 'rental') {
+                return `$${p.toLocaleString()}/mo`;
+            }
+            if (p >= 1e6) return `$${(p / 1e6).toFixed(2)}M`;
+            if (p >= 1000) return `$${Math.round(p / 1000)}K`;
+            return `$${p}`;
+        }
+
+        function showLoading(on) { document.getElementById('mapLoading').style.display = on ? 'flex' : 'none'; }
+
+        function showError(msg) {
+            document.getElementById('listingsScroll').innerHTML = `
+                <div class="state-msg">
+                    <div class="icon">⚠️</div>
+                    <h3>Something went wrong</h3>
+                    <div class="error-box">${msg}</div>
+                </div>`;
+            setStatus(msg);
+        }
+
+        function showSkeletons() {
+            document.getElementById('listingsScroll').innerHTML =
+                Array(5).fill(`<div class="skel"><div class="skel-img"></div><div class="skel-body"><div class="skel-line" style="height:18px;width:55%"></div><div class="skel-line" style="height:12px;width:80%"></div><div class="skel-line" style="height:12px;width:40%"></div></div></div>`).join('');
+        }
+
+        function showError(msg) {
+            document.getElementById('listingsScroll').innerHTML = `
+                <div class="state-msg">
+                    <div class="icon">⚠️</div>
+                    <h3>Something went wrong</h3>
+                    <div class="error-box">${msg}</div>
+                </div>`;
+        }
+
+        function showEmpty(reason) {
+            document.getElementById('listingsScroll').innerHTML = `
+                <div class="state-msg">
+                    <div class="icon">🔍</div>
+                    <h3>No listings found</h3>
+                    <p>No active listings match <b>${reason}</b>. Try adjusting your filters.</p>
+                </div>`;
+            document.getElementById('resultCount').textContent = '0 Properties';
+            setStatus('No listings available for this filter.');
+        }
+
+        return {
+            init() { initMap(); fetchListings(); },
+            search() { fetchListings(); },
+            setType(type, btn) {
+                activeType = type;
+                document.querySelectorAll('.type-tab').forEach(t => t.classList.remove('active'));
+                btn.classList.add('active');
+                fetchListings();
+            },
+            setChip(cat, btn) {
+                activeCat = cat;
+                document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                sortAndRender();
+            },
+            sortAndRender, selectCard, viewProperty,
+        };
+    })();
+
+    document.addEventListener('DOMContentLoaded', () => { console.log('map-search: DOM loaded'); App.init(); });
+    </script>
+</body>
+
+</html>
