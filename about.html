@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Dwelro — Europe's Premier Property Partner</title>
+    <meta name="description" content="Learn how Dwelro helps clients buy, sell, rent, and invest in premium property with a service-first approach.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dwelro">
+    <meta property="og:title" content="About Dwelro — Europe's Premier Property Partner">
+    <meta property="og:description" content="Learn how Dwelro helps clients buy, sell, rent, and invest in premium property with a service-first approach.">
+    <meta property="og:image" content="/img/3d-house-model-with-modern-architecture.jpg">
+    <meta property="og:image:alt" content="Modern property model">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Dwelro — Europe's Premier Property Partner">
+    <meta name="twitter:description" content="Learn how Dwelro helps clients buy, sell, rent, and invest in premium property with a service-first approach.">
+    <meta name="twitter:image" content="/img/3d-house-model-with-modern-architecture.jpg">
+    <meta name="theme-color" content="#1a3a5c">
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #171717;
+            background: #fff;
+        }
+        
+        .nav-row {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-link {
+            color: #6b7280;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        
+        .nav-link:hover {
+            color: #1a3a5c;
+            background: #f3f4f6;
+        }
+        
+        .nav-link.active {
+            color: #1a3a5c;
+            background: #e8eef5;
+        }
+        
+        .hero {
+            padding: 120px 40px 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #1a3a5c 0%, #0f2640 100%);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 80px 40px;
+        }
+        
+        .section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a3a5c;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            color: #6b7280;
+            margin-top: 8px;
+        }
+        
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .team-member {
+            background: #f9fafb;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .team-member h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .team-member p {
+            color: #6b7280;
+        }
+        
+        .site-footer {
+            background: #1a3a5c;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div class="nav-row">
+        <a href="index.html" class="text-2xl font-serif text-navy">dwelro</a>
+        <nav class="flex items-center">
+            <a href="buy.html" class="nav-link">Buy</a>
+            <a href="rent.html" class="nav-link">Rent</a>
+            <a href="sell.html" class="nav-link">Sell</a>
+            <a href="listings.php" class="nav-link">Listings</a>
+            <a href="map-search.html" class="nav-link">Map Search</a>
+            <a href="agents.php" class="nav-link">Agents</a>
+            <a href="about.html" class="nav-link active">About</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>About Dwelro</h1>
+        <p>Europe's premier property partner, connecting you with exceptional real estate opportunities across the continent.</p>
+    </section>
+
+    <!-- Our Story -->
+    <section class="section">
+        <div class="max-w-4xl mx-auto">
+            <h2>Our Story</h2>
+            <p class="text-lg leading-relaxed mb-8">Founded in 2020, Dwelro emerged from a simple mission: to make property transactions in Europe as seamless and transparent as possible. Our team of experienced professionals brings together deep market knowledge, cutting-edge technology, and
+                a client-first approach to deliver exceptional results.</p>
+            <p class="text-lg leading-relaxed">With offices across major European cities and a network of trusted partners, we provide comprehensive real estate services including buying, selling, renting, investment opportunities, and property valuation.</p>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section" style="background: #f9fafb;">
+        <div class="max-w-6xl mx-auto">
+            <h2>By the Numbers</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Properties Sold</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Expert Agents</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">European Cities</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section">
+        <div class="max-w-6xl mx-auto">
+            <h2>Meet Our Leadership</h2>
+            <div class="team">
+                <div class="team-member">
+                    <h3>Sarah Johnson</h3>
+                    <p>Chief Executive Officer</p>
+                    <p class="mt-4">With over 15 years in European real estate, Sarah leads our vision of transforming property transactions across the continent.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Michael Chen</h3>
+                    <p>Chief Operations Officer</p>
+                    <p class="mt-4">Michael oversees our operational excellence, ensuring every client receives world-class service and support.</p>
+                </div>
+                <div class="team-member">
+                    <h3>Emma Rodriguez</h3>
+                    <p>Head of Sales</p>
+                    <p class="mt-4">Emma's expertise in luxury markets and her passion for client success drive our sales team's outstanding performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="max-w-6xl mx-auto">
+            <p>&copy; 2024 Dwelro. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-white/70 hover:text-white mx-4">Privacy Policy</a>
+                <a href="#" class="text-white/70 hover:text-white mx-4">Terms of Service</a>
+                <a href="contact.html" class="text-white/70 hover:text-white mx-4">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<body>
+
+    <header class="site-header" id="siteHeader">
+        <div class="top-part w-full">
+            <div class="max-w-screen-xl mx-auto px-5 py-3 flex items-center justify-between relative">
+                <div class="flex items-center gap-3 flex-1">
+                    <button class="mobile-menu-btn items-center justify-center" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <svg class="hdr-icon" width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M10.5 13H1M17 7H1M17 1H1" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </button>
+                    <div class="desktop-search flex items-center gap-2 flex-1 max-w-xs">
+                        <svg class="hdr-icon flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15 15L11.38 11.38M1 7.03C1 3.7 3.7 1 7.03 1C10.37 1 13.07 3.7 13.07 7.03C13.07 10.37 10.37 13.07 7.03 13.07C3.7 13.07 1 10.37 1 7.03Z" stroke-width="1.2" stroke-linecap="round"/></svg>
+                        <input type="text" placeholder="Search properties…" class="search-input text-xs w-full" style="font-size:13px;font-family:'DM Sans',sans-serif;" />
+                    </div>
+                    <button class="mobile-search-icon flex items-center justify-center" aria-label="Search">
+                    <svg class="hdr-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15 15L11.38 11.38M1 7.03C1 3.7 3.7 1 7.03 1C10.37 1 13.07 3.7 13.07 7.03C13.07 10.37 10.37 13.07 7.03 13.07C3.7 13.07 1 10.37 1 7.03Z" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </button>
+                </div>
+                <div class="absolute left-1/2 -translate-x-1/2" style="top:50%;transform:translate(-50%,-50%);">
+                    <a href="index.html" class="block relative">
+                        <div class="logo-white" style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#fff;letter-spacing:-.5px;white-space:nowrap;line-height:1;">Dwelro</div>
+                        <div class="logo-black" style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#171717;letter-spacing:-.5px;white-space:nowrap;line-height:1;">Dwelro</div>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4 flex-1 justify-end">
+                    <a href="/wishlist" class="desktop-only-icons flex items-center justify-center" aria-label="Saved">
+                        <svg class="hdr-icon" width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M2.01 2.02C0.66 3.39 0.66 5.58 2.01 6.95L8 13C9.99 10.99 11.99 8.97 13.99 6.96C15.34 5.59 15.34 3.39 13.99 2.03C12.63 0.67 10.46 0.67 9.11 2.03L8 3.14L6.89 2.02C5.54 0.66 3.37 0.66 2.01 2.02Z" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="/account" class="desktop-only-icons flex items-center justify-center" aria-label="Account">
+                        <svg class="hdr-icon" width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M8 8.23C9.85 8.23 11.35 6.73 11.35 4.88C11.35 3.03 9.85 1.54 8 1.54C6.15 1.54 4.66 3.03 4.66 4.88C4.66 6.73 6.15 8.23 8 8.23Z" stroke-width="1.3" stroke-linecap="round"/><path d="M2.7 16.46H13.3C14.48 16.46 15.38 15.45 14.84 14.41C14.03 12.88 12.19 11.06 8 11.06C3.81 11.06 1.97 12.88 1.16 14.41C0.62 15.45 1.52 16.46 2.7 16.46Z" stroke-width="1.3" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="/contact" class="desktop-only-icons" style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#fff;text-decoration:none;transition:color .3s;background:rgba(255,255,255,.15);padding:8px 16px;border-radius:2px;backdrop-filter:blur(6px);"
+                        id="ctaNavLink">Book a Call</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-row w-full desktop-nav-wrap" id="navRow">
+            <div class="max-w-screen-xl mx-auto px-5 flex justify-center">
+                <nav class="flex items-center">
+                    <div onmouseenter="showDrop('buy')" onmouseleave="scheduleDrop()"><a href="buy.html" class="nav-link">Buy</a></div>
+                    <div onmouseenter="showDrop('rent')" onmouseleave="scheduleDrop()"><a href="rent.html" class="nav-link">Rent</a></div>
+                    <div onmouseenter="showDrop('sell')" onmouseleave="scheduleDrop()"><a href="sell.html" class="nav-link">Sell</a></div>
+
+
+                    <div onmouseenter="showDrop('invest')" onmouseleave="scheduleDrop()"><a href="Investment.html" class="nav-link">Investment</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="listings.php" class="nav-link">Listings</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="map-search.html" class="nav-link">Map Search</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="agents.php" class="nav-link">Our Agents</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="about.html" class="nav-link active">About</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="blog.html" class="nav-link">Blog</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="contact.html" class="nav-link">Contact Us</a></div>
+                </nav>
+            </div>
+        </div>
+        <!-- DROPDOWNS -->
+        <div class="dropdown-menu" id="drop-buy" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-8 flex gap-10">
+                <div class="w-1/2 grid grid-cols-3 gap-8">
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">Property Type</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">HDB Flats</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Condominiums</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Landed Homes</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Executive Condos</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Penthouses</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">By District</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">Core Central (D1–D11)</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Rest of Central</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">East Region</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">North Region</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">West Region</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">Budget Range</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">Under $1M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">$1M – $2M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">$2M – $5M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Above $5M</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-1/2">
+                    <a href="#" class="block relative overflow-hidden" style="height:300px;"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;" alt="Luxury" />
+                        <div style="position:absolute;inset:0;background:rgba(0,0,0,.32);"></div>
+                        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff;">
+                            <h3 style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">LUXURY COLLECTION</h3>
+                            <p style="font-size:12px;margin-bottom:16px;opacity:.9;">Exclusive high-end residences, curated for discerning buyers.</p><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:1px;">VIEW LUXURY LISTINGS</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-rent" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex gap-8"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Residential Rentals</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Short-Term Leases</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Expat Housing</a>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-sell" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex gap-8"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Free Valuation</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">List Your Property</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Seller's Guide</a>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-invest" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex flex-wrap gap-6"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Investment Analysis</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Overseas Properties</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">REITs Guide</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Market Reports</a></div>
+        </div>
+    </header>
+    <div id="dropBackdrop" onclick="closeDrop()" style="position:fixed;inset:0;z-index:100;display:none;"></div>
+
+    <!-- HERO -->
+    <section class="invest-hero">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">About Dwelro</div>
+            <h1 class="hero-title">Europe's Premier <em>Property Partner</em></h1>
+            <p class="hero-sub">Founded in 2020, Dwelro emerged from a simple mission: to make property transactions in Europe as seamless and transparent as possible. Our team of experienced professionals brings together deep market knowledge, cutting-edge technology, and
+                a client-first approach to deliver exceptional results.</p>
+            <div class="hero-btns">
+                <a href="contact.html" class="hero-btn hero-btn-primary">Book a Call</a>
+                <a href="#story" class="hero-btn hero-btn-secondary">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="section" id="story">
+        <h2 class="section-title">Our Story</h2>
+        <p class="section-sub">Founded in 2020, Dwelro emerged from a simple mission: to make property transactions in Europe as seamless and transparent as possible. Our team of experienced professionals brings together deep market knowledge, cutting-edge technology, and a
+            client-first approach to deliver exceptional results.</p>
+        <p class="section-sub">With offices across major European cities and a network of trusted partners, we provide comprehensive real estate services including buying, selling, renting, investment opportunities, and property valuation.</p>
+    </section>
+
+    <!-- STATS -->
+    <section class="section">
+        <h2 class="section-title">By the Numbers</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-num">500+</div>
+                <div class="stat-label">Properties Sold</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">50+</div>
+                <div class="stat-label">Expert Agents</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">15</div>
+                <div class="stat-label">European Cities</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section">
+        <h2 class="section-title">Meet Our Leadership</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-name">Sarah Johnson</div>
+                <div class="team-role">Chief Executive Officer</div>
+                <div class="team-bio">With over 15 years in European real estate, Sarah leads our vision of transforming property transactions across the continent.</div>
+            </div>
+            <div class="team-card">
+                <div class="team-name">Michael Chen</div>
+                <div class="team-role">Chief Operations Officer</div>
+                <div class="team-bio">Michael oversees our operational excellence, ensuring every client receives world-class service and support.</div>
+            </div>
+            <div class="team-card">
+                <div class="team-name">Emma Rodriguez</div>
+                <div class="team-role">Head of Sales</div>
+                <div class="team-bio">Emma's expertise in luxury markets and her passion for client success drive our sales team's outstanding performance.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-copy">&copy; 2024 Dwelro. All rights reserved.</div>
+        <script>
+            // ── DROPDOWNS ──
+            var dropTimer;
+
+            function showDrop(n) {
+                clearTimeout(dropTimer);
+                document.getElementById('siteHeader').classList.add('hovered');
+                ['buy', 'rent', 'sell', 'invest'].forEach(function(x) {
+                    var el = document.getElementById('drop-' + x);
+                    if (el) el.classList.remove('show');
+                });
+                var el = document.getElementById('drop-' + n);
+                if (el) {
+                    el.classList.add('show');
+                    document.getElementById('dropBackdrop').style.display = 'block';
+                }
+            }
+
+            function closeDrop() {
+                dropTimer = setTimeout(function() {
+                    ['buy', 'rent', 'sell', 'invest'].forEach(function(x) {
+                        var el = document.getElementById('drop-' + x);
+                        if (el) el.classList.remove('show');
+                    });
+                    if (!document.getElementById('siteHeader').classList.contains('scrolled')) document.getElementById('siteHeader').classList.remove('hovered');
+                    document.getElementById('dropBackdrop').style.display = 'none';
+                }, 120);
+            }
+
+            function scheduleDrop() {
+                closeDrop();
+            }
+
+            function cancelDrop() {
+                clearTimeout(dropTimer);
+            }
+
+            // ── MOBILE MENU ──
+            function toggleMobileMenu() {
+                var m = document.getElementById('mobileMenu');
+                m.classList.toggle('open');
+                document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+            }
+        </script>
+</body>
+
+</html>

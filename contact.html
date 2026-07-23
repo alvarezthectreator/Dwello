@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Dwelro Europe</title>
+    <meta name="description" content="Talk to Dwelro about buying, selling, renting, or investing in premium property across Europe.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dwelro">
+    <meta property="og:title" content="Contact Us — Dwelro Europe">
+    <meta property="og:description" content="Talk to Dwelro about buying, selling, renting, or investing in premium property across Europe.">
+    <meta property="og:image" content="/img/modern-luxury-home-with-pool-contemporary-architecture.jpg">
+    <meta property="og:image:alt" content="Luxury property and pool">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us — Dwelro Europe">
+    <meta name="twitter:description" content="Talk to Dwelro about buying, selling, renting, or investing in premium property across Europe.">
+    <meta name="twitter:image" content="/img/modern-luxury-home-with-pool-contemporary-architecture.jpg">
+    <meta name="theme-color" content="#1a3a5c">
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #1a1a1a;
+            background: #fff;
+        }
+        /* ── HEADER ── */
+        
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: all .3s ease;
+        }
+        
+        .top-part {
+            background: #fff;
+            box-shadow: 0 1px 0 #ececec;
+        }
+        
+        .nav-row {
+            background: #fff;
+            border-top: 1px solid #ececec;
+        }
+        
+        .nav-link {
+            color: #333;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            display: block;
+            padding: 13px 15px;
+            transition: color .3s ease;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #222;
+        }
+        
+        .nav-link.active {
+            border-bottom: 2px solid #222;
+        }
+        
+        .hdr-icon path,
+        .hdr-icon circle {
+            stroke: #333;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #ececec;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .2s ease, visibility .2s ease;
+            z-index: 200;
+        }
+        
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media(max-width:1023px) {
+            .desktop-nav-wrap {
+                display: none!important;
+            }
+            .mobile-menu-btn {
+                display: flex!important;
+            }
+            .desktop-search {
+                display: none!important;
+            }
+            .desktop-only-icons {
+                display: none!important;
+            }
+        }
+        
+        @media(min-width:1024px) {
+            .mobile-menu-btn {
+                display: none!important;
+            }
+        }
+        /* ── HERO ── */
+        
+        .contact-hero {
+            background: #f8f7f4;
+            padding: 148px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .025);
+            pointer-events: none;
+        }
+        
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: end;
+        }
+        
+        @media(max-width:900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        .hero-eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 14px;
+        }
+        
+        .hero-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(38px, 5vw, 68px);
+            font-weight: 400;
+            color: #1a1a1a;
+            line-height: 1.04;
+            letter-spacing: -.5px;
+            margin-bottom: 18px;
+        }
+        
+        .hero-title em {
+            font-style: italic;
+            color: #ccc;
+        }
+        
+        .hero-sub {
+            font-size: 15px;
+            color: #888;
+            font-weight: 300;
+            max-width: 440px;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+        /* ── OFFICE HOURS STRIP inside hero ── */
+        
+        .office-strip {
+            display: flex;
+            gap: 0;
+            border-top: 1px solid #e8e8e8;
+            margin-top: 60px;
+        }
+        
+        .os-item {
+            flex: 1;
+            padding: 24px 0 28px;
+            border-right: 1px solid #e8e8e8;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .os-item:last-child {
+            border-right: none;
+        }
+        
+        .os-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #bbb;
+        }
+        
+        .os-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        @media(max-width:700px) {
+            .office-strip {
+                flex-wrap: wrap;
+            }
+            .os-item {
+                min-width: 50%;
+            }
+        }
+        /* ── HERO RIGHT IMAGE ── */
+        
+        .hero-img-wrap {
+            position: relative;
+            align-self: end;
+        }
+        
+        .hero-img-wrap img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            display: block;
+            border-radius: 3px 3px 0 0;
+        }
+        
+        .hero-img-badge {
+            position: absolute;
+            bottom: 24px;
+            left: -24px;
+            background: #fff;
+            border: 1px solid #efefef;
+            padding: 16px 20px;
+            border-radius: 2px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .09);
+        }
+        
+        .hib-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            color: #1a1a1a;
+            letter-spacing: -.3px;
+            display: block;
+        }
+        
+        .hib-label {
+            font-size: 10px;
+            color: #bbb;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        @media(max-width:900px) {
+            .hero-img-wrap {
+                display: none;
+            }
+        }
+        /* ── PILL ── */
+        
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff;
+            border: 1px solid #efefef;
+            border-radius: 20px;
+            padding: 5px 12px 5px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #2ecc71;
+            flex-shrink: 0;
+        }
+        /* ── MAIN CONTENT GRID ── */
+        
+        .contact-body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            gap: 80px;
+            align-items: start;
+        }
+        
+        @media(max-width:960px) {
+            .contact-body {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+        /* ── CONTACT FORM ── */
+        
+        .form-wrap {
+            order: 2;
+        }
+        
+        @media(max-width:960px) {
+            .form-wrap {
+                order: 1;
+            }
+        }
+        
+        .form-section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+            letter-spacing: -.2px;
+        }
+        
+        .form-section-sub {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        /* TOPIC TABS */
+        
+        .topic-tabs {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+        
+        .topic-tab {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .6px;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border: 1px solid #e8e8e8;
+            border-radius: 20px;
+            cursor: pointer;
+            color: #888;
+            transition: all .2s;
+            background: #fff;
+        }
+        
+        .topic-tab:hover {
+            border-color: #ccc;
+            color: #333;
+        }
+        
+        .topic-tab.active {
+            background: #1a1a1a;
+            color: #fff;
+            border-color: #1a1a1a;
+        }
+        
+        .fg {
+            margin-bottom: 16px;
+        }
+        
+        .fg label {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 6px;
+        }
+        
+        .fg input,
+        .fg select,
+        .fg textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #efefef;
+            font-size: 13px;
+            font-family: 'DM Sans', sans-serif;
+            color: #1a1a1a;
+            outline: none;
+            border-radius: 2px;
+            transition: border-color .2s, box-shadow .2s;
+            background: #fafafa;
+        }
+        
+        .fg input:focus,
+        .fg select:focus,
+        .fg textarea:focus {
+            border-color: #1a1a1a;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(26, 26, 26, .05);
+        }
+        
+        .fg textarea {
+            resize: none;
+            height: 110px;
+            line-height: 1.6;
+        }
+        
+        .fg-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        
+        .char-count {
+            font-size: 11px;
+            color: #ddd;
+            text-align: right;
+            margin-top: 4px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background .25s;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .submit-btn:hover {
+            background: #333;
+        }
+        
+        .submit-btn svg {
+            transition: transform .25s;
+        }
+        
+        .submit-btn:hover svg {
+            transform: translateX(4px);
+        }
+        
+        .form-note {
+            font-size: 11px;
+            color: #ccc;
+            margin-top: 12px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        /* SUCCESS STATE */
+        
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 48px 24px;
+        }
+        
+        .success-icon {
+            width: 60px;
+            height: 60px;
+            background: #f8f7f4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .success-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 26px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .success-sub {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            max-width: 340px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .success-reset {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: #888;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            text-decoration: underline;
+        }
+        /* ── CONTACT INFO PANEL ── */
+        
+        .info-panel {
+            order: 1;
+        }
+        
+        @media(max-width:960px) {
+            .info-panel {
+                order: 2;
+            }
+        }
+        
+        .info-block {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .info-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .info-block-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 16px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        
+        .contact-method:last-child {
+            margin-bottom: 0;
+        }
+        
+        .cm-icon {
+            width: 40px;
+            height: 40px;
+            background: #f8f7f4;
+            border: 1px solid #efefef;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .cm-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            color: #bbb;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+        
+        .cm-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        .cm-value:hover {
+            color: #555;
+        }
+        
+        .cm-sub {
+            font-size: 11px;
+            color: #ccc;
+            margin-top: 2px;
+        }
+        /* OFFICE LOCATIONS */
+        
+        .office-card {
+            border: 1px solid #efefef;
+            padding: 20px;
+            border-radius: 2px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all .25s;
+        }
+        
+        .office-card:hover,
+        .office-card.active {
+            border-color: #1a1a1a;
+        }
+        
+        .office-card.active {
+            background: #1a1a1a;
+        }
+        
+        .office-card.active .oc-name,
+        .office-card.active .oc-address,
+        .office-card.active .oc-hours {
+            color: rgba(255, 255, 255, .9);
+        }
+        
+        .office-card.active .oc-tag {
+            background: rgba(255, 255, 255, .1);
+            color: rgba(255, 255, 255, .6);
+        }
+        
+        .oc-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        
+        .oc-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        
+        .oc-tag {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            background: #f5f5f5;
+            color: #888;
+            border-radius: 20px;
+        }
+        
+        .oc-address {
+            font-size: 12px;
+            color: #888;
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+        
+        .oc-hours {
+            font-size: 11px;
+            color: #bbb;
+        }
+        /* SOCIAL ROW */
+        
+        .social-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 16px;
+            border: 1px solid #efefef;
+            border-radius: 2px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #555;
+            text-decoration: none;
+            transition: all .2s;
+            letter-spacing: .3px;
+        }
+        
+        .social-btn:hover {
+            border-color: #ccc;
+            color: #1a1a1a;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+        }
+        /* ── MAP STRIP ── */
+        
+        .map-section {
+            background: #f8f7f4;
+            border-top: 1px solid #efefef;
+            border-bottom: 1px solid #efefef;
+        }
+        
+        .map-container {
+            position: relative;
+        }
+        
+        .map-embed {
+            width: 100%;
+            height: 380px;
+            display: block;
+            filter: grayscale(1) contrast(1.05);
+            border: none;
+        }
+        
+        .map-overlay-card {
+            position: absolute;
+            top: 32px;
+            left: 40px;
+            background: #fff;
+            border: 1px solid #efefef;
+            padding: 24px 28px;
+            border-radius: 2px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .1);
+            max-width: 280px;
+        }
+        
+        .moc-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+        
+        .moc-address {
+            font-size: 12px;
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        
+        .moc-btn {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 9px 20px;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background .2s;
+        }
+        
+        .moc-btn:hover {
+            background: #333;
+        }
+        
+        @media(max-width:700px) {
+            .map-overlay-card {
+                display: none;
+            }
+        }
+        /* ── FAQ ── */
+        
+        .faq-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .faq-q {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            cursor: pointer;
+        }
+        
+        .faq-q-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        .faq-chevron {
+            transition: transform .3s;
+            flex-shrink: 0;
+        }
+        
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+        
+        .faq-a {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease, padding .3s;
+        }
+        
+        .faq-item.open .faq-a {
+            max-height: 200px;
+            padding-bottom: 18px;
+        }
+        /* ── TEAM ROW ── */
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        
+        @media(max-width:900px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media(max-width:500px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .team-card {
+            border: 1px solid #efefef;
+            border-radius: 2px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all .25s;
+        }
+        
+        .team-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .08);
+            transform: translateY(-3px);
+        }
+        
+        .team-img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(.2);
+            transition: filter .3s;
+        }
+        
+        .team-card:hover .team-img {
+            filter: grayscale(0);
+        }
+        
+        .team-body {
+            padding: 14px;
+        }
+        
+        .team-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 2px;
+        }
+        
+        .team-role {
+            font-size: 11px;
+            color: #bbb;
+            margin-bottom: 8px;
+        }
+        
+        .team-contact-link {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: #555;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .team-contact-link:hover {
+            color: #1a1a1a;
+        }
+        /* ── SEC HELPERS ── */
+        
+        .sec-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 10px;
+        }
+        
+        .sec-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(26px, 3vw, 38px);
+            font-weight: 400;
+            color: #1a1a1a;
+            letter-spacing: -.3px;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+        
+        .sec-title em {
+            font-style: italic;
+            color: #ccc;
+        }
+        
+        .sec-sub {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.6;
+            max-width: 520px;
+        }
+        /* ── CTA STRIP ── */
+        
+        .cta-strip {
+            background: #1a1a1a;
+            padding: 72px 40px;
+            text-align: center;
+        }
+        
+        .cta-strip h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(24px, 3vw, 40px);
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        
+        .cta-strip h3 em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .3);
+        }
+        
+        .cta-strip p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, .4);
+            margin-bottom: 32px;
+        }
+        
+        .cta-btn-w {
+            display: inline-block;
+            background: #fff;
+            color: #1a1a1a;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 13px 36px;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: all .25s;
+            margin-right: 10px;
+        }
+        
+        .cta-btn-w:hover {
+            background: #f0f0f0;
+        }
+        
+        .cta-btn-o {
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 13px 36px;
+            border-radius: 2px;
+            border: 1px solid rgba(255, 255, 255, .2);
+            text-decoration: none;
+            transition: all .25s;
+        }
+        
+        .cta-btn-o:hover {
+            background: rgba(255, 255, 255, .08);
+        }
+        /* ── FOOTER ── */
+        
+        .site-footer {
+            background: #111;
+            color: #fff;
+        }
+        
+        .footer-bottom-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 40px;
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .footer-bottom-links a {
+            font-size: 11px;
+            color: rgba(255, 255, 255, .3);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: #fff;
+        }
+        /* ── MOBILE MENU ── */
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 10001;
+            transform: translateX(-100%);
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        /* ── BACK TO TOP ── */
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            left: 32px;
+            z-index: 8998;
+            width: 44px;
+            height: 44px;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .3s, transform .3s;
+            pointer-events: none;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .back-to-top:hover {
+            background: #333;
+        }
+        /* WA float */
+        
+        .wa-btn-float {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 9000;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, .35);
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform .25s;
+        }
+        
+        .wa-btn-float:hover {
+            transform: scale(1.08);
+        }
+        /* PAGE LOAD ANIMATION */
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-up {
+            animation: fadeUp .6s ease forwards;
+        }
+        
+        .fade-up-1 {
+            animation-delay: .1s;
+            opacity: 0;
+        }
+        
+        .fade-up-2 {
+            animation-delay: .2s;
+            opacity: 0;
+        }
+        
+        .fade-up-3 {
+            animation-delay: .3s;
+            opacity: 0;
+        }
+        
+        .fade-up-4 {
+            animation-delay: .4s;
+            opacity: 0;
+        }
+        
+        section {
+            scroll-margin-top: 110px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div style="background:#f8f7f4;border-bottom:1px solid #ececec;position:relative;z-index:10001;">
+        <div class="max-w-screen-xl mx-auto px-5 py-2">
+            <div class="text-xs text-center w-full" style="font-weight:500;letter-spacing:.3px;color:#888;">Flagship Office @ 1 Raffles Place, #22-01 · Open Daily 9am–6pm · <a href="#contactForm" style="text-decoration:underline;color:#555;">Get in touch</a></div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+
+    <!-- HEADER -->
+    <header class="site-header" id="siteHeader">
+        <div class="top-part w-full">
+            <div class="max-w-screen-xl mx-auto px-5 py-3 flex items-center justify-between relative">
+                <div class="flex items-center gap-3 flex-1">
+                    <button class="mobile-menu-btn items-center justify-center" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <svg class="hdr-icon" width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M10.5 13H1M17 7H1M17 1H1" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </button>
+                    <div class="desktop-search flex items-center gap-2 flex-1 max-w-xs">
+                        <svg class="hdr-icon flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15 15L11.38 11.38M1 7.03C1 3.7 3.7 1 7.03 1C10.37 1 13.07 3.7 13.07 7.03C13.07 10.37 10.37 13.07 7.03 13.07C3.7 13.07 1 10.37 1 7.03Z" stroke-width="1.2" stroke-linecap="round"/></svg>
+                        <input type="text" placeholder="Search properties…" class="search-input text-xs w-full" style="font-size:13px;font-family:'DM Sans',sans-serif;" />
+                    </div>
+                    <button class="mobile-search-icon flex items-center justify-center" aria-label="Search">
+                    <svg class="hdr-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15 15L11.38 11.38M1 7.03C1 3.7 3.7 1 7.03 1C10.37 1 13.07 3.7 13.07 7.03C13.07 10.37 10.37 13.07 7.03 13.07C3.7 13.07 1 10.37 1 7.03Z" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </button>
+                </div>
+                <div class="absolute left-1/2 -translate-x-1/2" style="top:50%;transform:translate(-50%,-50%);">
+                    <a href="index.html" class="block relative">
+                        <div class="logo-white" style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#fff;letter-spacing:-.5px;white-space:nowrap;line-height:1;">Dwelro</div>
+                        <div class="logo-black" style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#171717;letter-spacing:-.5px;white-space:nowrap;line-height:1;">Dwelro</div>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4 flex-1 justify-end">
+                    <a href="/wishlist" class="desktop-only-icons flex items-center justify-center" aria-label="Saved">
+                        <svg class="hdr-icon" width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M2.01 2.02C0.66 3.39 0.66 5.58 2.01 6.95L8 13C9.99 10.99 11.99 8.97 13.99 6.96C15.34 5.59 15.34 3.39 13.99 2.03C12.63 0.67 10.46 0.67 9.11 2.03L8 3.14L6.89 2.02C5.54 0.66 3.37 0.66 2.01 2.02Z" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="/account" class="desktop-only-icons flex items-center justify-center" aria-label="Account">
+                        <svg class="hdr-icon" width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M8 8.23C9.85 8.23 11.35 6.73 11.35 4.88C11.35 3.03 9.85 1.54 8 1.54C6.15 1.54 4.66 3.03 4.66 4.88C4.66 6.73 6.15 8.23 8 8.23Z" stroke-width="1.3" stroke-linecap="round"/><path d="M2.7 16.46H13.3C14.48 16.46 15.38 15.45 14.84 14.41C14.03 12.88 12.19 11.06 8 11.06C3.81 11.06 1.97 12.88 1.16 14.41C0.62 15.45 1.52 16.46 2.7 16.46Z" stroke-width="1.3" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="/contact" class="desktop-only-icons" style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#fff;text-decoration:none;transition:color .3s;background:rgba(255,255,255,.15);padding:8px 16px;border-radius:2px;backdrop-filter:blur(6px);"
+                        id="ctaNavLink">Book a Call</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-row w-full desktop-nav-wrap" id="navRow">
+            <div class="max-w-screen-xl mx-auto px-5 flex justify-center">
+                <nav class="flex items-center">
+                    <div onmouseenter="showDrop('buy')" onmouseleave="scheduleDrop()"><a href="buy.html" class="nav-link">Buy</a></div>
+                    <div onmouseenter="showDrop('rent')" onmouseleave="scheduleDrop()"><a href="rent.html" class="nav-link">Rent</a></div>
+                    <div onmouseenter="showDrop('sell')" onmouseleave="scheduleDrop()"><a href="sell.html" class="nav-link">Sell</a></div>
+
+
+                    <div onmouseenter="showDrop('invest')" onmouseleave="scheduleDrop()"><a href="Investment.html" class="nav-link">Investment</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="listings.php" class="nav-link">Listings</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="map-search.html" class="nav-link">Map Search</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="agents.php" class="nav-link">Our Agents</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="about.html" class="nav-link">About</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="blog.html" class="nav-link">Blog</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="contact.html" class="nav-link">Contact Us</a></div>
+                </nav>
+            </div>
+        </div>
+        <!-- DROPDOWNS -->
+        <div class="dropdown-menu" id="drop-buy" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-8 flex gap-10">
+                <div class="w-1/2 grid grid-cols-3 gap-8">
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">Property Type</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">HDB Flats</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Condominiums</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Landed Homes</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Executive Condos</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Penthouses</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">By District</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">Core Central (D1–D11)</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Rest of Central</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">East Region</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">North Region</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">West Region</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">Budget Range</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">Under $1M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">$1M – $2M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">$2M – $5M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Above $5M</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-1/2">
+                    <a href="#" class="block relative overflow-hidden" style="height:300px;"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;" alt="Luxury" />
+                        <div style="position:absolute;inset:0;background:rgba(0,0,0,.32);"></div>
+                        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff;">
+                            <h3 style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">LUXURY COLLECTION</h3>
+                            <p style="font-size:12px;margin-bottom:16px;opacity:.9;">Exclusive high-end residences, curated for discerning buyers.</p><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:1px;">VIEW LUXURY LISTINGS</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-rent" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex gap-8"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Residential Rentals</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Short-Term Leases</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Expat Housing</a>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-sell" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex gap-8"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Free Valuation</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">List Your Property</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Seller's Guide</a>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-invest" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex flex-wrap gap-6"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Investment Analysis</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Overseas Properties</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">REITs Guide</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Market Reports</a></div>
+        </div>
+    </header>
+    <div id="dropBackdrop" onclick="closeDrop()" style="position:fixed;inset:0;z-index:100;display:none;"></div>
+
+    <!-- ══ HERO ══ -->
+    <div class="contact-hero">
+        <div class="hero-inner">
+            <div>
+                <div class="pill fade-up fade-up-1"><span class="pill-dot"></span>We reply within 2 hours</div>
+                <p class="hero-eyebrow fade-up fade-up-1">Get In Touch</p>
+                <h1 class="hero-title fade-up fade-up-2">Let's Start a<br><em>Conversation</em></h1>
+                <p class="hero-sub fade-up fade-up-3">Whether you're buying, selling, renting, or just curious — our team is here to help. No pressure, no scripts, just honest advice from people who know European property inside out.</p>
+                <div class="office-strip fade-up fade-up-4">
+                    <div class="os-item" style="padding-right:32px;">
+                        <span class="os-label">Phone</span>
+                        <span class="os-value">+65 6123 4567</span>
+                    </div>
+                    <div class="os-item" style="padding:0 32px;">
+                        <span class="os-label">Email</span>
+                        <span class="os-value">hello@dwelro.sg</span>
+                    </div>
+                    <div class="os-item" style="padding:0 32px;">
+                        <span class="os-label">Hours</span>
+                        <span class="os-value">Mon–Sun, 9am–6pm</span>
+                    </div>
+                    <div class="os-item" style="padding-left:32px;">
+                        <span class="os-label">Response Time</span>
+                        <span class="os-value">Within 2 hours</span>
+                    </div>
+                </div>
+            </div>
+            <!-- RIGHT IMAGE -->
+            <div class="hero-img-wrap fade-up fade-up-3">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&auto=format&fit=crop" alt="Dwelro Office" />
+                <div class="hero-img-badge">
+                    <span class="hib-num">120+</span>
+                    <span class="hib-label">CEA-Certified Agents</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ MAIN BODY ══ -->
+    <section id="contactForm">
+        <div class="contact-body">
+
+            <!-- LEFT: CONTACT INFO -->
+            <div class="info-panel">
+
+                <!-- DIRECT CONTACT -->
+                <div class="info-block">
+                    <div class="info-block-title">Reach Us Directly</div>
+                    <div class="contact-method">
+                        <div class="cm-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.08 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <div class="cm-label">Main Line</div>
+                            <a href="tel:+6561234567" class="cm-value">+65 6123 4567</a>
+                            <div class="cm-sub">Mon–Fri 9am–6pm · Sat–Sun 10am–4pm</div>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="cm-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </div>
+                        <div>
+                            <div class="cm-label">WhatsApp</div>
+                            <a href="https://wa.me/6591234567" class="cm-value">+65 9123 4567</a>
+                            <div class="cm-sub">Typically replies within 30 minutes</div>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="cm-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <div class="cm-label">Email</div>
+                            <a href="mailto:support@dwerlo.com" class="cm-value">support@dwerlo.com</a>
+                            <div class="cm-sub">We aim to reply within 2 business hours</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OFFICE LOCATIONS -->
+                <div class="info-block">
+                    <div class="info-block-title">Our Offices</div>
+                    <div class="office-card active" onclick="selectOffice(this)">
+                        <div class="oc-header">
+                            <div class="oc-name">Raffles Place HQ</div>
+                            <span class="oc-tag">Flagship</span>
+                        </div>
+                        <div class="oc-address">100 Park Avenue, Suite 1600<br>New York, NY 10017</div>
+                        <div class="oc-hours">Mon–Sun · 9am–6pm</div>
+                    </div>
+                    <div class="office-card" onclick="selectOffice(this)">
+                        <div class="oc-header">
+                            <div class="oc-name">Orchard Branch</div>
+                            <span class="oc-tag">Residential</span>
+                        </div>
+                        <div class="oc-address">1 Grosvenor Square<br>London, W1K 4AB, UK</div>
+                        <div class="oc-hours">Mon–Sat · 10am–7pm</div>
+                    </div>
+                    <div class="office-card" onclick="selectOffice(this)">
+                        <div class="oc-header">
+                            <div class="oc-name">East Coast Office</div>
+                            <span class="oc-tag">By Appointment</span>
+                        </div>
+                        <div class="oc-address">Champs-Élysées 123<br>Paris, 75008, France</div>
+                        <div class="oc-hours">Tue–Sat · 11am–6pm</div>
+                    </div>
+                </div>
+
+                <!-- SOCIAL -->
+                <div class="info-block">
+                    <div class="info-block-title">Follow Us</div>
+                    <div class="social-row">
+                        <a href="#" class="social-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a1a1a"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>                            Instagram
+                        </a>
+                        <a href="#" class="social-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a1a1a"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>                            LinkedIn
+                        </a>
+                        <a href="#" class="social-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a1a1a"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>                            Facebook
+                        </a>
+                        <a href="#" class="social-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a1a1a"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>                            X / Twitter
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: CONTACT FORM -->
+            <div class="form-wrap">
+                <div id="formContent">
+                    <h2 class="form-section-title">Send Us a Message</h2>
+                    <p class="form-section-sub">Tell us what you need and the right person from our team will reach out — usually within 2 hours during business hours.</p>
+
+                    <!-- TOPIC TABS -->
+                    <div class="topic-tabs">
+                        <button class="topic-tab active" onclick="setTopic(this)">General Enquiry</button>
+                        <button class="topic-tab" onclick="setTopic(this)">Buy / Rent</button>
+                        <button class="topic-tab" onclick="setTopic(this)">Sell / Valuation</button>
+                        <button class="topic-tab" onclick="setTopic(this)">Agent Partnership</button>
+                        <button class="topic-tab" onclick="setTopic(this)">Media / Press</button>
+                    </div>
+
+                    <div class="fg-row">
+                        <div class="fg"><label>First Name *</label><input type="text" id="fname" placeholder="Jane" /></div>
+                        <div class="fg"><label>Last Name *</label><input type="text" id="lname" placeholder="Doe" /></div>
+                    </div>
+                    <div class="fg"><label>Email Address *</label><input type="email" id="email" placeholder="jane@example.com" /></div>
+                    <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="phone" placeholder="+65 9123 4567" /></div>
+                    <div class="fg">
+                        <label>How can we help? *</label>
+                        <textarea id="message" placeholder="Tell us a little about what you're looking for — property type, location, timeline, or anything else on your mind…" oninput="updateCharCount(this)"></textarea>
+                        <div class="char-count"><span id="charNum">0</span> / 500</div>
+                    </div>
+                    <div class="fg">
+                        <label>Preferred Contact Method</label>
+                        <select id="contactPref">
+                            <option>Email</option>
+                            <option>WhatsApp</option>
+                            <option>Phone Call</option>
+                            <option>No preference</option>
+                        </select>
+                    </div>
+                    <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;">
+                        <input type="checkbox" id="consent" style="width:auto;margin-top:2px;cursor:pointer;" />
+                        <label for="consent" style="font-size:12px;color:#aaa;line-height:1.55;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:400;">I agree to Dwelro's <a href="#" style="color:#555;text-decoration:underline;">Privacy Policy</a> and consent to being contacted about my enquiry.</label>
+                    </div>
+                    <button class="submit-btn" onclick="submitForm()">
+                        Send Message
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <p class="form-note">🔒 Your details are safe with us and will never be shared with third parties.</p>
+                </div>
+
+                <!-- SUCCESS STATE -->
+                <div class="form-success" id="formSuccess">
+                    <div class="success-icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#2ecc71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3 class="success-title">Message Sent!</h3>
+                    <p class="success-sub">Thank you for reaching out. One of our team members will be in touch within 2 hours. Check your inbox — we'll send a confirmation email shortly.</p>
+                    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+                        <a href="rent.html" style="background:#f8f7f4;color:#333;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:10px 20px;border-radius:2px;text-decoration:none;border:1px solid #efefef;">Browse Rentals</a>
+                        <a href="valuation.html" style="background:#f8f7f4;color:#333;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:10px 20px;border-radius:2px;text-decoration:none;border:1px solid #efefef;">Free Valuation</a>
+                    </div>
+                    <button class="success-reset" onclick="resetForm()">Send another message</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══ MAP ══ -->
+    <div class="map-section">
+        <div class="map-container">
+            <iframe class="map-embed" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8185509647517!2d103.8514!3d1.2842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19058a6f3fb7%3A0xbbf4e95ee9cd4cde!2sOne%20Raffles%20Place!5e0!3m2!1sen!2ssg!4v1712000000000"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="map-overlay-card">
+                <div class="moc-title">Raffles Place HQ</div>
+                <div class="moc-address">100 Park Avenue, Suite 1600<br>New York, NY 10017<br><br>Near Grand Central Terminal (2 minutes walk)</div>
+                <a href="https://maps.google.com/?q=100+Park+Avenue+New+York" target="_blank" class="moc-btn">Get Directions →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ KEY CONTACTS ══ -->
+    <section style="padding:80px 0;background:#fff;">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+            <p class="sec-label">The Right Person</p>
+            <h2 class="sec-title" style="margin-bottom:8px;">Talk to Our <em>Team</em></h2>
+            <p class="sec-sub" style="margin-bottom:36px;">Not sure who to speak with? Here are our key contacts across departments.</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img class="team-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop" alt="Head of Sales" />
+                    <div class="team-body">
+                        <div class="team-name">Jonathan Lim</div>
+                        <div class="team-role">Head of Residential Sales</div>
+                        <a href="mailto:jonathan@dwelro.sg" class="team-contact-link">Email →</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img class="team-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop" alt="Rentals" />
+                    <div class="team-body">
+                        <div class="team-name">Mei Lin Tan</div>
+                        <div class="team-role">Head of Rentals</div>
+                        <a href="mailto:meilin@dwelro.sg" class="team-contact-link">Email →</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img class="team-img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop" alt="Valuation" />
+                    <div class="team-body">
+                        <div class="team-name">Sarah Krishnan</div>
+                        <div class="team-role">Senior Valuation Advisor</div>
+                        <a href="mailto:sarah@dwelro.sg" class="team-contact-link">Email →</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img class="team-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop" alt="Commercial" />
+                    <div class="team-body">
+                        <div class="team-name">David Ng</div>
+                        <div class="team-role">Commercial & Investment</div>
+                        <a href="mailto:david@dwelro.sg" class="team-contact-link">Email →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ FAQ ══ -->
+    <section style="padding:80px 0;background:#f8f7f4;border-top:1px solid #efefef;">
+        <div style="max-width:780px;margin:0 auto;padding:0 40px;">
+            <p class="sec-label">Quick Answers</p>
+            <h2 class="sec-title" style="margin-bottom:36px;">Common <em>Questions</em></h2>
+            <div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">How quickly will someone get back to me?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">During business hours (Mon–Sun, 9am–6pm), we aim to respond within 2 hours. WhatsApp enquiries are typically answered within 30 minutes. Evening messages will be picked up first thing the following morning.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">Can I walk in without an appointment?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">Yes — our Raffles Place HQ and Orchard Branch welcome walk-ins during opening hours. For our East Coast office, we recommend booking an appointment in advance to ensure the right advisor is available for you.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">I'm overseas — can I still get help?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">Absolutely. We regularly assist international buyers, expats relocating across Europe, and overseas investors. Video consultations via Zoom or Teams are available at no extra cost, and we can handle the entire transaction process remotely.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">Is there a fee for initial consultations?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">No. Initial consultations are completely free and carry no obligation. We charge commission only upon successful completion of a transaction, and our fee structure is fully transparent from the first conversation.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">I have a complaint — who should I contact?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">We take all feedback seriously. Please email our Client Relations team directly at feedback@dwelro.sg and include your reference number if you have one. We commit to acknowledging all complaints within 1 business day and resolving
+                        them within 5.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <div class="cta-strip">
+        <div style="max-width:560px;margin:0 auto;">
+            <h3>Ready to find your next <em>home?</em></h3>
+            <p>Explore thousands of verified listings across Europe — or let us match you with the perfect property.</p>
+            <a href="rent.html" class="cta-btn-w">Browse Rentals</a>
+            <a href="buy.html" class="cta-btn-o">Explore Buys</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div style="padding:40px;border-bottom:1px solid rgba(255,255,255,.07);">
+            <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+                <div>
+                    <div style="font-family:'DM Serif Display',serif;font-size:24px;font-weight:400;color:#fff;letter-spacing:-.5px;">Dwelro</div>
+                    <p style="font-size:12px;color:rgba(255,255,255,.35);margin-top:6px;">Europe's Premier Property Partner since 2010.</p>
+                </div>
+                <div style="display:flex;gap:24px;flex-wrap:wrap;">
+                    <a href="buy.html" style="font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;">Buy</a>
+                    <a href="rent.html" style="font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;">Rent</a>
+                    <a href="#" style="font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;">Sell</a>
+                    <a href="agents.php" style="font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;">Our Agents</a>
+                    <a href="valuation.html" style="font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;">Valuation</a>
+                    <a href="contact.html" style="font-size:12px;color:rgba(255,255,255,.7);text-decoration:none;">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <span style="font-size:12px;color:rgba(255,255,255,.2);">© 2026 Dwelro Pte Ltd. · CEA Licence No. L3010702F</span>
+            <div class="footer-bottom-links"><a href="#">Terms</a><a href="#">Privacy Policy</a></div>
+        </div>
+    </footer>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #f0f0f0;">
+            <div style="font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:#1a1a1a;">Dwelro</div>
+            <button onclick="toggleMobileMenu()" style="padding:8px;" aria-label="Close">
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M16 1L9 8.5M9 8.5L16 16M9 8.5L1 1M9 8.5L1 16" stroke="#333" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+        <ul>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="index.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Home</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="buy.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Buy</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="rent.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Rent</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="#" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Sell</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="agents.php" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Our Agents</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="valuation.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Valuation</a></li>
+            <li style="margin:0 20px;padding:16px 0;"><a href="contact.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#1a1a1a;letter-spacing:.5px;text-decoration:none;">Contact</a></li>
+        </ul>
+        <div style="padding:20px;display:flex;gap:10px;">
+            <a href="https://wa.me/6591234567" style="flex:1;background:#25D366;color:#fff;text-align:center;padding:12px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;text-decoration:none;border-radius:2px;">WhatsApp Us</a>
+            <a href="#contactForm" onclick="toggleMobileMenu()" style="flex:1;background:#1a1a1a;color:#fff;text-align:center;padding:12px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;text-decoration:none;border-radius:2px;">Send Message</a>
+        </div>
+    </div>
+
+    <!-- WA FLOAT -->
+    <a href="https://wa.me/6591234567" class="wa-btn-float" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="#fff" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 7l5-5 5 5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <script>
+        // BACK TO TOP
+        window.addEventListener('scroll', function() {
+            document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400);
+        }, {
+            passive: true
+        });
+
+        // DROPDOWN NAV
+        var dropTimer;
+
+        function showDrop(n) {
+            clearTimeout(dropTimer);
+            ['sell', 'invest'].forEach(function(x) {
+                var el = document.getElementById('drop-' + x);
+                if (el) el.classList.remove('show');
+            });
+            var el = document.getElementById('drop-' + n);
+            if (el) {
+                el.classList.add('show');
+                document.getElementById('dropBackdrop').style.display = 'block';
+            }
+        }
+
+        function closeDrop() {
+            dropTimer = setTimeout(function() {
+                ['sell', 'invest'].forEach(function(x) {
+                    var el = document.getElementById('drop-' + x);
+                    if (el) el.classList.remove('show');
+                });
+                document.getElementById('dropBackdrop').style.display = 'none';
+            }, 120);
+        }
+
+        function scheduleDrop() {
+            closeDrop();
+        }
+
+        function cancelDrop() {
+            clearTimeout(dropTimer);
+        }
+
+        // MOBILE MENU
+        function toggleMobileMenu() {
+            var m = document.getElementById('mobileMenu');
+            m.classList.toggle('open');
+            document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+        }
+
+        // TOPIC TABS
+        function setTopic(el) {
+            document.querySelectorAll('.topic-tab').forEach(function(t) {
+                t.classList.remove('active');
+            });
+            el.classList.add('active');
+        }
+
+        // OFFICE CARDS
+        function selectOffice(el) {
+            document.querySelectorAll('.office-card').forEach(function(c) {
+                c.classList.remove('active');
+            });
+            el.classList.add('active');
+        }
+
+        // CHAR COUNT
+        function updateCharCount(el) {
+            var count = el.value.length;
+            document.getElementById('charNum').textContent = count;
+            document.getElementById('charNum').style.color = count > 450 ? '#e74c3c' : '#ddd';
+        }
+
+        // FORM SUBMIT
+        function submitForm() {
+            var fname = document.getElementById('fname').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var message = document.getElementById('message').value.trim();
+            var consent = document.getElementById('consent').checked;
+
+            if (!fname || !email || !message) {
+                alert('Please fill in all required fields (name, email, and message).');
+                return;
+            }
+            if (!consent) {
+                alert('Please agree to our Privacy Policy to continue.');
+                return;
+            }
+
+            document.getElementById('formContent').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+            window.scrollTo({
+                top: document.getElementById('contactForm').offsetTop - 120,
+                behavior: 'smooth'
+            });
+        }
+
+        function resetForm() {
+            document.getElementById('formSuccess').style.display = 'none';
+            document.getElementById('formContent').style.display = 'block';
+            document.getElementById('fname').value = '';
+            document.getElementById('lname').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('message').value = '';
+            document.getElementById('consent').checked = false;
+            document.getElementById('charNum').textContent = '0';
+        }
+
+        // FAQ accordion
+        function toggleFaq(el) {
+            var item = el.parentElement;
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(function(f) {
+                f.classList.remove('open');
+            });
+            if (!isOpen) item.classList.add('open');
+        }
+    </script>
+    <script src="dwelro-api.js"></script>
+</body>
+
+</html>

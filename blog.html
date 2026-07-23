@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Dwelro Services Insights</title>
+    <meta name="description" content="Read Dwelro's property insights, market trends, and advice for buyers, sellers, renters, and investors.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dwelro">
+    <meta property="og:title" content="Blog — Dwelro Services Insights">
+    <meta property="og:description" content="Read Dwelro's property insights, market trends, and advice for buyers, sellers, renters, and investors.">
+    <meta property="og:image" content="/img/modern-apartment-architecture.jpg">
+    <meta property="og:image:alt" content="Modern apartment architecture">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog — Dwelro Services Insights">
+    <meta name="twitter:description" content="Read Dwelro's property insights, market trends, and advice for buyers, sellers, renters, and investors.">
+    <meta name="twitter:image" content="/img/modern-apartment-architecture.jpg">
+    <meta name="theme-color" content="#1a3a5c">
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #171717;
+            background: #fff;
+        }
+        
+        .nav-row {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #fff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-link {
+            color: #6b7280;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        
+        .nav-link:hover {
+            color: #1a3a5c;
+            background: #f3f4f6;
+        }
+        
+        .nav-link.active {
+            color: #1a3a5c;
+            background: #e8eef5;
+        }
+        
+        .hero {
+            padding: 120px 40px 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #1a3a5c 0%, #0f2640 100%);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 80px 40px;
+        }
+        
+        .section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .blog-post {
+            background: #f9fafb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .blog-content {
+            padding: 24px;
+        }
+        
+        .blog-meta {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+        
+        .blog-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a3a5c;
+        }
+        
+        .blog-excerpt {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+        
+        .site-footer {
+            background: #1a3a5c;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div class="nav-row">
+        <a href="index.html" class="text-2xl font-serif text-navy">dwelro</a>
+        <nav class="flex items-center">
+            <a href="buy.html" class="nav-link">Buy</a>
+            <a href="rent.html" class="nav-link">Rent</a>
+            <a href="sell.html" class="nav-link">Sell</a>
+            <a href="listings.php" class="nav-link">Listings</a>
+            <a href="map-search.html" class="nav-link">Map Search</a>
+            <a href="agents.php" class="nav-link">Agents</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="blog.html" class="nav-link active">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Dwelro Blog</h1>
+        <p>Expert insights, market trends, and real estate advice for property buyers, sellers, and investors in Europe.</p>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="section">
+        <div class="max-w-6xl mx-auto">
+            <h2>Latest Articles</h2>
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=200&fit=crop');"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">March 15, 2024 • Market Trends</div>
+                        <h3 class="blog-title">European Property Market Outlook 2024</h3>
+                        <p class="blog-excerpt">Discover the key trends shaping Europe's real estate landscape this year, from sustainable developments to digital transformation in property transactions.</p>
+                        <a href="#" class="text-navy font-semibold mt-4 inline-block">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=200&fit=crop');"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">March 10, 2024 • Buying Guide</div>
+                        <h3 class="blog-title">First-Time Buyer's Guide to European Property</h3>
+                        <p class="blog-excerpt">Everything you need to know about purchasing property in Europe as a first-time buyer, including legal requirements, financing options, and local market insights.</p>
+                        <a href="#" class="text-navy font-semibold mt-4 inline-block">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop');"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">March 5, 2024 • Investment</div>
+                        <h3 class="blog-title">Top Investment Opportunities in European Cities</h3>
+                        <p class="blog-excerpt">Explore the most promising real estate investment opportunities across Europe's major cities, with analysis of rental yields, capital growth potential, and market stability.</p>
+                        <a href="#" class="text-navy font-semibold mt-4 inline-block">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&h=200&fit=crop');"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">February 28, 2024 • Legal</div>
+                        <h3 class="blog-title">Understanding Property Taxes in Europe</h3>
+                        <p class="blog-excerpt">A comprehensive guide to property taxes across European countries, including annual property taxes, transfer taxes, and inheritance tax implications for property owners.</p>
+                        <a href="#" class="text-navy font-semibold mt-4 inline-block">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=200&fit=crop');"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">February 20, 2024 • Lifestyle</div>
+                        <h3 class="blog-title">Luxury Living: Europe's Most Exclusive Neighborhoods</h3>
+                        <p class="blog-excerpt">Discover Europe's most prestigious residential areas, from London's Kensington to Paris's 16th arrondissement, featuring luxury amenities and world-class lifestyle.</p>
+                        <a href="#" class="text-navy font-semibold mt-4 inline-block">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&h=200&fit=crop');"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta">February 15, 2024 • Technology</div>
+                        <h3 class="blog-title">How Technology is Transforming European Real Estate</h3>
+                        <p class="blog-excerpt">From virtual tours to AI-powered valuations, explore how cutting-edge technology is revolutionizing the way Europeans buy, sell, and invest in property.</p>
+                        <a href="#" class="text-navy font-semibold mt-4 inline-block">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section" style="background: #f9fafb;">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2>Stay Informed</h2>
+            <p class="text-lg mb-8">Subscribe to our newsletter for the latest market insights, property listings, and real estate news.</p>
+            <div class="flex gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-navy">
+                <button class="px-6 py-3 bg-navy text-white rounded-lg hover:bg-navy-dk transition-colors">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="max-w-6xl mx-auto">
+            <p>&copy; 2024 Dwelro. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-white/70 hover:text-white mx-4">Privacy Policy</a>
+                <a href="#" class="text-white/70 hover:text-white mx-4">Terms of Service</a>
+                <a href="contact.html" class="text-white/70 hover:text-white mx-4">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,3873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dwelro Services — Europe's Premier Property Partner</title>
+    <meta name="description" content="Dwelro helps you buy, rent, sell, and invest in premium properties with expert guidance and curated listings across Europe.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dwelro">
+    <meta property="og:title" content="Dwelro Services — Europe's Premier Property Partner">
+    <meta property="og:description" content="Dwelro helps you buy, rent, sell, and invest in premium properties with expert guidance and curated listings across Europe.">
+    <meta property="og:image" content="/img/modern-luxury-home-with-pool-contemporary-architecture.jpg">
+    <meta property="og:image:alt" content="Modern luxury home with pool">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dwelro Services — Europe's Premier Property Partner">
+    <meta name="twitter:description" content="Dwelro helps you buy, rent, sell, and invest in premium properties with expert guidance and curated listings across Europe.">
+    <meta name="twitter:image" content="/img/modern-luxury-home-with-pool-contemporary-architecture.jpg">
+    <meta name="theme-color" content="#1a3a5c">
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #171717;
+            background: #fff;
+        }
+        /* ── PRELOADER ── */
+        
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #fff;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity .7s ease;
+        }
+        
+        .pl {
+            display: inline-block;
+            animation: letterBounce .6s ease infinite alternate;
+            opacity: 0;
+            animation-fill-mode: both;
+        }
+        
+        .pl:nth-child(1) {
+            animation-delay: 0s
+        }
+        
+        .pl:nth-child(2) {
+            animation-delay: .08s
+        }
+        
+        .pl:nth-child(3) {
+            animation-delay: .16s
+        }
+        
+        .pl:nth-child(4) {
+            animation-delay: .24s
+        }
+        
+        .pl:nth-child(5) {
+            animation-delay: .32s
+        }
+        
+        .pl:nth-child(6) {
+            animation-delay: .4s
+        }
+        
+        @keyframes letterBounce {
+            0% {
+                transform: translateY(0);
+                opacity: 1
+            }
+            100% {
+                transform: translateY(-16px);
+                opacity: 1
+            }
+        }
+        /* ── HEADER ── */
+        
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: all .3s ease;
+        }
+        
+        .top-part {
+            background: transparent;
+            transition: background .3s ease;
+        }
+        
+        .nav-row {
+            background: transparent;
+            border-top: 1px solid rgba(255, 255, 255, .3);
+            transition: all .3s ease;
+        }
+        
+        .site-header.scrolled .top-part,
+        .site-header.hovered .top-part {
+            background: #fff;
+            box-shadow: 0 1px 0 #e8e8e8;
+        }
+        
+        .site-header.scrolled .nav-row,
+        .site-header.hovered .nav-row {
+            background: #fff;
+            border-top-color: #e8e8e8;
+        }
+        
+        .logo-white {
+            transition: opacity .3s ease, visibility .3s ease;
+        }
+        
+        .logo-black {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s ease, visibility .3s ease;
+        }
+        
+        .site-header.scrolled .logo-white,
+        .site-header.hovered .logo-white {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .site-header.scrolled .logo-black,
+        .site-header.hovered .logo-black {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .hdr-icon path,
+        .hdr-icon circle {
+            stroke: #fff;
+            transition: stroke .3s ease;
+        }
+        
+        .site-header.scrolled .hdr-icon path,
+        .site-header.scrolled .hdr-icon circle,
+        .site-header.hovered .hdr-icon path,
+        .site-header.hovered .hdr-icon circle {
+            stroke: #171717;
+        }
+        
+        .nav-link {
+            color: #171717;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            display: block;
+            padding: 13px 15px;
+            transition: color .3s ease;
+            white-space: nowrap;
+        }
+        
+        .site-header.scrolled .nav-link,
+        .site-header.hovered .nav-link {
+            color: #171717;
+        }
+        
+        .nav-link:hover {
+            opacity: .6;
+        }
+        
+        .search-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            transition: color .3s ease;
+        }
+        
+        .site-header.scrolled .search-input,
+        .site-header.hovered .search-input {
+            color: #171717;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, .45);
+            transition: color .3s ease;
+        }
+        
+        .site-header.scrolled .search-input::placeholder,
+        .site-header.hovered .search-input::placeholder {
+            color: rgba(23, 23, 23, .35);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #e8e8e8;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .2s ease, visibility .2s ease;
+            z-index: 200;
+        }
+        
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media(max-width:1023px) {
+            .desktop-nav-wrap {
+                display: none!important;
+            }
+            .mobile-menu-btn {
+                display: flex!important;
+            }
+            .desktop-search {
+                display: none!important;
+            }
+            .desktop-only-icons {
+                display: none!important;
+            }
+        }
+        
+        @media(min-width:1024px) {
+            .mobile-menu-btn {
+                display: none!important;
+            }
+            .mobile-search-icon {
+                display: none!important;
+            }
+        }
+        /* ── HERO ── */
+        
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s cubic-bezier(.4, 0, .2, 1);
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.06);
+            transition: transform 7s ease;
+        }
+        
+        .hero-slide.active img {
+            transform: scale(1);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, .42) 0%, rgba(0, 0, 0, .15) 55%, rgba(0, 0, 0, .38) 100%);
+        }
+        
+        .hero-caption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(100px, 14vh, 140px) 0 40px;
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .hero-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 18px;
+        }
+        
+        .hero-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(32px, 5vw, 64px);
+            font-weight: 400;
+            color: #fff;
+            line-height: 1.1;
+            letter-spacing: -.5px;
+            margin-bottom: 14px;
+        }
+        
+        .hero-title em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .8);
+        }
+        
+        .hero-sub {
+            font-size: clamp(13px, 1.1vw, 15px);
+            color: rgba(255, 255, 255, .85);
+            margin-bottom: 28px;
+            font-weight: 300;
+            letter-spacing: .2px;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background: #fff;
+            color: #171717;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 13px 38px;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: all .3s;
+        }
+        
+        .hero-btn:hover {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+        
+        .pag-dot {
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, .35);
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: all .35s ease;
+        }
+        
+        .pag-dot.on {
+            background: #fff;
+            width: 24px;
+            border-radius: 3px;
+        }
+        
+        .hero-logo-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 3;
+            padding: 0 40px 20px;
+        }
+        /* ── HERO SEARCH ── */
+        
+        .hero-search-outer {
+            position: relative;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+            margin-top: 32px;
+        }
+        
+        .hero-search-wrap {
+            width: 100%;
+            max-width: 660px;
+            position: relative;
+        }
+        
+        .hero-search-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+        }
+        
+        .hero-search-tab {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, .15);
+            color: rgba(255, 255, 255, .65);
+            border: none;
+            cursor: pointer;
+            transition: all .2s;
+            backdrop-filter: blur(6px);
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .hero-search-tab.active {
+            background: #fff;
+            color: #171717;
+        }
+        
+        .hero-search-tab:hover:not(.active) {
+            background: rgba(255, 255, 255, .25);
+            color: #fff;
+        }
+        
+        .hero-search-bar {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 0 32px 32px 32px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, .32);
+            height: 58px;
+        }
+        
+        .hero-search-icon {
+            padding: 0 12px 0 18px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-search-input-wrap {
+            flex: 1;
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: #171717;
+            background: transparent;
+            font-family: 'DM Sans', sans-serif;
+            caret-color: #1a3a5c;
+        }
+        
+        .hero-search-input::placeholder {
+            color: transparent;
+        }
+        
+        .hero-search-placeholder {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: #bbb;
+            pointer-events: none;
+            white-space: nowrap;
+            overflow: hidden;
+            font-family: 'DM Sans', sans-serif;
+            transition: opacity .2s;
+        }
+        
+        .hero-search-placeholder.hidden {
+            opacity: 0;
+        }
+        
+        .hero-search-cursor {
+            display: inline-block;
+            width: 1.5px;
+            height: 14px;
+            background: #1a3a5c;
+            margin-left: 1px;
+            vertical-align: middle;
+            animation: blink .75s step-end infinite;
+        }
+        
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0
+            }
+        }
+        
+        .hero-search-divider {
+            width: 1px;
+            height: 26px;
+            background: #ebebeb;
+            flex-shrink: 0;
+            margin: 0 4px;
+        }
+        
+        .hero-search-location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 12px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        
+        .hero-search-location span {
+            font-size: 12px;
+            color: #888;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .hero-search-btn {
+            background: #1a3a5c;
+            color: #fff;
+            border: none;
+            height: 100%;
+            padding: 0 24px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background .25s;
+            flex-shrink: 0;
+            border-radius: 0 32px 32px 0;
+        }
+        
+        .hero-search-btn:hover {
+            background: #0f2640;
+        }
+        
+        .hero-search-meta {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .hero-search-suggestion {
+            font-size: 11px;
+            color: rgba(255, 255, 255, .6);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color .2s;
+        }
+        
+        .hero-search-suggestion:hover {
+            color: #fff;
+        }
+        
+        .hero-search-suggestion-dot {
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, .35);
+            border-radius: 50%;
+        }
+        
+        @media(max-width:600px) {
+            .hero-search-outer {
+                padding: 0 16px;
+                margin-top: 24px;
+            }
+            .hero-search-bar {
+                height: 50px;
+            }
+            .hero-search-location,
+            .hero-search-divider {
+                display: none;
+            }
+            .hero-search-btn {
+                padding: 0 14px;
+                font-size: 10px;
+            }
+        }
+        /* ── MOBILE MENU ── */
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 10001;
+            transform: translateX(-100%);
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        /* ── PROPERTY LISTINGS ── */
+        
+        .handpicked-section {
+            padding: 80px 0 100px;
+            background: #fafaf8;
+        }
+        
+        .handpicked-header {
+            text-align: center;
+            margin-bottom: 44px;
+        }
+        
+        .handpicked-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(28px, 3.5vw, 46px);
+            font-weight: 400;
+            letter-spacing: -.5px;
+            color: #171717;
+            line-height: 1.15;
+        }
+        
+        .handpicked-header h2 em {
+            font-style: italic;
+            color: #888;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 44px;
+            padding: 0 20px;
+        }
+        
+        .filter-tab {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border: 1px solid #dfdfdf;
+            background: #fff;
+            color: #aaa;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all .2s;
+            white-space: nowrap;
+        }
+        
+        .filter-tab:hover {
+            border-color: #171717;
+            color: #171717;
+        }
+        
+        .filter-tab.active {
+            background: #171717;
+            border-color: #171717;
+            color: #fff;
+        }
+        
+        .view-tabs {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+        
+        .view-tab {
+            padding: 7px 14px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            border: 1px solid #dfdfdf;
+            background: #fff;
+            color: #aaa;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .view-tab.active {
+            background: #171717;
+            border-color: #171717;
+            color: #fff;
+        }
+        
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        @media(max-width:900px) {
+            .property-grid {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 0 20px;
+            }
+        }
+        
+        @media(max-width:560px) {
+            .property-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+        }
+        
+        .prop-card {
+            background: #fff;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(28px);
+            transition: box-shadow .35s ease;
+        }
+        
+        .prop-card.visible {
+            animation: cardReveal .6s ease forwards;
+        }
+        
+        @keyframes cardReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+        
+        .prop-card:hover {
+            box-shadow: 0 12px 48px rgba(0, 0, 0, .1);
+        }
+        
+        .prop-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        
+        .prop-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .7s cubic-bezier(.25, .46, .45, .94);
+            will-change: transform;
+        }
+        
+        .prop-card:hover .prop-img-wrap img {
+            transform: scale(1.08);
+        }
+        
+        .prop-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            background: #1a3a5c;
+            color: #fff;
+            z-index: 2;
+        }
+        
+        .prop-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0, 0, 0, .58) 0%, rgba(0, 0, 0, 0) 55%);
+            opacity: 0;
+            transition: opacity .4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+            z-index: 2;
+        }
+        
+        .prop-card:hover .prop-overlay {
+            opacity: 1;
+        }
+        
+        .prop-overlay-actions {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+        }
+        
+        .prop-overlay-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 12px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            border-radius: 2px;
+            transition: all .25s;
+            transform: translateY(8px);
+            transition: transform .4s ease .05s, background .25s;
+        }
+        
+        .prop-card:hover .prop-overlay-btn {
+            transform: translateY(0);
+        }
+        
+        .prop-btn-view {
+            background: rgba(255, 255, 255, .18);
+            color: #fff;
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, .3);
+        }
+        
+        .prop-btn-view:hover {
+            background: rgba(255, 255, 255, .3);
+        }
+        
+        .prop-btn-book {
+            background: #1a3a5c;
+            color: #fff;
+        }
+        
+        .prop-btn-book:hover {
+            background: #0f2640;
+        }
+        
+        .prop-body {
+            padding: 16px 18px 20px;
+        }
+        
+        .prop-location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+        
+        .prop-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #171717;
+            letter-spacing: -.2px;
+            margin-bottom: 5px;
+        }
+        
+        .prop-desc {
+            font-size: 12px;
+            color: #999;
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+        
+        .prop-price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .prop-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #171717;
+            letter-spacing: -.4px;
+        }
+        
+        .prop-tag {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: .6px;
+            text-transform: uppercase;
+            color: #1a3a5c;
+            border: 1px solid #1a3a5c;
+            padding: 3px 8px;
+        }
+        
+        .view-all-wrap {
+            text-align: center;
+            margin-top: 52px;
+        }
+        
+        .view-all-btn {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 13px 44px;
+            border: 1.5px solid #171717;
+            color: #171717;
+            background: transparent;
+            text-decoration: none;
+            transition: all .25s;
+            border-radius: 2px;
+        }
+        
+        .view-all-btn:hover {
+            background: #171717;
+            color: #fff;
+        }
+        /* ── MAP VIEW ── */
+        
+        #mapView {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        #mapView.active {
+            display: block;
+        }
+        
+        .map-container {
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .map-frame {
+            width: 100%;
+            height: 520px;
+            border: none;
+        }
+        
+        .map-listings-panel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        @media(max-width:768px) {
+            .map-listings-panel {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .map-listing-card {
+            background: #fff;
+            border: 1px solid #ebebeb;
+            padding: 12px;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        
+        .map-listing-card:hover {
+            border-color: #1a3a5c;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+        }
+        
+        .map-listing-card .mloc {
+            font-size: 10px;
+            color: #aaa;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .map-listing-card .mname {
+            font-size: 13px;
+            font-weight: 700;
+            color: #171717;
+            margin-bottom: 4px;
+        }
+        
+        .map-listing-card .mprice {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a3a5c;
+        }
+        /* ── SCROLL COVER ── */
+        
+        .scroll-cover-section {
+            position: relative;
+        }
+        
+        .scroll-panel,
+        .scroll-panel-over {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .scroll-slot {
+            height: 200vh;
+        }
+        
+        .scroll-slot:first-child {
+            height: 200vh;
+        }
+        
+        .scroll-slot+.scroll-slot {
+            margin-top: -100vh;
+        }
+        
+        .scroll-panel img,
+        .scroll-panel-over img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .scroll-panel-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: clamp(32px, 5vw, 72px);
+            z-index: 3;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, .55) 100%);
+        }
+        
+        .scroll-panel-eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 14px;
+        }
+        
+        .scroll-panel-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(32px, 5vw, 68px);
+            font-weight: 400;
+            letter-spacing: -.5px;
+            line-height: 1.05;
+            color: #fff;
+            margin-bottom: 20px;
+            max-width: 680px;
+        }
+        
+        .scroll-panel-title em {
+            font-style: italic;
+        }
+        
+        .scroll-panel-sub {
+            font-size: clamp(13px, 1.1vw, 15px);
+            font-weight: 300;
+            color: rgba(255, 255, 255, .85);
+            line-height: 1.7;
+            max-width: 420px;
+            margin-bottom: 32px;
+        }
+        
+        .scroll-panel-btn {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 13px 38px;
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, .7);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: background .25s, border-color .25s;
+            align-self: flex-start;
+        }
+        
+        .scroll-panel-btn:hover {
+            background: #fff;
+            color: #171717;
+            border-color: #fff;
+        }
+        
+        .scroll-cover-progress {
+            position: absolute;
+            bottom: 32px;
+            right: 40px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .scroll-cover-progress span {
+            display: block;
+            width: 1px;
+            height: 60px;
+            background: rgba(255, 255, 255, .2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .scroll-cover-progress span::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            transition: height .1s linear;
+        }
+        /* ── ESSENTIALS ── */
+        
+        .essentials-section {
+            padding: 80px 0 100px;
+            background: #fff;
+            overflow: hidden;
+        }
+        
+        .essentials-heading {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(36px, 6vw, 88px);
+            font-weight: 400;
+            letter-spacing: -1px;
+            line-height: 1;
+            color: #171717;
+            text-transform: uppercase;
+            padding: 0 40px;
+            margin-bottom: 40px;
+        }
+        
+        @media(max-width:600px) {
+            .essentials-heading {
+                padding: 0 20px;
+            }
+        }
+        
+        .essentials-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-rows: 320px 320px;
+            gap: 6px;
+            padding: 0 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        @media(max-width:1024px) {
+            .essentials-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 280px 200px 200px;
+                padding: 0 20px;
+            }
+            .ess-sofas {
+                grid-column: 1/-1!important;
+                grid-row: 1!important;
+            }
+        }
+        
+        @media(max-width:600px) {
+            .essentials-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 240px 160px 160px 160px;
+            }
+            .ess-sofas {
+                grid-column: 1/-1!important;
+                grid-row: 1!important;
+            }
+            .ess-storage {
+                grid-column: 1/-1!important;
+            }
+        }
+        
+        .ess-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            background: #f0ede8;
+            text-decoration: none;
+            opacity: 0;
+            transition: opacity .7s ease, transform .7s cubic-bezier(.22, 1, .36, 1);
+        }
+        
+        .ess-sofas {
+            grid-row: span 2;
+        }
+        
+        .ess-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .7s cubic-bezier(.25, .46, .45, .94);
+            will-change: transform;
+        }
+        
+        .ess-item:hover img {
+            transform: scale(1.07);
+        }
+        
+        .ess-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, .52) 100%);
+            transition: background .4s ease;
+        }
+        
+        .ess-item:hover .ess-item-overlay {
+            background: linear-gradient(180deg, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .62) 100%);
+        }
+        
+        .ess-item-label {
+            position: absolute;
+            bottom: 22px;
+            left: 22px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            z-index: 2;
+            line-height: 1.3;
+        }
+        
+        .ess-sofas .ess-item-label {
+            font-size: 15px;
+            bottom: 28px;
+            left: 28px;
+        }
+        
+        .ess-item.from-left {
+            transform: translateX(-60px)
+        }
+        
+        .ess-item.from-right {
+            transform: translateX(60px)
+        }
+        
+        .ess-item.from-top {
+            transform: translateY(-60px)
+        }
+        
+        .ess-item.from-bottom {
+            transform: translateY(60px)
+        }
+        
+        .ess-item.revealed {
+            opacity: 1;
+            transform: translate(0, 0)!important;
+        }
+        /* ── AGENTS ── */
+        
+        .agents-section {
+            padding: 80px 0 100px;
+            background: #fff;
+        }
+        
+        .agents-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        
+        .agents-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(26px, 3vw, 42px);
+            font-weight: 400;
+            color: #171717;
+            letter-spacing: -.4px;
+        }
+        
+        .agents-header p {
+            font-size: 13px;
+            color: #999;
+            margin-top: 10px;
+        }
+        
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        @media(max-width:900px) {
+            .agents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media(max-width:540px) {
+            .agents-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding: 0 20px;
+            }
+        }
+        
+        .agent-card {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+        
+        .agent-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .agent-photo-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            background: #f0ede8;
+        }
+        
+        .agent-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform .6s ease;
+        }
+        
+        .agent-card:hover .agent-photo-wrap img {
+            transform: scale(1.05);
+        }
+        
+        .agent-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(26, 58, 92, .85) 100%);
+            opacity: 0;
+            transition: opacity .35s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 18px;
+            gap: 8px;
+        }
+        
+        .agent-card:hover .agent-overlay {
+            opacity: 1;
+        }
+        
+        .agent-overlay-btn {
+            flex: 1;
+            padding: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s;
+        }
+        
+        .agent-btn-wa {
+            background: #25D366;
+            color: #fff;
+        }
+        
+        .agent-btn-wa:hover {
+            background: #1da851;
+        }
+        
+        .agent-btn-profile {
+            background: rgba(255, 255, 255, .15);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .3);
+            backdrop-filter: blur(6px);
+        }
+        
+        .agent-btn-profile:hover {
+            background: rgba(255, 255, 255, .25);
+        }
+        
+        .agent-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #171717;
+            margin-bottom: 3px;
+        }
+        
+        .agent-title {
+            font-size: 11px;
+            color: #999;
+            letter-spacing: .3px;
+        }
+        
+        .agent-stats {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 10px;
+        }
+        
+        .agent-stat {
+            text-align: center;
+        }
+        
+        .agent-stat-num {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a3a5c;
+        }
+        
+        .agent-stat-label {
+            font-size: 10px;
+            color: #bbb;
+            letter-spacing: .3px;
+        }
+        
+        .agents-cta {
+            text-align: center;
+            margin-top: 48px;
+        }
+        /* ── TESTIMONIALS ── */
+        
+        .testimonials-section {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .testi-image-panel {
+            width: 50%;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .testi-image-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            inset: 0;
+            transition: opacity .8s ease;
+        }
+        
+        .testi-image-panel img.t-active {
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .testi-image-panel img.t-inactive {
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        .testi-dark-panel {
+            width: 50%;
+            background: #171717;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 48px 64px;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .testi-light-panel {
+            width: 50%;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 48px 64px;
+            position: relative;
+            min-height: 100vh;
+            border-left: 1px solid #efefef;
+        }
+        
+        .testi-eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35);
+            text-align: right;
+        }
+        
+        .testi-eyebrow--light {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ccc;
+            text-align: left;
+        }
+        
+        .testi-quote-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+        }
+        
+        .testi-quote {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(18px, 2.2vw, 26px);
+            font-weight: 400;
+            line-height: 1.55;
+            color: #fff;
+            text-align: center;
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+        
+        .testi-quote.t-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testi-quote--light {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(18px, 2.2vw, 26px);
+            font-weight: 400;
+            line-height: 1.55;
+            color: #171717;
+            text-align: center;
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+        
+        .testi-quote--light.t-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testi-author {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            text-align: center;
+            margin-top: 24px;
+            opacity: 0;
+            transition: opacity .6s ease .15s;
+        }
+        
+        .testi-author.t-visible {
+            opacity: 1;
+        }
+        
+        .testi-author--light {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #bbb;
+            text-align: center;
+            margin-top: 24px;
+            opacity: 0;
+            transition: opacity .6s ease .15s;
+        }
+        
+        .testi-author--light.t-visible {
+            opacity: 1;
+        }
+        
+        .testi-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .testi-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .testi-dot {
+            width: 20px;
+            height: 1px;
+            background: rgba(255, 255, 255, .2);
+            cursor: pointer;
+            transition: background .3s, width .3s;
+        }
+        
+        .testi-dot.on {
+            background: #fff;
+            width: 36px;
+        }
+        
+        .testi-dot--light {
+            width: 20px;
+            height: 1px;
+            background: #ddd;
+            cursor: pointer;
+            transition: background .3s, width .3s;
+        }
+        
+        .testi-dot--light.on {
+            background: #171717;
+            width: 36px;
+        }
+        
+        .testi-arrows {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .testi-arrow {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, .2);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color .25s, background .25s;
+        }
+        
+        .testi-arrow:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, .07);
+        }
+        
+        .testi-arrow svg path {
+            stroke: #fff;
+        }
+        
+        .testi-arrow--light {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #e0e0e0;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color .25s, background .25s;
+        }
+        
+        .testi-arrow--light:hover {
+            border-color: #171717;
+            background: rgba(23, 23, 23, .05);
+        }
+        
+        .testi-arrow--light svg path {
+            stroke: #171717;
+        }
+        
+        .testi-count {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, .25);
+            margin-top: 16px;
+            text-align: right;
+        }
+        
+        .testi-count--light {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #ccc;
+            margin-top: 16px;
+            text-align: left;
+        }
+        
+        .testi-reversed {
+            flex-direction: row-reverse;
+        }
+        
+        @media(max-width:900px) {
+            .testimonials-section {
+                flex-direction: column;
+            }
+            .testi-image-panel {
+                width: 100%;
+                height: 60vw;
+                min-height: 300px;
+                position: relative;
+            }
+            .testi-image-panel img {
+                position: absolute;
+            }
+            .testi-dark-panel {
+                width: 100%;
+                min-height: auto;
+                padding: 48px 32px;
+            }
+            .testi-light-panel {
+                width: 100%;
+                min-height: auto;
+                padding: 48px 32px;
+                border-left: none;
+                border-top: 1px solid #efefef;
+            }
+            .testi-reversed {
+                flex-direction: column!important;
+            }
+        }
+        
+        @media(max-width:480px) {
+            .testi-dark-panel,
+            .testi-light-panel {
+                padding: 40px 24px;
+            }
+        }
+        /* ── RE HERO ── */
+        
+        .re-hero-section {
+            padding: 100px 0 0;
+            background: #fff;
+            overflow: hidden;
+        }
+        
+        .re-eyebrow {
+            text-align: center;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #1a3a5c;
+            margin-bottom: 28px;
+        }
+        
+        .re-giant-heading {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(64px, 13vw, 180px);
+            font-weight: 400;
+            letter-spacing: -3px;
+            line-height: .9;
+            color: #171717;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0 40px;
+        }
+        
+        .re-giant-heading em {
+            font-style: italic;
+            color: #aaa;
+        }
+        
+        .re-divider-band {
+            margin-top: 60px;
+            background: #171717;
+            padding: 16px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .re-ticker {
+            display: inline-block;
+            animation: ticker 22s linear infinite;
+        }
+        
+        .re-ticker span {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+            padding: 0 36px;
+            opacity: .8;
+        }
+        
+        .re-ticker span.dot {
+            color: #4a90d9;
+            padding: 0;
+            font-size: 14px;
+            opacity: 1;
+        }
+        
+        @keyframes ticker {
+            0% {
+                transform: translateX(0)
+            }
+            100% {
+                transform: translateX(-50%)
+            }
+        }
+        /* ── FEATURES ── */
+        
+        .re-trust-section {
+            padding: 80px 0 100px;
+            background: #fafaf8;
+        }
+        
+        .re-trust-heading {
+            text-align: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(22px, 2.6vw, 34px);
+            font-weight: 400;
+            color: #171717;
+            margin-bottom: 10px;
+        }
+        
+        .re-trust-sub {
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 64px;
+        }
+        
+        .re-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        @media(max-width:860px) {
+            .re-features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media(max-width:480px) {
+            .re-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .re-feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 36px 28px;
+            border-right: 1px solid #e8e8e4;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+        
+        .re-feature-item:last-child {
+            border-right: none;
+        }
+        
+        .re-feature-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .re-icon-wrap {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .re-icon-wrap svg {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .re-feature-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #171717;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .re-feature-desc {
+            font-size: 12px;
+            color: #aaa;
+            line-height: 1.7;
+            max-width: 180px;
+        }
+        /* ── STATS ── */
+        
+        .re-stats-band {
+            background: #171717;
+            padding: 60px 40px;
+        }
+        
+        .re-stats-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        @media(max-width:700px) {
+            .re-stats-inner {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px 0;
+            }
+        }
+        
+        .re-stat-item {
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, .1);
+            padding: 0 20px;
+        }
+        
+        .re-stat-item:last-child {
+            border-right: none;
+        }
+        
+        .re-stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(36px, 4vw, 58px);
+            font-weight: 400;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        
+        .re-stat-num em {
+            font-style: normal;
+            color: #4a90d9;
+        }
+        
+        .re-stat-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .4);
+        }
+        /* ── CTA ── */
+        
+        .re-cta-strip {
+            background: #fff;
+            padding: 80px 40px;
+            text-align: center;
+            border-top: 1px solid #e8e8e4;
+        }
+        
+        .re-cta-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #1a3a5c;
+            margin-bottom: 18px;
+        }
+        
+        .re-cta-heading {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(28px, 4vw, 52px);
+            font-weight: 400;
+            color: #171717;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        
+        .re-cta-heading em {
+            font-style: italic;
+            color: #888;
+        }
+        
+        .re-cta-body {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.75;
+            max-width: 480px;
+            margin: 0 auto 36px;
+        }
+        
+        .re-cta-btn {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 14px 44px;
+            background: #171717;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 2px;
+            border: 1.5px solid #171717;
+            transition: background .25s, color .25s;
+            margin-right: 12px;
+        }
+        
+        .re-cta-btn:hover {
+            background: transparent;
+            color: #171717;
+        }
+        
+        .re-cta-btn-outline {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 14px 44px;
+            background: transparent;
+            color: #171717;
+            text-decoration: none;
+            border-radius: 2px;
+            border: 1.5px solid #171717;
+            transition: background .25s, color .25s;
+        }
+        
+        .re-cta-btn-outline:hover {
+            background: #171717;
+            color: #fff;
+        }
+        /* ── FOOTER ── */
+        
+        .site-footer {
+            background: #111;
+            color: #fff;
+        }
+        
+        .footer-newsletter {
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            padding: 48px 40px;
+        }
+        
+        .footer-newsletter-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-newsletter h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(18px, 2vw, 24px);
+            font-weight: 400;
+        }
+        
+        .footer-newsletter p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .4);
+            margin-top: 4px;
+        }
+        
+        .footer-newsletter-form {
+            display: flex;
+            flex: 1;
+            max-width: 440px;
+        }
+        
+        .footer-newsletter-form input {
+            flex: 1;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-right: none;
+            color: #fff;
+            font-size: 13px;
+            padding: 13px 18px;
+            outline: none;
+        }
+        
+        .footer-newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, .3);
+        }
+        
+        .footer-newsletter-form button {
+            background: #fff;
+            color: #111;
+            border: none;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 13px 22px;
+            cursor: pointer;
+            transition: opacity .2s;
+            white-space: nowrap;
+        }
+        
+        .footer-newsletter-form button:hover {
+            opacity: .85;
+        }
+        
+        .footer-main {
+            padding: 64px 40px 48px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+        
+        .footer-main-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        
+        @media(max-width:900px) {
+            .footer-main-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media(max-width:560px) {
+            .footer-main-inner {
+                grid-template-columns: 1fr;
+            }
+            .footer-main {
+                padding: 48px 24px;
+            }
+            .footer-newsletter {
+                padding: 40px 24px;
+            }
+        }
+        
+        .footer-brand p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .4);
+            line-height: 1.75;
+            margin-top: 16px;
+            max-width: 280px;
+        }
+        
+        .footer-brand-socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        
+        .footer-social-link {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255, 255, 255, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, .5);
+            font-size: 12px;
+            text-decoration: none;
+            transition: border-color .2s, color .2s;
+        }
+        
+        .footer-social-link:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+        
+        .footer-col-title {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35);
+            margin-bottom: 20px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col ul li a {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .6);
+            text-decoration: none;
+            transition: color .2s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        
+        .footer-bottom {
+            padding: 0 40px;
+        }
+        
+        .footer-bottom-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-bottom-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .footer-bottom-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .35);
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .footer-bottom-links a {
+            font-size: 11px;
+            color: rgba(255, 255, 255, .35);
+            text-decoration: none;
+            transition: color .2s;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: #fff;
+        }
+        
+        .footer-giant-logo {
+            text-align: center;
+            padding: 40px 0 0;
+            overflow: hidden;
+        }
+        
+        .footer-giant-logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(80px, 18vw, 240px);
+            font-weight: 400;
+            letter-spacing: -4px;
+            line-height: .85;
+            color: rgba(255, 255, 255, .05);
+            text-transform: uppercase;
+            display: block;
+            user-select: none;
+        }
+        
+        @media(max-width:560px) {
+            .footer-bottom {
+                padding: 0 24px;
+            }
+        }
+        /* ── WHATSAPP FLOAT ── */
+        
+        .wa-float {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 9000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+        
+        .wa-btn {
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, .4);
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform .25s, box-shadow .25s;
+        }
+        
+        .wa-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, .5);
+        }
+        
+        .wa-btn svg {
+            width: 28px;
+            height: 28px;
+        }
+        
+        .wa-bubble {
+            background: #fff;
+            border-radius: 12px 12px 0 12px;
+            padding: 14px 18px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .14);
+            max-width: 240px;
+            opacity: 0;
+            transform: translateY(8px) scale(.95);
+            transition: all .3s ease;
+            pointer-events: none;
+        }
+        
+        .wa-bubble.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .wa-bubble p {
+            font-size: 13px;
+            color: #171717;
+            line-height: 1.5;
+        }
+        
+        .wa-bubble p strong {
+            font-weight: 700;
+            color: #1a3a5c;
+        }
+        
+        .wa-bubble small {
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 6px;
+            display: block;
+        }
+        
+        .wa-close {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            background: #171717;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+        
+        .wa-bubble:hover .wa-close,
+        .wa-bubble.show .wa-close {
+            opacity: 1;
+        }
+        /* ── MOBILE STICKY CTA ── */
+        
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 8999;
+            background: #fff;
+            border-top: 1px solid #e8e8e8;
+            padding: 12px 20px;
+            gap: 10px;
+        }
+        
+        @media(max-width:768px) {
+            .mobile-sticky-cta {
+                display: flex;
+            }
+        }
+        
+        .mobile-sticky-btn {
+            flex: 1;
+            padding: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .mobile-sticky-wa {
+            background: #25D366;
+            color: #fff;
+        }
+        
+        .mobile-sticky-call {
+            background: #171717;
+            color: #fff;
+        }
+        /* ── BACK TO TOP ── */
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            left: 32px;
+            z-index: 8998;
+            width: 44px;
+            height: 44px;
+            background: #171717;
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .3s, transform .3s;
+            pointer-events: none;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .back-to-top:hover {
+            background: #1a3a5c;
+        }
+        /* ── BOOK VIEWING MODAL ── */
+        
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            z-index: 10002;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s, visibility .3s;
+            backdrop-filter: blur(3px);
+        }
+        
+        .modal-backdrop.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -48%) scale(.96);
+            background: #fff;
+            width: 90%;
+            max-width: 480px;
+            padding: 40px;
+            border-radius: 4px;
+            transition: transform .3s ease, opacity .3s ease;
+            opacity: 0;
+        }
+        
+        .modal-backdrop.open .modal-box {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        
+        .modal-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: #171717;
+            margin-bottom: 6px;
+        }
+        
+        .modal-subtitle {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 28px;
+        }
+        
+        .modal-form-group {
+            margin-bottom: 18px;
+        }
+        
+        .modal-form-group label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 6px;
+        }
+        
+        .modal-form-group input,
+        .modal-form-group select {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #e8e8e8;
+            font-size: 13px;
+            font-family: 'DM Sans', sans-serif;
+            color: #171717;
+            outline: none;
+            border-radius: 2px;
+            transition: border-color .2s;
+        }
+        
+        .modal-form-group input:focus,
+        .modal-form-group select:focus {
+            border-color: #1a3a5c;
+        }
+        
+        .modal-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        
+        .modal-submit {
+            width: 100%;
+            padding: 13px;
+            background: #1a3a5c;
+            color: #fff;
+            border: none;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            margin-top: 8px;
+            transition: background .25s;
+        }
+        
+        .modal-submit:hover {
+            background: #0f2640;
+        }
+        
+        .modal-property-tag {
+            display: inline-block;
+            background: #f0f4f8;
+            color: #1a3a5c;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            padding: 5px 12px;
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div style="display:flex;gap:2px;font-family:'DM Serif Display',serif;font-size:clamp(36px,7vw,72px);font-weight:400;letter-spacing:-1px;color:#171717;">
+            Dwelro
+        </div>
+    </div>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div style="background:#1a3a5c;position:relative;z-index:10001;">
+        <div class="max-w-screen-xl mx-auto px-5 py-2">
+            <div class="text-white text-xs text-center w-full" style="font-weight:400;letter-spacing:.3px;">Flagship Office @ 1 Raffles Place, #22-01 · Open Daily 9am–6pm · <a href="#" style="text-decoration:underline;color:#fff;opacity:.85;">Book a free consultation</a></div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="site-header" id="siteHeader">
+        <div class="top-part w-full">
+            <div class="max-w-screen-xl mx-auto px-5 py-3 flex items-center justify-between relative">
+                <div class="flex items-center gap-3 flex-1">
+                    <button class="mobile-menu-btn items-center justify-center" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <svg class="hdr-icon" width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M10.5 13H1M17 7H1M17 1H1" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </button>
+                    <div class="desktop-search flex items-center gap-2 flex-1 max-w-xs">
+                        <svg class="hdr-icon flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15 15L11.38 11.38M1 7.03C1 3.7 3.7 1 7.03 1C10.37 1 13.07 3.7 13.07 7.03C13.07 10.37 10.37 13.07 7.03 13.07C3.7 13.07 1 10.37 1 7.03Z" stroke-width="1.2" stroke-linecap="round"/></svg>
+                        <input type="text" placeholder="Search properties…" class="search-input text-xs w-full" style="font-size:13px;font-family:'DM Sans',sans-serif;" />
+                    </div>
+                    <button class="mobile-search-icon flex items-center justify-center" aria-label="Search">
+                    <svg class="hdr-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15 15L11.38 11.38M1 7.03C1 3.7 3.7 1 7.03 1C10.37 1 13.07 3.7 13.07 7.03C13.07 10.37 10.37 13.07 7.03 13.07C3.7 13.07 1 10.37 1 7.03Z" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </button>
+                </div>
+                <div class="absolute left-1/2 -translate-x-1/2" style="top:50%;transform:translate(-50%,-50%);">
+                    <a href="index.html" class="block relative">
+                        <div class="logo-white" style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#fff;letter-spacing:-.5px;white-space:nowrap;line-height:1;">Dwelro</div>
+                        <div class="logo-black" style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#171717;letter-spacing:-.5px;white-space:nowrap;line-height:1;">Dwelro</div>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4 flex-1 justify-end">
+                    <a href="/wishlist" class="desktop-only-icons flex items-center justify-center" aria-label="Saved">
+                        <svg class="hdr-icon" width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M2.01 2.02C0.66 3.39 0.66 5.58 2.01 6.95L8 13C9.99 10.99 11.99 8.97 13.99 6.96C15.34 5.59 15.34 3.39 13.99 2.03C12.63 0.67 10.46 0.67 9.11 2.03L8 3.14L6.89 2.02C5.54 0.66 3.37 0.66 2.01 2.02Z" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="/account" class="desktop-only-icons flex items-center justify-center" aria-label="Account">
+                        <svg class="hdr-icon" width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M8 8.23C9.85 8.23 11.35 6.73 11.35 4.88C11.35 3.03 9.85 1.54 8 1.54C6.15 1.54 4.66 3.03 4.66 4.88C4.66 6.73 6.15 8.23 8 8.23Z" stroke-width="1.3" stroke-linecap="round"/><path d="M2.7 16.46H13.3C14.48 16.46 15.38 15.45 14.84 14.41C14.03 12.88 12.19 11.06 8 11.06C3.81 11.06 1.97 12.88 1.16 14.41C0.62 15.45 1.52 16.46 2.7 16.46Z" stroke-width="1.3" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="/contact" class="desktop-only-icons" style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#fff;text-decoration:none;transition:color .3s;background:rgba(255,255,255,.15);padding:8px 16px;border-radius:2px;backdrop-filter:blur(6px);"
+                        id="ctaNavLink">Book a Call</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-row w-full desktop-nav-wrap" id="navRow">
+            <div class="max-w-screen-xl mx-auto px-5 flex justify-center">
+                <nav class="flex items-center">
+                    <div onmouseenter="showDrop('buy')" onmouseleave="scheduleDrop()"><a href="buy.html" class="nav-link">Buy</a></div>
+                    <div onmouseenter="showDrop('rent')" onmouseleave="scheduleDrop()"><a href="rent.html" class="nav-link">Rent</a></div>
+                    <div onmouseenter="showDrop('sell')" onmouseleave="scheduleDrop()"><a href="sell.html" class="nav-link">Sell</a></div>
+
+
+                    <div onmouseenter="showDrop('invest')" onmouseleave="scheduleDrop()"><a href="Investment.html" class="nav-link">Investment</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="listings.php" class="nav-link">Listings</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="map-search.html" class="nav-link">Map Search</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="agents.php" class="nav-link">Our Agents</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="about.html" class="nav-link">About</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="blog.html" class="nav-link">Blog</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="contact.html" class="nav-link">Contact Us</a></div>
+                </nav>
+            </div>
+        </div>
+        <!-- DROPDOWNS -->
+        <div class="dropdown-menu" id="drop-buy" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-8 flex gap-10">
+                <div class="w-1/2 grid grid-cols-3 gap-8">
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">Property Type</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">HDB Flats</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Condominiums</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Landed Homes</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Executive Condos</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Penthouses</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">By District</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">Core Central (D1–D11)</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Rest of Central</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">East Region</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">North Region</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">West Region</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">Budget Range</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">Under $1M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">$1M – $2M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">$2M – $5M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Above $5M</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-1/2">
+                    <a href="#" class="block relative overflow-hidden" style="height:300px;"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;" alt="Luxury" />
+                        <div style="position:absolute;inset:0;background:rgba(0,0,0,.32);"></div>
+                        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff;">
+                            <h3 style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">LUXURY COLLECTION</h3>
+                            <p style="font-size:12px;margin-bottom:16px;opacity:.9;">Exclusive high-end residences, curated for discerning buyers.</p><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:1px;">VIEW LUXURY LISTINGS</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-rent" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex gap-8"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Residential Rentals</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Short-Term Leases</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Expat Housing</a>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-sell" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex gap-8"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Free Valuation</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">List Your Property</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Seller's Guide</a>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-invest" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex flex-wrap gap-6"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Investment Analysis</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Overseas Properties</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">REITs Guide</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Market Reports</a></div>
+        </div>
+    </header>
+    <div id="dropBackdrop" onclick="closeDrop()" style="position:fixed;inset:0;z-index:100;display:none;"></div>
+
+    <!-- HERO -->
+    <div class="hero-section" id="hero">
+        <div class="hero-slide active" id="slide0">
+            <img src="img/IMG_8031.jpg" alt="Luxury Residences" fetchpriority="high" />
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-slide" id="slide1">
+            <img src="img/3d-house-model-with-modern-architecture.jpg" alt="City Skyline" loading="lazy" />
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-slide" id="slide2">
+            <img src="img/way-white-house.jpg" alt="Modern Living" loading="lazy" />
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-caption">
+            <p class="hero-label">Europe's Premier Property Partner</p>
+            <h1 class="hero-title">Your Dream Home<br><em>Awaits You.</em></h1>
+            <p class="hero-sub">We help you buy, rent, sell, and invest in premium properties across Europe with expert guidance and curated listings.</p>
+            <a href="#handpickedSection" class="hero-btn">Browse Listings</a>
+
+            <div class="hero-search-outer">
+                <div class="hero-search-wrap">
+                    <div class="hero-search-tabs">
+                        <button class="hero-search-tab active" onclick="setSearchTab(this,'Buy')">Buy</button>
+                        <button class="hero-search-tab" onclick="setSearchTab(this,'Rent')">Rent</button>
+                        <button class="hero-search-tab" onclick="setSearchTab(this,'Sell')">Sell</button>
+                    </div>
+                    <div class="hero-search-bar">
+                        <div class="hero-search-icon">
+                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M16 16L11.8 11.8M1 7.5C1 3.91 3.91 1 7.5 1C11.09 1 14 3.91 14 7.5C14 11.09 11.09 14 7.5 14C3.91 14 1 11.09 1 7.5Z" stroke="#1a3a5c" stroke-width="1.4" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="hero-search-input-wrap">
+                            <input class="hero-search-input" id="heroSearchInput" type="text" autocomplete="off" onfocus="hidePlaceholder()" onblur="showPlaceholder()" oninput="onSearchInput()" />
+                            <div class="hero-search-placeholder" id="heroSearchPlaceholder">
+                                <span id="heroTypingText"></span><span class="hero-search-cursor"></span>
+                            </div>
+                        </div>
+                        <div class="hero-search-divider"></div>
+                        <div class="hero-search-location">
+                            <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 1C3.791 1 2 2.791 2 5C2 8.5 6 13 6 13C6 13 10 8.5 10 5C10 2.791 8.209 1 6 1Z" stroke="#888" stroke-width="1.2"/><circle cx="6" cy="5" r="1.4" stroke="#888" stroke-width="1.1"/></svg>
+                            <span>London</span>
+                        </div>
+                        <button class="hero-search-btn" onclick="doSearch()">
+                        <svg width="14" height="14" viewBox="0 0 17 17" fill="none"><path d="M16 16L11.8 11.8M1 7.5C1 3.91 3.91 1 7.5 1C11.09 1 14 3.91 14 7.5C14 11.09 11.09 14 7.5 14C3.91 14 1 11.09 1 7.5Z" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+                        Search
+                    </button>
+                    </div>
+                    <div class="hero-search-meta">
+                        <span class="hero-search-suggestion" onclick="fillSearch('2BR Condo near MRT')"><span class="hero-search-suggestion-dot"></span>2BR Condo near MRT</span>
+                        <span class="hero-search-suggestion" onclick="fillSearch('Luxury villa Sentosa Cove')"><span class="hero-search-suggestion-dot"></span>Luxury Villa Sentosa</span>
+                        <span class="hero-search-suggestion" onclick="fillSearch('Short-term rental D09')"><span class="hero-search-suggestion-dot"></span>Short-term Rental D09</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINATION DOTS -->
+        <div style="position:absolute;bottom:28px;right:0;width:100%;z-index:10;">
+            <div class="max-w-screen-xl mx-auto px-5 flex justify-end">
+                <div style="display:flex;gap:8px;align-items:center;">
+                    <span class="pag-dot on" onclick="goSlide(0)"></span>
+                    <span class="pag-dot" onclick="goSlide(1)"></span>
+                    <span class="pag-dot" onclick="goSlide(2)"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-logo-bar">
+            <div class="max-w-screen-xl mx-auto">
+                <div style="font-family:'DM Serif Display',serif;font-size:clamp(48px,8vw,96px);font-weight:400;letter-spacing:-2px;color:rgba(255,255,255,.15);line-height:1;text-transform:uppercase;">Dwelro</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURED LISTINGS -->
+    <section class="handpicked-section" id="handpickedSection">
+        <div class="handpicked-header">
+            <h2>Handpicked Properties That <em>Define Prestige</em></h2>
+        </div>
+        <div class="filter-tabs">
+            <button class="filter-tab active" onclick="filterCards('all',this)">All</button>
+            <button class="filter-tab" onclick="filterCards('condo',this)">Condos</button>
+            <button class="filter-tab" onclick="filterCards('landed',this)">Landed</button>
+            <button class="filter-tab" onclick="filterCards('hdb',this)">HDB</button>
+            <button class="filter-tab" onclick="filterCards('commercial',this)">Commercial</button>
+            <button class="filter-tab" onclick="filterCards('overseas',this)">Overseas</button>
+        </div>
+        <div class="view-tabs">
+            <button class="view-tab active" onclick="setView('grid',this)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="8" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.2"/></svg>
+            Grid
+        </button>
+            <button class="view-tab" onclick="setView('map',this)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1C4.79 1 3 2.79 3 5C3 8.5 7 13 7 13C7 13 11 8.5 11 5C11 2.79 9.21 1 7 1Z" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="5" r="1.5" stroke="currentColor" stroke-width="1.1"/></svg>
+            Map View
+        </button>
+        </div>
+
+        <div id="gridView">
+            <div class="property-grid" id="propertyGrid">
+                <div class="prop-card" data-cat="condo" data-name="Marina Skyline Residences" data-loc="Marina Bay, D01">
+                    <div class="prop-img-wrap">
+                        <div class="prop-badge">New Launch</div>
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop" alt="Marina Residences" loading="lazy" />
+                        <div class="prop-overlay">
+                            <div class="prop-overlay-actions">
+                                <button class="prop-overlay-btn prop-btn-view" onclick="openPropertyModal(1, 'Marina Skyline Residences', 2)">View &rarr;</button>
+                                <button class="prop-overlay-btn prop-btn-book" onclick="openBooking('Marina Skyline Residences', 1, 2)">Book Viewing</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prop-body">
+                        <div class="prop-location"><svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M5 1C3.067 1 1.5 2.567 1.5 4.5C1.5 7.5 5 11 5 11C5 11 8.5 7.5 8.5 4.5C8.5 2.567 6.933 1 5 1Z" stroke="#bbb" stroke-width="1"/><circle cx="5" cy="4.5" r="1.2" stroke="#bbb" stroke-width="1"/></svg>Marina
+                            Bay, D01</div>
+                        <div class="prop-name">Marina Skyline Residences</div>
+                        <div class="prop-desc">Panoramic bay views from every unit. Full-facility tower with infinity pool, gym &amp; concierge.</div>
+                        <div class="prop-price-row"><span class="prop-price">From $3.2M</span><span class="prop-tag">Condo</span></div>
+                    </div>
+                </div>
+                <div class="prop-card" data-cat="landed" data-name="Bukit Timah GCB" data-loc="Bukit Timah, D21">
+                    <div class="prop-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop" alt="Bukit Timah Bungalow" loading="lazy" />
+                        <div class="prop-overlay">
+                            <div class="prop-overlay-actions">
+                                <button class="prop-overlay-btn prop-btn-view" onclick="openPropertyModal(1, 'Marina Skyline Residences', 2)">View &rarr;</button>
+                                <button class="prop-overlay-btn prop-btn-book" onclick="openBooking('Bukit Timah GCB', 2, 1)">Book Viewing</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prop-body">
+                        <div class="prop-location"><svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M5 1C3.067 1 1.5 2.567 1.5 4.5C1.5 7.5 5 11 5 11C5 11 8.5 7.5 8.5 4.5C8.5 2.567 6.933 1 5 1Z" stroke="#bbb" stroke-width="1"/><circle cx="5" cy="4.5" r="1.2" stroke="#bbb" stroke-width="1"/></svg>Bukit
+                            Timah, D21</div>
+                        <div class="prop-name">Bukit Timah Good Class Bungalow</div>
+                        <div class="prop-desc">Sprawling luxury villa in London's most coveted Mayfair district. Lush private garden with heated pool.</div>
+                        <div class="prop-price-row"><span class="prop-price">$18.8M</span><span class="prop-tag">Bestseller</span></div>
+                    </div>
+                </div>
+                <div class="prop-card" data-cat="overseas" data-name="Canggu Luxury Villa" data-loc="Canggu, Bali">
+                    <div class="prop-img-wrap">
+                        <div class="prop-badge">Hot Pick</div>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&auto=format&fit=crop" alt="Bali Villa" loading="lazy" />
+                        <div class="prop-overlay">
+                            <div class="prop-overlay-actions">
+                                <button class="prop-overlay-btn prop-btn-view" onclick="openPropertyModal(1, 'Marina Skyline Residences', 2)">View &rarr;</button>
+                                <button class="prop-overlay-btn prop-btn-book" onclick="openBooking('Canggu Luxury Villa', 3, 1)">Book Viewing</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prop-body">
+                        <div class="prop-location"><svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M5 1C3.067 1 1.5 2.567 1.5 4.5C1.5 7.5 5 11 5 11C5 11 8.5 7.5 8.5 4.5C8.5 2.567 6.933 1 5 1Z" stroke="#bbb" stroke-width="1"/><circle cx="5" cy="4.5" r="1.2" stroke="#bbb" stroke-width="1"/></svg>Canggu,
+                            Bali
+                        </div>
+                        <div class="prop-name">Canggu Luxury Villa</div>
+                        <div class="prop-desc">Tropical resort-style villa with private pool, 4 ensuite rooms, and high rental yield potential.</div>
+                        <div class="prop-price-row"><span class="prop-price">USD $820K</span><span class="prop-tag">Overseas</span></div>
+                    </div>
+                </div>
+                <div class="prop-card" data-cat="hdb" data-name="Bishan Executive HDB" data-loc="Bishan, D20">
+                    <div class="prop-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop" alt="Bishan HDB" loading="lazy" />
+                        <div class="prop-overlay">
+                            <div class="prop-overlay-actions">
+                                <button class="prop-overlay-btn prop-btn-view" onclick="openPropertyModal(1, 'Marina Skyline Residences', 2)">View &rarr;</button>
+                                <button class="prop-overlay-btn prop-btn-book" onclick="openBooking('Bishan Executive HDB', 4, 4)">Book Viewing</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prop-body">
+                        <div class="prop-location"><svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M5 1C3.067 1 1.5 2.567 1.5 4.5C1.5 7.5 5 11 5 11C5 11 8.5 7.5 8.5 4.5C8.5 2.567 6.933 1 5 1Z" stroke="#bbb" stroke-width="1"/><circle cx="5" cy="4.5" r="1.2" stroke="#bbb" stroke-width="1"/></svg>Bishan,
+                            D20
+                        </div>
+                        <div class="prop-name">Bishan 5-Room Executive HDB</div>
+                        <div class="prop-desc">High-floor, unblocked views, renovated throughout. Walking distance to MRT and schools.</div>
+                        <div class="prop-price-row"><span class="prop-price">$980K</span><span class="prop-tag">HDB</span></div>
+                    </div>
+                </div>
+                <div class="prop-card" data-cat="condo" data-name="Orchard Boulevard Penthouse" data-loc="Orchard, D09">
+                    <div class="prop-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop" alt="Orchard Penthouse" loading="lazy" />
+                        <div class="prop-overlay">
+                            <div class="prop-overlay-actions">
+                                <button class="prop-overlay-btn prop-btn-view" onclick="openPropertyModal(1, 'Marina Skyline Residences', 2)">View &rarr;</button>
+                                <button class="prop-overlay-btn prop-btn-book" onclick="openBooking('Orchard Boulevard Penthouse', 5, 2)">Book Viewing</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prop-body">
+                        <div class="prop-location"><svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M5 1C3.067 1 1.5 2.567 1.5 4.5C1.5 7.5 5 11 5 11C5 11 8.5 7.5 8.5 4.5C8.5 2.567 6.933 1 5 1Z" stroke="#bbb" stroke-width="1"/><circle cx="5" cy="4.5" r="1.2" stroke="#bbb" stroke-width="1"/></svg>Orchard,
+                            D09
+                        </div>
+                        <div class="prop-name">Orchard Boulevard Penthouse</div>
+                        <div class="prop-desc">Rare 5-bedroom penthouse with private rooftop terrace. The pinnacle of Orchard Road living.</div>
+                        <div class="prop-price-row"><span class="prop-price">$12.5M</span><span class="prop-tag">Penthouse</span></div>
+                    </div>
+                </div>
+                <div class="prop-card" data-cat="commercial" data-name="Shenton Way Office" data-loc="Shenton Way, D01">
+                    <div class="prop-img-wrap">
+                        <div class="prop-badge">As-Is Deal</div>
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop" alt="Shenton Way Office" loading="lazy" />
+                        <div class="prop-overlay">
+                            <div class="prop-overlay-actions">
+                                <button class="prop-overlay-btn prop-btn-view" onclick="openPropertyModal(1, 'Marina Skyline Residences', 2)">View &rarr;</button>
+                                <button class="prop-overlay-btn prop-btn-book" onclick="openBooking('Shenton Way Office', 6, 3)">Book Viewing</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prop-body">
+                        <div class="prop-location"><svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M5 1C3.067 1 1.5 2.567 1.5 4.5C1.5 7.5 5 11 5 11C5 11 8.5 7.5 8.5 4.5C8.5 2.567 6.933 1 5 1Z" stroke="#bbb" stroke-width="1"/><circle cx="5" cy="4.5" r="1.2" stroke="#bbb" stroke-width="1"/></svg>Shenton
+                            Way, D01</div>
+                        <div class="prop-name">Grade A Office — Shenton Way</div>
+                        <div class="prop-desc">4,200 sqft of fitted Grade A office space in the CBD. Ideal for regional HQ or investment.</div>
+                        <div class="prop-price-row"><span class="prop-price">$7.4M</span><span class="prop-tag">Commercial</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-wrap"><a href="listings.php" class="view-all-btn">View All Listings</a></div>
+        </div>
+
+        <!-- MAP VIEW -->
+        <div id="mapView">
+            <div class="map-container" style="max-width:1200px;margin:0 auto;padding:0 40px;">
+                <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1550489257!2d-0.12775829999999999!3d51.5073509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2sLondon%2C%20UK!5e0!3m2!1sen!2suk!4v1699999999999!5m2!1sen!2suk"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border-radius:4px;"></iframe>
+                <div class="map-listings-panel" style="padding:0;">
+                    <div class="map-listing-card" onclick="openBooking('Marina Skyline Residences', 1, 2)">
+                        <div class="mloc">Marina Bay · D01</div>
+                        <div class="mname">Marina Skyline Residences</div>
+                        <div class="mprice">From $3.2M</div>
+                    </div>
+                    <div class="map-listing-card" onclick="openBooking('Bukit Timah GCB', 2, 1)">
+                        <div class="mloc">Bukit Timah · D21</div>
+                        <div class="mname">Bukit Timah Good Class Bungalow</div>
+                        <div class="mprice">$18.8M</div>
+                    </div>
+                    <div class="map-listing-card" onclick="openBooking('Bishan Executive HDB', 4, 4)">
+                        <div class="mloc">Bishan · D20</div>
+                        <div class="mname">Bishan 5-Room Executive HDB</div>
+                        <div class="mprice">$980K</div>
+                    </div>
+                    <div class="map-listing-card" onclick="openBooking('Orchard Boulevard Penthouse', 5, 2)">
+                        <div class="mloc">Orchard · D09</div>
+                        <div class="mname">Orchard Boulevard Penthouse</div>
+                        <div class="mprice">$12.5M</div>
+                    </div>
+                    <div class="map-listing-card" onclick="openBooking('Shenton Way Office', 6, 3)">
+                        <div class="mloc">Shenton Way · D01</div>
+                        <div class="mname">Grade A Office — Shenton Way</div>
+                        <div class="mprice">$7.4M</div>
+                    </div>
+                    <div class="map-listing-card" onclick="openBooking('Canggu Luxury Villa', 3, 1)">
+                        <div class="mloc">Canggu, Bali · Overseas</div>
+                        <div class="mname">Canggu Luxury Villa</div>
+                        <div class="mprice">USD $820K</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORE PROPERTY TYPES -->
+    <section class="essentials-section">
+        <h2 class="essentials-heading">Explore Property Types</h2>
+        <div class="essentials-grid">
+            <a href="#" class="ess-item ess-sofas from-left"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&auto=format&fit=crop&q=80" alt="Condominiums" loading="lazy" />
+                <div class="ess-item-overlay"></div><span class="ess-item-label">Condominiums</span></a>
+            <a href="#" class="ess-item ess-tables from-top"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&auto=format&fit=crop&q=80" alt="Landed Homes" loading="lazy" />
+                <div class="ess-item-overlay"></div><span class="ess-item-label">Landed<br>Homes</span></a>
+            <a href="#" class="ess-item ess-coffee from-top"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=80" alt="HDB Flats" loading="lazy" />
+                <div class="ess-item-overlay"></div><span class="ess-item-label">HDB<br>Flats</span></a>
+            <a href="#" class="ess-item ess-chairs from-right"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop&q=80" alt="Commercial" loading="lazy" />
+                <div class="ess-item-overlay"></div><span class="ess-item-label">Commercial</span></a>
+            <a href="#" class="ess-item ess-storage from-bottom"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&auto=format&fit=crop&q=80" alt="Overseas" loading="lazy" />
+                <div class="ess-item-overlay"></div><span class="ess-item-label">Overseas</span></a>
+            <a href="#" class="ess-item ess-rugs from-bottom"><img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&auto=format&fit=crop&q=80" alt="New Dev" loading="lazy" />
+                <div class="ess-item-overlay"></div><span class="ess-item-label">New Dev</span></a>
+            <a href="#" class="ess-item ess-lamps from-right"><img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&auto=format&fit=crop&q=80" alt="Investment" loading="lazy" />
+                <div class="ess-item-overlay"></div><span class="ess-item-label">Investment</span></a>
+        </div>
+    </section>
+
+    <!-- SCROLL COVER -->
+    <div class="scroll-cover-section" id="scrollCoverSection">
+        <div class="scroll-slot">
+            <div class="scroll-panel"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&auto=format&fit=crop&q=80" alt="Our Philosophy" loading="lazy" />
+                <div class="scroll-panel-content">
+                    <p class="scroll-panel-eyebrow">Our Philosophy</p>
+                    <h2 class="scroll-panel-title">Built Around<br><em>Your Goals</em></h2>
+                    <p class="scroll-panel-sub">We don't just sell properties — we build futures. Every recommendation is guided by your financial goals and lifestyle aspirations.</p><a href="#" class="scroll-panel-btn">Meet Our Team</a></div>
+                <div class="scroll-cover-progress"><span id="scrollProgressBar"></span></div>
+            </div>
+        </div>
+        <div class="scroll-slot">
+            <div class="scroll-panel-over"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&auto=format&fit=crop&q=80" alt="Trusted Expertise" loading="lazy" />
+                <div class="scroll-panel-content">
+                    <p class="scroll-panel-eyebrow">Trusted Expertise</p>
+                    <h2 class="scroll-panel-title">15 Years of<br><em>Market Mastery</em></h2>
+                    <p class="scroll-panel-sub">Our agents hold CEA certifications and deep local insight — so every deal is backed by data, experience, and transparency.</p><a href="#" class="scroll-panel-btn">Book a Valuation</a></div>
+            </div>
+        </div>
+        <div class="scroll-slot">
+            <div class="scroll-panel-over"><img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=1400&auto=format&fit=crop&q=80" alt="Investment" loading="lazy" />
+                <div class="scroll-panel-content">
+                    <p class="scroll-panel-eyebrow">Invest with Confidence</p>
+                    <h2 class="scroll-panel-title">Your Portfolio,<br><em>Perfectly Positioned</em></h2>
+                    <p class="scroll-panel-sub">From yields to capital appreciation — our investment desk analyses every angle so your property works harder for you.</p><a href="#" class="scroll-panel-btn">Explore Investment</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RE HERO -->
+    <section class="re-hero-section">
+        <p class="re-eyebrow">Premium Listings &bull; Expert Agents &bull; Across Europe</p>
+        <h2 class="re-giant-heading">Premium<br><em>Real Estate</em></h2>
+        <div class="re-divider-band">
+            <div class="re-ticker">
+                <span>New Listings</span><span class="dot">&nbsp;—&nbsp;</span><span>Luxury Residences</span><span class="dot">&nbsp;—&nbsp;</span><span>Commercial Spaces</span><span class="dot">&nbsp;—&nbsp;</span><span>Investment Properties</span>
+                <span class="dot">&nbsp;—&nbsp;</span><span>Free Valuation</span><span class="dot">&nbsp;—&nbsp;</span>
+                <span>New Listings</span><span class="dot">&nbsp;—&nbsp;</span><span>Luxury Residences</span><span class="dot">&nbsp;—&nbsp;</span><span>Commercial Spaces</span><span class="dot">&nbsp;—&nbsp;</span><span>Investment Properties</span>
+                <span class="dot">&nbsp;—&nbsp;</span><span>Free Valuation</span><span class="dot">&nbsp;—&nbsp;</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS DARK -->
+    <section class="testimonials-section" id="testiSection">
+        <div class="testi-image-panel" id="testiImagePanel">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1400&auto=format&fit=crop&q=80" alt="" class="t-active" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1400&auto=format&fit=crop&q=80" alt="" class="t-inactive" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&auto=format&fit=crop&q=80" alt="" class="t-inactive" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1400&auto=format&fit=crop&q=80" alt="" class="t-inactive" loading="lazy" />
+        </div>
+        <div class="testi-dark-panel">
+            <div class="testi-eyebrow">Why Clients Choose Dwelro</div>
+            <div class="testi-quote-wrap">
+                <div>
+                    <div class="testi-quote t-visible" id="testiQuote">&ldquo;Our agent found us our dream condo in 3 weeks — negotiated $120K below asking. The entire process felt effortless.&rdquo;</div>
+                    <div class="testi-author t-visible" id="testiAuthor">Sarah &amp; James T. &mdash; Orchard Road</div>
+                </div>
+            </div>
+            <div>
+                <div class="testi-count" id="testiCount">01 / 04</div>
+                <div class="testi-nav">
+                    <div class="testi-dots" id="testiDots">
+                        <div class="testi-dot on" onclick="goTesti(0)"></div>
+                        <div class="testi-dot" onclick="goTesti(1)"></div>
+                        <div class="testi-dot" onclick="goTesti(2)"></div>
+                        <div class="testi-dot" onclick="goTesti(3)"></div>
+                    </div>
+                    <div class="testi-arrows"><button class="testi-arrow" onclick="prevTesti()"><svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M5 1L1 6M1 6L5 11M1 6H15" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                        <button class="testi-arrow" onclick="nextTesti()"><svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M11 1L15 6M15 6L11 11M15 6H1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS LIGHT -->
+    <section class="testimonials-section" id="testiSection2">
+        <div class="testi-light-panel">
+            <div class="testi-eyebrow--light">What Our Clients Say</div>
+            <div class="testi-quote-wrap">
+                <div>
+                    <div class="testi-quote--light t-visible" id="testiQuote2">&ldquo;The market insights Dwelro provided were invaluable. We sold above valuation within 10 days — exceptional service from start to finish.&rdquo;</div>
+                    <div class="testi-author--light t-visible" id="testiAuthor2">Priya &amp; Daniel K. &mdash; Bukit Timah</div>
+                </div>
+            </div>
+            <div>
+                <div class="testi-count--light" id="testiCount2">01 / 04</div>
+                <div class="testi-nav">
+                    <div class="testi-dots" id="testiDots2">
+                        <div class="testi-dot--light on" onclick="goTesti2(0)"></div>
+                        <div class="testi-dot--light" onclick="goTesti2(1)"></div>
+                        <div class="testi-dot--light" onclick="goTesti2(2)"></div>
+                        <div class="testi-dot--light" onclick="goTesti2(3)"></div>
+                    </div>
+                    <div class="testi-arrows"><button class="testi-arrow--light" onclick="prevTesti2()"><svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M5 1L1 6M1 6L5 11M1 6H15" stroke="#171717" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                        <button class="testi-arrow--light" onclick="nextTesti2()"><svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M11 1L15 6M15 6L11 11M15 6H1" stroke="#171717" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testi-image-panel" id="testiImagePanel2">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&auto=format&fit=crop&q=80" alt="" class="t-active" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=1400&auto=format&fit=crop&q=80" alt="" class="t-inactive" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1400&auto=format&fit=crop&q=80" alt="" class="t-inactive" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1400&auto=format&fit=crop&q=80" alt="" class="t-inactive" loading="lazy" />
+        </div>
+    </section>
+
+    <!-- AGENT PROFILES -->
+    <section class="agents-section" id="agentsSection">
+        <div class="agents-header">
+            <h2>Meet Our <em style="font-style:italic;color:#888;">Expert Agents</em></h2>
+            <p>CEA-certified professionals dedicated to your property journey</p>
+        </div>
+        <div class="agents-grid" id="agentsGrid">
+            <div class="agent-card">
+                <div class="agent-photo-wrap">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80" alt="James Tan" />
+                    <div class="agent-overlay">
+                        <a href="https://wa.me/6591234567" class="agent-overlay-btn agent-btn-wa" target="_blank">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>                            WhatsApp
+                        </a>
+                        <a href="agents.php" class="agent-overlay-btn agent-btn-profile">Profile</a>
+                    </div>
+                </div>
+                <div class="agent-name">James Tan</div>
+                <div class="agent-title">Senior Property Consultant</div>
+                <div class="agent-stats">
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">142</div>
+                        <div class="agent-stat-label">Deals</div>
+                    </div>
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">$380M</div>
+                        <div class="agent-stat-label">Volume</div>
+                    </div>
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">12yr</div>
+                        <div class="agent-stat-label">Exp.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-photo-wrap">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80" alt="Sarah Lim" />
+                    <div class="agent-overlay">
+                        <a href="https://wa.me/6598765432" class="agent-overlay-btn agent-btn-wa" target="_blank">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>                            WhatsApp
+                        </a>
+                        <a href="agents.php" class="agent-overlay-btn agent-btn-profile">Profile</a>
+                    </div>
+                </div>
+                <div class="agent-name">Sarah Lim</div>
+                <div class="agent-title">Luxury Property Specialist</div>
+                <div class="agent-stats">
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">98</div>
+                        <div class="agent-stat-label">Deals</div>
+                    </div>
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">$520M</div>
+                        <div class="agent-stat-label">Volume</div>
+                    </div>
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">8yr</div>
+                        <div class="agent-stat-label">Exp.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-photo-wrap">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80" alt="David Koh" />
+                    <div class="agent-overlay">
+                        <a href="https://wa.me/6591122334" class="agent-overlay-btn agent-btn-wa" target="_blank">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>                            WhatsApp
+                        </a>
+                        <a href="agents.php" class="agent-overlay-btn agent-btn-profile">Profile</a>
+                    </div>
+                </div>
+                <div class="agent-name">David Koh</div>
+                <div class="agent-title">Commercial &amp; Investment Lead</div>
+                <div class="agent-stats">
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">211</div>
+                        <div class="agent-stat-label">Deals</div>
+                    </div>
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">$1.1B</div>
+                        <div class="agent-stat-label">Volume</div>
+                    </div>
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">15yr</div>
+                        <div class="agent-stat-label">Exp.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-photo-wrap">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80" alt="Priya Nair" />
+                    <div class="agent-overlay">
+                        <a href="https://wa.me/6587654321" class="agent-overlay-btn agent-btn-wa" target="_blank">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>                            WhatsApp
+                        </a>
+                        <a href="agents.php" class="agent-overlay-btn agent-btn-profile">Profile</a>
+                    </div>
+                </div>
+                <div class="agent-name">Priya Nair</div>
+                <div class="agent-title">HDB &amp; Residential Expert</div>
+                <div class="agent-stats">
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">176</div>
+                        <div class="agent-stat-label">Deals</div>
+                    </div>
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">$240M</div>
+                        <div class="agent-stat-label">Volume</div>
+                    </div>
+                    <div class="agent-stat">
+                        <div class="agent-stat-num">9yr</div>
+                        <div class="agent-stat-label">Exp.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="agents-cta">
+            <a href="agents.php" class="view-all-btn">View All Agents</a>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="re-trust-section">
+        <h3 class="re-trust-heading">Hassle-Free, Every Step</h3>
+        <p class="re-trust-sub">From first viewing to final keys — we handle everything.</p>
+        <div class="re-features-grid" id="reFeaturesGrid">
+            <div class="re-feature-item">
+                <div class="re-icon-wrap"><svg viewBox="0 0 36 36" fill="none"><rect x="4" y="8" width="28" height="22" rx="1.5" stroke="#171717" stroke-width="1.4"/><path d="M4 13H32" stroke="#171717" stroke-width="1.4"/><path d="M13 8V5M23 8V5" stroke="#171717" stroke-width="1.4" stroke-linecap="round"/><path d="M11 20H18M11 24H16" stroke="#171717" stroke-width="1.3" stroke-linecap="round"/><circle cx="26" cy="23" r="4" stroke="#1a3a5c" stroke-width="1.3"/><path d="M26 21V25M24 23H28" stroke="#1a3a5c" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+                <p class="re-feature-title">Free Property<br>Valuation</p>
+                <p class="re-feature-desc">Get an accurate market assessment with no obligation, at no cost.</p>
+            </div>
+            <div class="re-feature-item">
+                <div class="re-icon-wrap"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4L6 9V18C6 24.627 11.373 30 18 30C24.627 30 30 24.627 30 18V9L18 4Z" stroke="#171717" stroke-width="1.4" stroke-linejoin="round"/><path d="M13 18L16.5 21.5L23 14.5" stroke="#1a3a5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <p class="re-feature-title">Legal Assurance</p>
+                <p class="re-feature-desc">Every transaction backed by thorough due diligence and legal support.</p>
+            </div>
+            <div class="re-feature-item">
+                <div class="re-icon-wrap"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="12" r="5.5" stroke="#171717" stroke-width="1.4"/><path d="M7 30C7 24.477 12.149 20 18.5 20C24.851 20 30 24.477 30 30" stroke="#171717" stroke-width="1.4" stroke-linecap="round"/><path d="M24 14L25.5 15.5L28.5 12" stroke="#1a3a5c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <p class="re-feature-title">CEA Certified<br>Agents</p>
+                <p class="re-feature-desc">Licensed agents with deep market knowledge and dedicated service.</p>
+            </div>
+            <div class="re-feature-item">
+                <div class="re-icon-wrap"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="13" stroke="#171717" stroke-width="1.4"/><path d="M18 10V18L23 22" stroke="#1a3a5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 18H5M31 18H28" stroke="#171717" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+                <p class="re-feature-title">Fast Transaction<br>Timeline</p>
+                <p class="re-feature-desc">Streamlined processes mean faster closings — move in sooner.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="re-stats-band">
+        <div class="re-stats-inner">
+            <div class="re-stat-item">
+                <div class="re-stat-num">1,200<em>+</em></div>
+                <div class="re-stat-label">Properties Sold</div>
+            </div>
+            <div class="re-stat-item">
+                <div class="re-stat-num">98<em>%</em></div>
+                <div class="re-stat-label">Client Satisfaction</div>
+            </div>
+            <div class="re-stat-item">
+                <div class="re-stat-num">15<em>+</em></div>
+                <div class="re-stat-label">Years in Market</div>
+            </div>
+            <div class="re-stat-item">
+                <div class="re-stat-num">$2<em>B+</em></div>
+                <div class="re-stat-label">Total Portfolio Value</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="re-cta-strip">
+        <p class="re-cta-label">Ready to Begin?</p>
+        <h3 class="re-cta-heading">Find Your <em>Perfect Property</em></h3>
+        <p class="re-cta-body">Whether you're buying, selling, or investing — our team guides you through every detail, every step of the way.</p>
+        <a href="#" class="re-cta-btn">Browse Listings</a>
+        <a href="#" class="re-cta-btn-outline">Book a Consultation</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-newsletter">
+            <div class="footer-newsletter-inner">
+                <div>
+                    <h3>Stay Ahead of the Market</h3>
+                    <p>Curated listings, market reports &amp; property tips — weekly.</p>
+                </div>
+                <div class="footer-newsletter-form"><input type="email" placeholder="Your email address" /><button type="button">Subscribe</button></div>
+            </div>
+        </div>
+        <div class="footer-main">
+            <div class="footer-main-inner">
+                <div class="footer-brand">
+                    <div style="font-family:'DM Serif Display',serif;font-size:26px;font-weight:400;color:#fff;letter-spacing:-.5px;">Dwelro</div>
+                    <p>Europe's premier real estate partner — helping buyers, sellers and investors make confident property decisions since 2010.</p>
+                    <div class="footer-brand-socials">
+                        <a href="#" class="footer-social-link">in</a><a href="#" class="footer-social-link">ig</a><a href="#" class="footer-social-link">fb</a><a href="#" class="footer-social-link">yt</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-title">Properties</p>
+                    <ul>
+                        <li><a href="#">Buy</a></li>
+                        <li><a href="#">Rent</a></li>
+                        <li><a href="#">Sell</a></li>
+                        <li><a href="#">Commercial</a></li>
+                        <li><a href="#">Overseas</a></li>
+                        <li><a href="#">New Developments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-title">About</p>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="agents.php">Our Agents</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-title">Support</p>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Buyer's Guide</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Mortgage Calc</a></li>
+                        <li><a href="#">Market Reports</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <div class="footer-bottom-bar">
+                    <div class="footer-bottom-left">Follow us &nbsp;<span style="color:rgba(255,255,255,.5);">@dwelro.sg</span></div>
+                    <div class="footer-bottom-links"><a href="#">Terms &amp; Conditions</a><a href="#">Privacy Policy</a><span style="font-size:11px;color:rgba(255,255,255,.25);">&copy; 2026 Dwelro Pte Ltd.</span></div>
+                </div>
+                <div class="footer-giant-logo"><span class="footer-giant-logo-text">DWELRO</span></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #efefef;">
+            <div style="font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:#171717;">Dwelro</div>
+            <button onclick="toggleMobileMenu()" style="padding:8px;" aria-label="Close"><svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M16 1L9 8.5M9 8.5L16 16M9 8.5L1 1M9 8.5L1 16" stroke="#171717" stroke-width="1.2" stroke-linecap="round"/></svg></button>
+        </div>
+        <div style="padding:12px 20px;border-bottom:1px solid #f5f5f5;"><input type="text" placeholder="Search properties…" style="width:100%;padding:10px 14px;border:1px solid #e8e8e8;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;border-radius:2px;" /></div>
+        <ul>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="buy.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#171717;letter-spacing:.5px;">Buy</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="rent.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#171717;letter-spacing:.5px;">Rent</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="sell.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#171717;letter-spacing:.5px;">Sell</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="commercial.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#171717;letter-spacing:.5px;">Commercial</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="new-developments.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#171717;letter-spacing:.5px;">New Developments</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="Investment.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#171717;letter-spacing:.5px;">Investment</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="agents.php" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#171717;letter-spacing:.5px;">Our Agents</a></li>
+            <li style="margin:0 20px;padding:16px 0;"><a href="#" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#171717;letter-spacing:.5px;">Free Valuation</a></li>
+        </ul>
+        <div style="padding:20px;display:flex;gap:10px;">
+            <a href="https://wa.me/6591234567" style="flex:1;background:#25D366;color:#fff;text-align:center;padding:12px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;text-decoration:none;border-radius:2px;">WhatsApp Us</a>
+            <a href="contact.html" style="flex:1;background:#1a3a5c;color:#fff;text-align:center;padding:12px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;text-decoration:none;border-radius:2px;">Book a Call</a>
+        </div>
+    </div>
+
+    <!-- WHATSAPP FLOAT -->
+    <div class="wa-float" id="waFloat">
+        <div class="wa-bubble" id="waBubble">
+            <div style="position:relative;">
+                <p><strong>Chat with Dwelro</strong><br>Hi! Looking for a property? We typically reply in under 5 minutes.</p>
+                <small>Available Mon–Sun, 9am–9pm</small>
+            </div>
+        </div>
+        <a href="https://wa.me/6591234567?text=Hi%20Dwelro!%20I'm%20interested%20in%20a%20property." class="wa-btn" target="_blank" id="waBtnLink" aria-label="WhatsApp Dwelro">
+            <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 7l5-5 5 5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+    <!-- BOOK VIEWING MODAL -->
+    <div class="modal-backdrop" id="bookingModal" onclick="closeBookingOutside(event)">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeBooking()">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 3L3 13M3 3l10 10" stroke="#171717" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </button>
+            <div class="modal-property-tag" id="modalPropertyTag">Marina Skyline Residences</div>
+            <h3 class="modal-title">Book a Viewing</h3>
+            <p class="modal-subtitle">Our agent will confirm your preferred slot within 2 hours.</p>
+            <div class="modal-form-row">
+                <div class="modal-form-group"><label>First Name</label><input type="text" placeholder="John" /></div>
+                <div class="modal-form-group"><label>Last Name</label><input type="text" placeholder="Doe" /></div>
+            </div>
+            <div class="modal-form-group"><label>Phone / WhatsApp</label><input type="tel" placeholder="+65 9123 4567" /></div>
+            <div class="modal-form-group"><label>Email</label><input type="email" placeholder="john@example.com" /></div>
+            <div class="modal-form-row">
+                <div class="modal-form-group"><label>Preferred Date</label><input type="date" /></div>
+                <div class="modal-form-group"><label>Preferred Time</label><select><option>Morning (9am–12pm)</option><option>Afternoon (12pm–5pm)</option><option>Evening (5pm–8pm)</option></select></div>
+            </div>
+            <button class="modal-submit">Confirm Viewing Request</button>
+        </div>
+    </div>
+
+    <script>
+        // ── PRELOADER ──
+        window.addEventListener('load', function() {
+            var pre = document.getElementById('preloader');
+            if (!pre) return;
+            setTimeout(function() {
+                pre.style.opacity = '0';
+                setTimeout(function() {
+                    pre.style.display = 'none';
+                }, 700);
+            }, 900);
+        });
+
+        // ── SCROLL / HEADER ──
+        window.addEventListener('scroll', function() {
+            var h = document.getElementById('siteHeader');
+            var scrolled = window.scrollY > 50;
+            h.classList.toggle('scrolled', scrolled);
+            var cta = document.getElementById('ctaNavLink');
+            if (cta) cta.style.color = scrolled ? '#171717' : '#fff';
+            // back to top
+            var btn = document.getElementById('backToTop');
+            if (btn) btn.classList.toggle('show', window.scrollY > 600);
+        });
+
+        // ── DROPDOWNS ──
+        var dropTimer;
+
+        function showDrop(n) {
+            clearTimeout(dropTimer);
+            document.getElementById('siteHeader').classList.add('hovered');
+            ['buy', 'rent', 'sell', 'invest'].forEach(function(x) {
+                var el = document.getElementById('drop-' + x);
+                if (el) el.classList.remove('show');
+            });
+            var el = document.getElementById('drop-' + n);
+            if (el) {
+                el.classList.add('show');
+                document.getElementById('dropBackdrop').style.display = 'block';
+            }
+        }
+
+        function closeDrop() {
+            dropTimer = setTimeout(function() {
+                ['buy', 'rent', 'sell', 'invest'].forEach(function(x) {
+                    var el = document.getElementById('drop-' + x);
+                    if (el) el.classList.remove('show');
+                });
+                if (!document.getElementById('siteHeader').classList.contains('scrolled')) document.getElementById('siteHeader').classList.remove('hovered');
+                document.getElementById('dropBackdrop').style.display = 'none';
+            }, 120);
+        }
+
+        function scheduleDrop() {
+            closeDrop();
+        }
+
+        function cancelDrop() {
+            clearTimeout(dropTimer);
+        }
+
+        // ── HERO SLIDER ── (3 slides, crossfade)
+        var curSlide = 0,
+            totalSlides = 3,
+            slideTimer;
+        var dots = document.querySelectorAll('.pag-dot');
+
+        function goSlide(i) {
+            document.getElementById('slide' + curSlide).classList.remove('active');
+            dots[curSlide].classList.remove('on');
+            curSlide = i;
+            document.getElementById('slide' + curSlide).classList.add('active');
+            dots[curSlide].classList.add('on');
+            resetSlideTimer();
+        }
+
+        function resetSlideTimer() {
+            clearInterval(slideTimer);
+            slideTimer = setInterval(function() {
+                goSlide((curSlide + 1) % totalSlides);
+            }, 7000);
+        }
+        resetSlideTimer();
+
+        // ── MOBILE MENU ──
+        function toggleMobileMenu() {
+            var m = document.getElementById('mobileMenu');
+            m.classList.toggle('open');
+            document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+        }
+
+        // ── CARDS REVEAL ──
+        var cardObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var card = entry.target,
+                        idx = Array.from(card.parentNode.children).indexOf(card);
+                    setTimeout(function() {
+                        card.classList.add('visible');
+                    }, idx * 90);
+                    cardObs.unobserve(card);
+                }
+            });
+        }, {
+            threshold: .1
+        });
+        document.querySelectorAll('.prop-card').forEach(function(c) {
+            cardObs.observe(c);
+        });
+
+        // ── AGENT REVEAL ──
+        var agentObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var el = entry.target,
+                        idx = Array.from(el.parentNode.children).indexOf(el);
+                    setTimeout(function() {
+                        el.classList.add('revealed');
+                    }, idx * 120);
+                    agentObs.unobserve(el);
+                }
+            });
+        }, {
+            threshold: .1
+        });
+        document.querySelectorAll('.agent-card').forEach(function(c) {
+            agentObs.observe(c);
+        });
+
+        // ── VIEW TOGGLE ──
+        function setView(view, btn) {
+            document.querySelectorAll('.view-tab').forEach(function(t) {
+                t.classList.remove('active');
+            });
+            btn.classList.add('active');
+            if (view === 'grid') {
+                document.getElementById('gridView').style.display = 'block';
+                document.getElementById('mapView').classList.remove('active');
+            } else {
+                document.getElementById('gridView').style.display = 'none';
+                document.getElementById('mapView').classList.add('active');
+            }
+        }
+
+        // ── FILTER ──
+        function filterCards(cat, btn) {
+            document.querySelectorAll('.filter-tab').forEach(function(t) {
+                t.classList.remove('active');
+            });
+            btn.classList.add('active');
+            var vi = 0;
+            document.querySelectorAll('.prop-card').forEach(function(card) {
+                var match = cat === 'all' || card.dataset.cat === cat;
+                if (match) {
+                    card.style.display = '';
+                    card.classList.remove('visible');
+                    setTimeout(function() {
+                        card.classList.add('visible');
+                    }, vi * 80);
+                    vi++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // ── SCROLL PROGRESS ──
+        (function() {
+            var section = document.getElementById('scrollCoverSection'),
+                prog = document.getElementById('scrollProgressBar');
+
+            function onS() {
+                if (!section || !prog) return;
+                var rect = section.getBoundingClientRect(),
+                    scrolled = Math.max(-rect.top, 0),
+                    total = section.offsetHeight - window.innerHeight;
+                prog.style.height = (Math.min(scrolled / total, 1) * 60) + 'px';
+            }
+            window.addEventListener('scroll', onS, {
+                passive: true
+            });
+            onS();
+        })();
+
+        // ── ESSENTIALS REVEAL ──
+        (function() {
+            var obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var el = entry.target,
+                            idx = Array.from(el.parentNode.children).indexOf(el);
+                        setTimeout(function() {
+                            el.classList.add('revealed');
+                        }, idx * 100);
+                        obs.unobserve(el);
+                    }
+                });
+            }, {
+                threshold: .08
+            });
+            document.querySelectorAll('.ess-item').forEach(function(item) {
+                obs.observe(item);
+            });
+        })();
+
+        // ── FEATURES REVEAL ──
+        (function() {
+            var obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var el = entry.target,
+                            idx = Array.from(el.parentNode.children).indexOf(el);
+                        setTimeout(function() {
+                            el.classList.add('revealed');
+                        }, idx * 110);
+                        obs.unobserve(el);
+                    }
+                });
+            }, {
+                threshold: .15
+            });
+            document.querySelectorAll('.re-feature-item').forEach(function(item) {
+                obs.observe(item);
+            });
+        })();
+
+        // ── TESTIMONIALS 1 ──
+        var testimonials = [{
+            quote: "Our agent found us our dream condo in 3 weeks — negotiated $120K below asking. The entire process felt effortless.",
+            author: "Sarah &amp; James T. — Orchard Road"
+        }, {
+            quote: "The quality of advice we received was exceptional. Every market insight proved accurate, and we closed well above valuation.",
+            author: "Michelle L. — Marina Bay"
+        }, {
+            quote: "From the moment we walked into the Dwelro office, we knew we were in expert hands. The attention to detail is unmatched.",
+            author: "David &amp; Priya K. — Bukit Timah"
+        }, {
+            quote: "We sold and bought simultaneously with zero stress. The after-transaction support has been just as impressive.",
+            author: "Thomas W. — Sentosa Cove"
+        }];
+        var curTesti = 0,
+            testiImages = document.querySelectorAll('#testiImagePanel img');
+
+        function goTesti(i) {
+            var q = document.getElementById('testiQuote'),
+                a = document.getElementById('testiAuthor');
+            q.classList.remove('t-visible');
+            a.classList.remove('t-visible');
+            testiImages[curTesti].classList.replace('t-active', 't-inactive');
+            setTimeout(function() {
+                curTesti = i;
+                q.innerHTML = '\u201C' + testimonials[i].quote + '\u201D';
+                a.innerHTML = testimonials[i].author;
+                q.classList.add('t-visible');
+                a.classList.add('t-visible');
+                testiImages[curTesti].classList.replace('t-inactive', 't-active');
+                document.querySelectorAll('#testiDots .testi-dot').forEach(function(d, idx) {
+                    d.classList.toggle('on', idx === curTesti);
+                });
+                document.getElementById('testiCount').textContent = '0' + (curTesti + 1) + ' / 04';
+            }, 350);
+        }
+
+        function nextTesti() {
+            goTesti((curTesti + 1) % testimonials.length);
+        }
+
+        function prevTesti() {
+            goTesti((curTesti + testimonials.length - 1) % testimonials.length);
+        }
+        setInterval(nextTesti, 7000);
+
+        // ── TESTIMONIALS 2 ──
+        var testimonials2 = [{
+            quote: "The market insights Dwelro provided were invaluable. We sold above valuation within 10 days — exceptional service.",
+            author: "Priya &amp; Daniel K. — Bukit Timah"
+        }, {
+            quote: "From first consultation to final handover, every step was seamless. Our investment property is already yielding above forecast.",
+            author: "Marco &amp; Lucia F. — London"
+        }, {
+            quote: "We've worked with several agents before, but the depth of knowledge and personalisation at Dwelro is truly on another level.",
+            author: "The Okonkwo Family — Expatriate"
+        }, {
+            quote: "Beautifully curated listings and an agent who actually listened. Dwelro helped us find a home, not just a property.",
+            author: "Anne &amp; Tom B. — East Coast"
+        }];
+        var curTesti2 = 0,
+            testiImages2 = document.querySelectorAll('#testiImagePanel2 img');
+
+        function goTesti2(i) {
+            var q = document.getElementById('testiQuote2'),
+                a = document.getElementById('testiAuthor2');
+            q.classList.remove('t-visible');
+            a.classList.remove('t-visible');
+            testiImages2[curTesti2].classList.replace('t-active', 't-inactive');
+            setTimeout(function() {
+                curTesti2 = i;
+                q.innerHTML = '\u201C' + testimonials2[i].quote + '\u201D';
+                a.innerHTML = testimonials2[i].author;
+                q.classList.add('t-visible');
+                a.classList.add('t-visible');
+                testiImages2[curTesti2].classList.replace('t-inactive', 't-active');
+                document.querySelectorAll('#testiDots2 .testi-dot--light').forEach(function(d, idx) {
+                    d.classList.toggle('on', idx === curTesti2);
+                });
+                document.getElementById('testiCount2').textContent = '0' + (curTesti2 + 1) + ' / 04';
+            }, 350);
+        }
+
+        function nextTesti2() {
+            goTesti2((curTesti2 + 1) % testimonials2.length);
+        }
+
+        function prevTesti2() {
+            goTesti2((curTesti2 + testimonials2.length - 1) % testimonials2.length);
+        }
+        setInterval(nextTesti2, 8500);
+
+        // ── TYPING ANIMATION ──
+        (function() {
+            var phrases = ["2 bed condo with pool near MRT…", "Airbnb-ready unit in D09 Orchard…", "Short-term rental under $4,000/mo…", "Luxury villa with private pool…", "HDB 5-room near top school…", "Penthouse in Marina Bay…"];
+            var el = document.getElementById('heroTypingText'),
+                input = document.getElementById('heroSearchInput');
+            if (!el) return;
+            var phraseIdx = 0,
+                charIdx = 0,
+                deleting = false;
+
+            function type() {
+                if (!el || document.activeElement === input) {
+                    setTimeout(type, 200);
+                    return;
+                }
+                var current = phrases[phraseIdx];
+                if (!deleting) {
+                    charIdx++;
+                    el.textContent = current.slice(0, charIdx);
+                    if (charIdx === current.length) {
+                        setTimeout(function() {
+                            deleting = true;
+                            type();
+                        }, 2400);
+                        return;
+                    }
+                    setTimeout(type, 46);
+                } else {
+                    charIdx--;
+                    el.textContent = current.slice(0, charIdx);
+                    if (charIdx === 0) {
+                        deleting = false;
+                        phraseIdx = (phraseIdx + 1) % phrases.length;
+                        setTimeout(type, 400);
+                        return;
+                    }
+                    setTimeout(type, 20);
+                }
+            }
+            setTimeout(type, 900);
+        })();
+
+        // ── SEARCH ──
+        document.getElementById('heroSearchInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') doSearch();
+        });
+
+        function hidePlaceholder() {
+            var p = document.getElementById('heroSearchPlaceholder');
+            if (p) p.classList.add('hidden');
+        }
+
+        function showPlaceholder() {
+            var inp = document.getElementById('heroSearchInput'),
+                p = document.getElementById('heroSearchPlaceholder');
+            if (p && inp && inp.value === '') p.classList.remove('hidden');
+        }
+
+        function onSearchInput() {
+            var inp = document.getElementById('heroSearchInput'),
+                p = document.getElementById('heroSearchPlaceholder');
+            if (!p || !inp) return;
+            inp.value.length > 0 ? p.classList.add('hidden') : p.classList.remove('hidden');
+        }
+
+        function fillSearch(text) {
+            var inp = document.getElementById('heroSearchInput'),
+                p = document.getElementById('heroSearchPlaceholder');
+            if (inp) {
+                inp.value = text;
+                inp.focus();
+            }
+            if (p) p.classList.add('hidden');
+            doSearch();
+        }
+
+        function setSearchTab(btn, mode) {
+            document.querySelectorAll('.hero-search-tab').forEach(function(t) {
+                t.classList.remove('active');
+            });
+            btn.classList.add('active');
+        }
+
+        function doSearch() {
+            var inp = document.getElementById('heroSearchInput');
+            var query = inp ? inp.value.trim().toLowerCase() : '';
+            document.getElementById('handpickedSection').scrollIntoView({
+                behavior: 'smooth'
+            });
+            // switch to grid view
+            var gridBtn = document.querySelector('.view-tab');
+            if (gridBtn) setView('grid', gridBtn);
+            document.querySelectorAll('.filter-tab').forEach(function(t) {
+                t.classList.remove('active');
+            });
+            document.querySelector('.filter-tab').classList.add('active');
+            var vi = 0;
+            document.querySelectorAll('.prop-card').forEach(function(card) {
+                var text = card.innerText.toLowerCase(),
+                    match = query === '' || text.includes(query);
+                if (match) {
+                    card.style.display = '';
+                    card.classList.remove('visible');
+                    setTimeout(function() {
+                        card.classList.add('visible');
+                    }, vi * 80);
+                    vi++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            var grid = document.getElementById('propertyGrid'),
+                existing = document.getElementById('noResultsMsg');
+            if (existing) existing.remove();
+            if (vi === 0) {
+                var msg = document.createElement('p');
+                msg.id = 'noResultsMsg';
+                msg.style.cssText = 'grid-column:1/-1;text-align:center;color:#aaa;font-size:14px;padding:40px 0;';
+                msg.textContent = 'No properties found for "' + inp.value.trim() + '". Try a different search.';
+                grid.appendChild(msg);
+            }
+        }
+
+        // ── WHATSAPP BUBBLE ──
+        setTimeout(function() {
+            var bubble = document.getElementById('waBubble');
+            if (bubble) bubble.classList.add('show');
+        }, 3500);
+
+        // ── BOOK VIEWING MODAL ──
+        function openBooking(propName, propId, agentId) {
+            var modal = document.getElementById('bookingModal');
+            var tag = document.getElementById('modalPropertyTag');
+            if (tag) tag.textContent = propName || 'Property';
+            if (propId) modal.dataset.propertyId = propId;
+            if (agentId) modal.dataset.agentId = agentId;
+            if (modal) modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBooking() {
+            var modal = document.getElementById('bookingModal');
+            if (modal) modal.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function closeBookingOutside(e) {
+            if (e.target === document.getElementById('bookingModal')) closeBooking();
+        }
+    </script>
+    <script src="dwelro-api.js"></script>
+
+    <script src="property-modal.js"></script>
+</body>
+
+</html>

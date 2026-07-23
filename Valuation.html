@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Valuation — Dwelro Europe</title>
+    <meta name="description" content="Get a fast property valuation with Dwelro and understand your home's market value before you buy or sell.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dwelro">
+    <meta property="og:title" content="Property Valuation — Dwelro Europe">
+    <meta property="og:description" content="Get a fast property valuation with Dwelro and understand your home's market value before you buy or sell.">
+    <meta property="og:image" content="/img/way-white-house.jpg">
+    <meta property="og:image:alt" content="Modern home exterior">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Property Valuation — Dwelro Europe">
+    <meta name="twitter:description" content="Get a fast property valuation with Dwelro and understand your home's market value before you buy or sell.">
+    <meta name="twitter:image" content="/img/way-white-house.jpg">
+    <meta name="theme-color" content="#1a3a5c">
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #1a1a1a;
+            background: #fff;
+        }
+        /* ── HEADER ── */
+        
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: all .3s ease;
+        }
+        
+        .top-part {
+            background: #fff;
+            box-shadow: 0 1px 0 #ececec;
+        }
+        
+        .nav-row {
+            background: #fff;
+            border-top: 1px solid #ececec;
+        }
+        
+        .nav-link {
+            color: #333;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            display: block;
+            padding: 13px 15px;
+            transition: color .3s ease;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #222;
+        }
+        
+        .nav-link.active {
+            border-bottom: 2px solid #222;
+        }
+        
+        .hdr-icon path,
+        .hdr-icon circle {
+            stroke: #333;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #ececec;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .2s ease, visibility .2s ease;
+            z-index: 200;
+        }
+        
+        .dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media(max-width:1023px) {
+            .desktop-nav-wrap {
+                display: none!important;
+            }
+            .mobile-menu-btn {
+                display: flex!important;
+            }
+            .desktop-search {
+                display: none!important;
+            }
+            .desktop-only-icons {
+                display: none!important;
+            }
+        }
+        
+        @media(min-width:1024px) {
+            .mobile-menu-btn {
+                display: none!important;
+            }
+        }
+        /* ── HERO ── */
+        
+        .val-hero {
+            background: #1a1a1a;
+            padding: 148px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .val-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .05);
+            pointer-events: none;
+        }
+        
+        .val-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: 5%;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .04);
+            pointer-events: none;
+        }
+        
+        .val-hero-grid {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        @media(max-width:900px) {
+            .val-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+        
+        .hero-eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35);
+            margin-bottom: 14px;
+        }
+        
+        .hero-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 400;
+            color: #fff;
+            line-height: 1.06;
+            letter-spacing: -.5px;
+            margin-bottom: 18px;
+        }
+        
+        .hero-title em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .3);
+        }
+        
+        .hero-sub {
+            font-size: 15px;
+            color: rgba(255, 255, 255, .45);
+            font-weight: 300;
+            max-width: 460px;
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+        
+        .val-stats {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+        
+        .val-stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            color: #fff;
+            letter-spacing: -.3px;
+            display: block;
+        }
+        
+        .val-stat-label {
+            font-size: 10px;
+            color: rgba(255, 255, 255, .35);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: block;
+            margin-top: 2px;
+        }
+        /* ── INSTANT FORM CARD ── */
+        
+        .val-form-card {
+            background: #fff;
+            border-radius: 4px;
+            padding: 36px 32px;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, .3);
+            position: relative;
+            z-index: 3;
+        }
+        
+        .form-card-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+        
+        .form-card-sub {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 24px;
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        .form-step-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .step-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .step-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: #bbb;
+        }
+        
+        .fg {
+            margin-bottom: 14px;
+        }
+        
+        .fg label {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 6px;
+        }
+        
+        .fg input,
+        .fg select,
+        .fg textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #efefef;
+            font-size: 13px;
+            font-family: 'DM Sans', sans-serif;
+            color: #1a1a1a;
+            outline: none;
+            border-radius: 2px;
+            transition: border-color .2s;
+            background: #fafafa;
+        }
+        
+        .fg input:focus,
+        .fg select:focus,
+        .fg textarea:focus {
+            border-color: #333;
+            background: #fff;
+        }
+        
+        .fg textarea {
+            resize: none;
+            height: 80px;
+        }
+        
+        .fg-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .type-select-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        
+        .type-opt {
+            border: 1px solid #efefef;
+            padding: 12px 14px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .type-opt:hover {
+            border-color: #ccc;
+        }
+        
+        .type-opt.selected {
+            border-color: #1a1a1a;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        
+        .type-opt.selected .to-label {
+            color: #fff;
+        }
+        
+        .to-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .to-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .step-btn {
+            width: 100%;
+            padding: 13px;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+            margin-top: 6px;
+            transition: background .25s;
+        }
+        
+        .step-btn:hover {
+            background: #333;
+        }
+        
+        .step-back {
+            background: none;
+            border: none;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: #bbb;
+            cursor: pointer;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0;
+        }
+        
+        .step-back:hover {
+            color: #333;
+        }
+        
+        .step-progress {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .sp-seg {
+            height: 2px;
+            flex: 1;
+            background: #efefef;
+            border-radius: 2px;
+            transition: background .3s;
+        }
+        
+        .sp-seg.done {
+            background: #1a1a1a;
+        }
+        /* ── WHY CHOOSE ── */
+        
+        .sec-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 10px;
+        }
+        
+        .sec-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(26px, 3vw, 38px);
+            font-weight: 400;
+            color: #1a1a1a;
+            letter-spacing: -.3px;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+        
+        .sec-title em {
+            font-style: italic;
+            color: #ccc;
+        }
+        
+        .sec-sub {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.6;
+            max-width: 520px;
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        @media(max-width:900px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .why-card {
+            background: #fff;
+            border: 1px solid #efefef;
+            padding: 32px;
+            border-radius: 2px;
+            transition: all .25s;
+        }
+        
+        .why-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .07);
+            transform: translateY(-3px);
+        }
+        
+        .why-icon {
+            width: 48px;
+            height: 48px;
+            background: #f8f7f4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        
+        .why-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            letter-spacing: -.1px;
+        }
+        
+        .why-text {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.65;
+        }
+        /* ── PROCESS STEPS ── */
+        
+        .process-section {
+            background: #f8f7f4;
+            padding: 80px 0;
+            border-top: 1px solid #efefef;
+            border-bottom: 1px solid #efefef;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 40px;
+        }
+        
+        @media(max-width:900px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+        }
+        
+        @media(max-width:560px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .process-step {
+            position: relative;
+            padding: 0 32px 0 0;
+        }
+        
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 22px;
+            right: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, #ddd 0%, transparent 100%);
+            z-index: 0;
+        }
+        
+        @media(max-width:900px) {
+            .process-step::after {
+                display: none;
+            }
+        }
+        
+        .ps-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 44px;
+            color: #efefef;
+            line-height: 1;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .ps-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+        
+        .ps-text {
+            font-size: 12px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        /* ── MARKET SNAPSHOT ── */
+        
+        .market-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media(max-width:900px) {
+            .market-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .market-card {
+            background: #fff;
+            border: 1px solid #efefef;
+            padding: 28px;
+            border-radius: 2px;
+        }
+        
+        .market-card-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 16px;
+        }
+        
+        .trend-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .trend-row:last-child {
+            border-bottom: none;
+        }
+        
+        .trend-area {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .trend-price {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        
+        .trend-change {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 20px;
+        }
+        
+        .trend-up {
+            color: #27ae60;
+            background: #eafaf1;
+        }
+        
+        .trend-down {
+            color: #c0392b;
+            background: #fdf2f2;
+        }
+        
+        .bar-chart {
+            margin-top: 8px;
+        }
+        
+        .bc-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .bc-label {
+            font-size: 11px;
+            color: #aaa;
+            width: 90px;
+            flex-shrink: 0;
+        }
+        
+        .bc-track {
+            flex: 1;
+            height: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .bc-fill {
+            height: 100%;
+            background: #1a1a1a;
+            border-radius: 3px;
+            transition: width 1s ease .2s;
+            width: 0;
+        }
+        
+        .bc-val {
+            font-size: 11px;
+            font-weight: 700;
+            color: #333;
+            width: 60px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        /* ── FAQ ── */
+        
+        .faq-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .faq-q {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            cursor: pointer;
+        }
+        
+        .faq-q-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        .faq-chevron {
+            transition: transform .3s;
+            flex-shrink: 0;
+        }
+        
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+        
+        .faq-a {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease, padding .3s;
+        }
+        
+        .faq-item.open .faq-a {
+            max-height: 200px;
+            padding-bottom: 18px;
+        }
+        /* ── AGENT CTA ── */
+        
+        .agent-cta {
+            background: #f8f7f4;
+            border: 1px solid #efefef;
+            border-radius: 2px;
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        @media(max-width:700px) {
+            .agent-cta {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .agent-cta-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 26px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            letter-spacing: -.2px;
+        }
+        
+        .agent-cta-title em {
+            font-style: italic;
+            color: #ccc;
+        }
+        
+        .agent-cta-sub {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        .agent-cta-btns {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-dark {
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 13px 28px;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background .2s;
+            white-space: nowrap;
+        }
+        
+        .btn-dark:hover {
+            background: #333;
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: #333;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 12px 28px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            border-radius: 2px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+            white-space: nowrap;
+        }
+        
+        .btn-ghost:hover {
+            border-color: #333;
+        }
+        /* ── PILL ── */
+        
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 20px;
+            padding: 5px 12px 5px 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .5);
+            margin-bottom: 20px;
+        }
+        
+        .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #2ecc71;
+            flex-shrink: 0;
+        }
+        /* ── FOOTER ── */
+        
+        .site-footer {
+            background: #111;
+            color: #fff;
+        }
+        
+        .footer-bottom-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 40px;
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .footer-bottom-links a {
+            font-size: 11px;
+            color: rgba(255, 255, 255, .3);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: #fff;
+        }
+        /* ── MOBILE MENU ── */
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 10001;
+            transform: translateX(-100%);
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        /* ── BACK TO TOP ── */
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            left: 32px;
+            z-index: 8998;
+            width: 44px;
+            height: 44px;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .3s, transform .3s;
+            pointer-events: none;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .back-to-top:hover {
+            background: #333;
+        }
+        /* WA float */
+        
+        .wa-btn-float {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 9000;
+            width: 56px;
+            height: 56px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, .35);
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform .25s;
+        }
+        
+        .wa-btn-float:hover {
+            transform: scale(1.08);
+        }
+        /* ── TRUST BADGES ── */
+        
+        .trust-strip {
+            background: #fff;
+            border-bottom: 1px solid #efefef;
+            padding: 18px 40px;
+        }
+        
+        .trust-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .trust-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #2ecc71;
+            flex-shrink: 0;
+        }
+        
+        section {
+            scroll-margin-top: 110px;
+        }
+        /* ── RESULT PANEL ── */
+        
+        .result-panel {
+            display: none;
+            text-align: center;
+            padding: 8px 0 4px;
+        }
+        
+        .result-range {
+            font-family: 'DM Serif Display', serif;
+            font-size: 32px;
+            color: #1a1a1a;
+            letter-spacing: -.5px;
+            margin-bottom: 4px;
+        }
+        
+        .result-label {
+            font-size: 11px;
+            color: #aaa;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        
+        .result-bar-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        
+        .result-bar-track {
+            flex: 1;
+            height: 4px;
+            background: #efefef;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .result-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #aaa, #1a1a1a);
+            border-radius: 2px;
+            width: 0;
+            transition: width 1.2s ease;
+        }
+        
+        .result-bar-label {
+            font-size: 10px;
+            color: #bbb;
+            white-space: nowrap;
+        }
+        
+        .result-disclaimer {
+            font-size: 11px;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div style="background:#f8f7f4;border-bottom:1px solid #ececec;position:relative;z-index:10001;">
+        <div class="max-w-screen-xl mx-auto px-5 py-2">
+            <div class="text-xs text-center w-full" style="font-weight:500;letter-spacing:.3px;color:#888;">Flagship Office @ 1 Raffles Place, #22-01 · Open Daily 9am–6pm · <a href="#" style="text-decoration:underline;color:#555;">Book a free consultation</a></div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+
+    <!-- HEADER -->
+    <header class="site-header" id="siteHeader">
+        <div class="top-part w-full">
+            <div class="max-w-screen-xl mx-auto px-5 py-3 flex items-center justify-between relative">
+                <div class="flex items-center gap-3 flex-1">
+                    <button class="mobile-menu-btn items-center justify-center" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <svg class="hdr-icon" width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M10.5 13H1M17 7H1M17 1H1" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </button>
+                    <div class="desktop-search flex items-center gap-2 flex-1 max-w-xs">
+                        <svg class="hdr-icon flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15 15L11.38 11.38M1 7.03C1 3.7 3.7 1 7.03 1C10.37 1 13.07 3.7 13.07 7.03C13.07 10.37 10.37 13.07 7.03 13.07C3.7 13.07 1 10.37 1 7.03Z" stroke-width="1.2" stroke-linecap="round"/></svg>
+                        <input type="text" placeholder="Search properties…" class="search-input text-xs w-full" style="font-size:13px;font-family:'DM Sans',sans-serif;" />
+                    </div>
+                    <button class="mobile-search-icon flex items-center justify-center" aria-label="Search">
+                    <svg class="hdr-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15 15L11.38 11.38M1 7.03C1 3.7 3.7 1 7.03 1C10.37 1 13.07 3.7 13.07 7.03C13.07 10.37 10.37 13.07 7.03 13.07C3.7 13.07 1 10.37 1 7.03Z" stroke-width="1.2" stroke-linecap="round"/></svg>
+                </button>
+                </div>
+                <div class="absolute left-1/2 -translate-x-1/2" style="top:50%;transform:translate(-50%,-50%);">
+                    <a href="index.html" class="block relative">
+                        <div class="logo-white" style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#fff;letter-spacing:-.5px;white-space:nowrap;line-height:1;">Dwelro</div>
+                        <div class="logo-black" style="font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;color:#171717;letter-spacing:-.5px;white-space:nowrap;line-height:1;">Dwelro</div>
+                    </a>
+                </div>
+                <div class="flex items-center gap-4 flex-1 justify-end">
+                    <a href="/wishlist" class="desktop-only-icons flex items-center justify-center" aria-label="Saved">
+                        <svg class="hdr-icon" width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M2.01 2.02C0.66 3.39 0.66 5.58 2.01 6.95L8 13C9.99 10.99 11.99 8.97 13.99 6.96C15.34 5.59 15.34 3.39 13.99 2.03C12.63 0.67 10.46 0.67 9.11 2.03L8 3.14L6.89 2.02C5.54 0.66 3.37 0.66 2.01 2.02Z" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="/account" class="desktop-only-icons flex items-center justify-center" aria-label="Account">
+                        <svg class="hdr-icon" width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M8 8.23C9.85 8.23 11.35 6.73 11.35 4.88C11.35 3.03 9.85 1.54 8 1.54C6.15 1.54 4.66 3.03 4.66 4.88C4.66 6.73 6.15 8.23 8 8.23Z" stroke-width="1.3" stroke-linecap="round"/><path d="M2.7 16.46H13.3C14.48 16.46 15.38 15.45 14.84 14.41C14.03 12.88 12.19 11.06 8 11.06C3.81 11.06 1.97 12.88 1.16 14.41C0.62 15.45 1.52 16.46 2.7 16.46Z" stroke-width="1.3" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="/contact" class="desktop-only-icons" style="font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#fff;text-decoration:none;transition:color .3s;background:rgba(255,255,255,.15);padding:8px 16px;border-radius:2px;backdrop-filter:blur(6px);"
+                        id="ctaNavLink">Book a Call</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-row w-full desktop-nav-wrap" id="navRow">
+            <div class="max-w-screen-xl mx-auto px-5 flex justify-center">
+                <nav class="flex items-center">
+                    <div onmouseenter="showDrop('buy')" onmouseleave="scheduleDrop()"><a href="buy.html" class="nav-link">Buy</a></div>
+                    <div onmouseenter="showDrop('rent')" onmouseleave="scheduleDrop()"><a href="rent.html" class="nav-link">Rent</a></div>
+                    <div onmouseenter="showDrop('sell')" onmouseleave="scheduleDrop()"><a href="sell.html" class="nav-link">Sell</a></div>
+
+
+                    <div onmouseenter="showDrop('invest')" onmouseleave="scheduleDrop()"><a href="Investment.html" class="nav-link">Investment</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="agents.php" class="nav-link">Our Agents</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="Valuation.html" class="nav-link">Valuation</a></div>
+                    <div onmouseenter="closeDrop()" onmouseleave="scheduleDrop()"><a href="contact.html" class="nav-link">Contact Us</a></div>
+                </nav>
+            </div>
+        </div>
+        <!-- DROPDOWNS -->
+        <div class="dropdown-menu" id="drop-buy" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-8 flex gap-10">
+                <div class="w-1/2 grid grid-cols-3 gap-8">
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">Property Type</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">HDB Flats</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Condominiums</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Landed Homes</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Executive Condos</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Penthouses</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">By District</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">Core Central (D1–D11)</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Rest of Central</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">East Region</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">North Region</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">West Region</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;margin-bottom:16px;">Budget Range</p>
+                        <ul class="space-y-2">
+                            <li><a href="#" style="font-size:13px;color:#555;">Under $1M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">$1M – $2M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">$2M – $5M</a></li>
+                            <li><a href="#" style="font-size:13px;color:#555;">Above $5M</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-1/2">
+                    <a href="#" class="block relative overflow-hidden" style="height:300px;"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;" alt="Luxury" />
+                        <div style="position:absolute;inset:0;background:rgba(0,0,0,.32);"></div>
+                        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff;">
+                            <h3 style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">LUXURY COLLECTION</h3>
+                            <p style="font-size:12px;margin-bottom:16px;opacity:.9;">Exclusive high-end residences, curated for discerning buyers.</p><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:1px;">VIEW LUXURY LISTINGS</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-rent" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex gap-8"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Residential Rentals</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Short-Term Leases</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Expat Housing</a>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-sell" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex gap-8"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Free Valuation</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">List Your Property</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Seller's Guide</a>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="drop-invest" onmouseenter="cancelDrop()" onmouseleave="closeDrop()">
+            <div class="max-w-screen-xl mx-auto px-5 py-6 flex flex-wrap gap-6"><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Investment Analysis</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Overseas Properties</a>
+                <a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">REITs Guide</a><a href="#" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#171717;">Market Reports</a></div>
+        </div>
+    </header>
+    <div id="dropBackdrop" onclick="closeDrop()" style="position:fixed;inset:0;z-index:100;display:none;"></div>
+
+    <!-- ══ HERO ══ -->
+    <div class="val-hero" id="valuationForm">
+        <div class="val-hero-grid">
+            <!-- LEFT -->
+            <div>
+                <div class="pill"><span class="pill-dot"></span>Free · No Obligation</div>
+                <p class="hero-eyebrow">Property Valuation</p>
+                <h1 class="hero-title">What Is Your<br>Property <em>Worth?</em></h1>
+                <p class="hero-sub">Get an instant data-driven estimate — then speak to a CEA-certified Dwelro agent for a precise, in-person appraisal backed by live transaction data.</p>
+                <div class="val-stats">
+                    <div><span class="val-stat-num">4,200+</span><span class="val-stat-label">Valuations Done</span></div>
+                    <div><span class="val-stat-num">98%</span><span class="val-stat-label">Client Satisfaction</span></div>
+                    <div><span class="val-stat-num">24 hrs</span><span class="val-stat-label">Agent Follow-Up</span></div>
+                </div>
+            </div>
+
+            <!-- RIGHT: MULTI-STEP FORM -->
+            <div class="val-form-card">
+                <h2 class="form-card-title">Instant Estimate</h2>
+                <p class="form-card-sub">Takes 60 seconds. 100% free.</p>
+
+                <div class="step-progress" id="stepProgress">
+                    <div class="sp-seg done" id="seg1"></div>
+                    <div class="sp-seg" id="seg2"></div>
+                    <div class="sp-seg" id="seg3"></div>
+                </div>
+
+                <!-- STEP 1: Property Type -->
+                <div class="form-step active" id="step1">
+                    <div class="form-step-header">
+                        <div class="step-dot">1</div>
+                        <span class="step-label">Property Type</span>
+                    </div>
+                    <div class="type-select-grid">
+                        <div class="type-opt" onclick="selectType(this,'HDB Flat')">
+                            <div class="to-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M2 10l10-7 10 7"/><path d="M9 21v-6h6v6"/></svg></div>
+                            <span class="to-label">HDB Flat</span>
+                        </div>
+                        <div class="type-opt" onclick="selectType(this,'Condominium')">
+                            <div class="to-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M9 22V12h6v10"/><path d="M8 6h1M11 6h1M14 6h1M8 10h1M11 10h1M14 10h1"/></svg></div>
+                            <span class="to-label">Condominium</span>
+                        </div>
+                        <div class="type-opt" onclick="selectType(this,'Landed Home')">
+                            <div class="to-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V10l7-6 7 6v11"/><path d="M9 21v-7h6v7"/></svg></div>
+                            <span class="to-label">Landed Home</span>
+                        </div>
+                        <div class="type-opt" onclick="selectType(this,'Commercial')">
+                            <div class="to-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+                            <span class="to-label">Commercial</span>
+                        </div>
+                    </div>
+                    <button class="step-btn" style="margin-top:16px;" onclick="goStep(2)" id="step1Btn" disabled>Continue →</button>
+                </div>
+
+                <!-- STEP 2: Property Details -->
+                <div class="form-step" id="step2">
+                    <button class="step-back" onclick="goStep(1)">← Back</button>
+                    <div class="form-step-header">
+                        <div class="step-dot">2</div>
+                        <span class="step-label">Property Details</span>
+                    </div>
+                    <div class="fg"><label>Postal Code / Address</label><input type="text" id="postal" placeholder="e.g. 238858 or Orchard Road" /></div>
+                    <div class="fg-row">
+                        <div class="fg"><label>Floor Area (sqft)</label><input type="number" id="sqft" placeholder="e.g. 1200" /></div>
+                        <div class="fg"><label>No. of Bedrooms</label>
+                            <select id="beds"><option value="">Select</option><option>Studio</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select>
+                        </div>
+                    </div>
+                    <div class="fg-row">
+                        <div class="fg"><label>Floor Level</label>
+                            <select id="floor"><option value="">Select</option><option>Low (1–5)</option><option>Mid (6–15)</option><option>High (16–30)</option><option>Very High (31+)</option></select>
+                        </div>
+                        <div class="fg"><label>Year Built</label><input type="number" id="yearbuilt" placeholder="e.g. 2010" /></div>
+                    </div>
+                    <button class="step-btn" onclick="goStep(3)">Continue →</button>
+                </div>
+
+                <!-- STEP 3: Contact & Result -->
+                <div class="form-step" id="step3">
+                    <button class="step-back" onclick="goStep(2)">← Back</button>
+                    <div class="form-step-header">
+                        <div class="step-dot">3</div>
+                        <span class="step-label">Get Your Estimate</span>
+                    </div>
+                    <div class="fg-row">
+                        <div class="fg"><label>First Name</label><input type="text" placeholder="Jane" /></div>
+                        <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe" /></div>
+                    </div>
+                    <div class="fg"><label>Phone / WhatsApp</label><input type="tel" placeholder="+65 9123 4567" /></div>
+                    <div class="fg"><label>Email</label><input type="email" placeholder="jane@example.com" /></div>
+                    <div class="fg">
+                        <label>Purpose</label>
+                        <select><option>Thinking of Selling</option><option>Refinancing</option><option>Estate Planning</option><option>Curiosity / Research</option></select>
+                    </div>
+                    <button class="step-btn" onclick="showResult()">Get My Free Estimate →</button>
+                </div>
+
+                <!-- RESULT -->
+                <div class="result-panel" id="resultPanel">
+                    <div style="width:52px;height:52px;background:#f8f7f4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#2ecc71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#bbb;margin-bottom:8px;">Estimated Value Range</div>
+                    <div class="result-range" id="resultRange">—</div>
+                    <div style="font-size:11px;color:#aaa;margin-bottom:16px;">Based on <strong id="resultAddr" style="color:#555;">your property</strong></div>
+                    <div class="result-bar-wrap">
+                        <span class="result-bar-label" id="barLow">$—</span>
+                        <div class="result-bar-track">
+                            <div class="result-bar-fill" id="barFill"></div>
+                        </div>
+                        <span class="result-bar-label" id="barHigh">$—</span>
+                    </div>
+                    <p class="result-disclaimer">This AI-powered estimate is based on recent comparable transactions. For a precise valuation, book a free in-person appraisal with a Dwelro agent.</p>
+                    <div style="display:flex;gap:8px;">
+                        <a href="agents.php" class="btn-dark" style="flex:1;text-align:center;">Book Agent Appraisal</a>
+                        <a href="#" class="btn-ghost" style="flex:1;text-align:center;" onclick="resetForm(); return false;">New Estimate</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-strip">
+        <div class="trust-inner">
+            <div class="trust-item"><span class="trust-dot"></span>CEA-Licensed Appraisers</div>
+            <div class="trust-item"><span class="trust-dot"></span>Live URA Transaction Data</div>
+            <div class="trust-item"><span class="trust-dot"></span>100% Free, No Obligation</div>
+            <div class="trust-item"><span class="trust-dot"></span>Results in Under 60 Seconds</div>
+            <div class="trust-item"><span class="trust-dot"></span>Trusted by 4,200+ Homeowners</div>
+        </div>
+    </div>
+
+    <!-- ══ WHY DWELRO ══ -->
+    <section id="whySection" style="padding:80px 0;background:#fff;">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+            <p class="sec-label">Why Choose Dwelro</p>
+            <h2 class="sec-title" style="margin-bottom:8px;">Valuations You Can <em>Trust</em></h2>
+            <p class="sec-sub" style="margin-bottom:40px;">Our estimates combine live government transaction data, machine learning, and on-the-ground expertise from agents who close deals daily.</p>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <div class="why-title">Live Transaction Data</div>
+                    <div class="why-text">We pull directly from URA and HDB databases, updated daily, so your estimate reflects what buyers are actually paying right now — not six months ago.</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <div class="why-title">CEA-Certified Agents</div>
+                    <div class="why-text">Every in-person follow-up is handled by a fully licensed Dwelro agent — no rookies, no call centres. Just experienced professionals who know your district inside out.</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    </div>
+                    <div class="why-title">Completely Free</div>
+                    <div class="why-text">No credit card. No hidden fees. No spam. Our valuation service is free because we believe in building trust first — the relationship matters more than the transaction.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ HOW IT WORKS ══ -->
+    <div class="process-section">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+            <p class="sec-label">The Process</p>
+            <h2 class="sec-title">How It <em>Works</em></h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="ps-num">01</div>
+                <div class="ps-title">Enter Your Details</div>
+                <div class="ps-text">Provide your property type, address, floor area, and a few key attributes. Takes under 60 seconds.</div>
+            </div>
+            <div class="process-step">
+                <div class="ps-num">02</div>
+                <div class="ps-title">Instant Estimate</div>
+                <div class="ps-text">Our algorithm compares against thousands of recent comparable transactions in your district to generate a live range.</div>
+            </div>
+            <div class="process-step">
+                <div class="ps-num">03</div>
+                <div class="ps-title">Agent Review</div>
+                <div class="ps-text">A Dwelro agent contacts you within 24 hours to validate the estimate and discuss market conditions in detail.</div>
+            </div>
+            <div class="process-step">
+                <div class="ps-num">04</div>
+                <div class="ps-title">Full Appraisal Report</div>
+                <div class="ps-text">Receive a detailed written appraisal — complete with comparables, trend analysis, and pricing strategy — at no cost.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ MARKET SNAPSHOT ══ -->
+    <section id="marketSection" style="padding:80px 0;background:#fff;">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+            <p class="sec-label">Live Data</p>
+            <h2 class="sec-title" style="margin-bottom:8px;">European Market <em>Snapshot</em></h2>
+            <p class="sec-sub" style="margin-bottom:40px;">Current median prices by district — updated from URA Q1 2026 transaction data.</p>
+            <div class="market-grid">
+                <!-- PRICE TABLE -->
+                <div class="market-card">
+                    <div class="market-card-title">Median PSF by District (Condo)</div>
+                    <div class="trend-row">
+                        <span class="trend-area">Orchard (D09)</span>
+                        <span class="trend-price">$2,860 psf</span>
+                        <span class="trend-change trend-up">+4.2%</span>
+                    </div>
+                    <div class="trend-row">
+                        <span class="trend-area">Marina Bay (D01)</span>
+                        <span class="trend-price">$3,140 psf</span>
+                        <span class="trend-change trend-up">+6.1%</span>
+                    </div>
+                    <div class="trend-row">
+                        <span class="trend-area">East Coast (D15)</span>
+                        <span class="trend-price">$1,980 psf</span>
+                        <span class="trend-change trend-up">+2.8%</span>
+                    </div>
+                    <div class="trend-row">
+                        <span class="trend-area">Bishan (D20)</span>
+                        <span class="trend-price">$1,420 psf</span>
+                        <span class="trend-change trend-down">−0.5%</span>
+                    </div>
+                    <div class="trend-row">
+                        <span class="trend-area">Bukit Timah (D21)</span>
+                        <span class="trend-price">$2,210 psf</span>
+                        <span class="trend-change trend-up">+3.3%</span>
+                    </div>
+                    <p style="font-size:10px;color:#ddd;margin-top:14px;">Source: URA Q1 2026 · For reference only</p>
+                </div>
+                <!-- BAR CHART -->
+                <div class="market-card">
+                    <div class="market-card-title">Avg. Resale Price (S$M) by Type</div>
+                    <div class="bar-chart">
+                        <div class="bc-row"><span class="bc-label">Landed</span>
+                            <div class="bc-track">
+                                <div class="bc-fill" data-w="92%"></div>
+                            </div><span class="bc-val">$4.8M</span></div>
+                        <div class="bc-row"><span class="bc-label">Penthouse</span>
+                            <div class="bc-track">
+                                <div class="bc-fill" data-w="78%"></div>
+                            </div><span class="bc-val">$3.9M</span></div>
+                        <div class="bc-row"><span class="bc-label">Condo 3BR</span>
+                            <div class="bc-track">
+                                <div class="bc-fill" data-w="55%"></div>
+                            </div><span class="bc-val">$2.6M</span></div>
+                        <div class="bc-row"><span class="bc-label">Condo 2BR</span>
+                            <div class="bc-track">
+                                <div class="bc-fill" data-w="38%"></div>
+                            </div><span class="bc-val">$1.7M</span></div>
+                        <div class="bc-row"><span class="bc-label">HDB 5-Rm</span>
+                            <div class="bc-track">
+                                <div class="bc-fill" data-w="17%"></div>
+                            </div><span class="bc-val">$780K</span></div>
+                        <div class="bc-row"><span class="bc-label">HDB 4-Rm</span>
+                            <div class="bc-track">
+                                <div class="bc-fill" data-w="11%"></div>
+                            </div><span class="bc-val">$540K</span></div>
+                    </div>
+                    <p style="font-size:10px;color:#ddd;margin-top:16px;">Source: URA / HDB Q1 2026 · Average transaction prices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ FAQ ══ -->
+    <section style="padding:80px 0;background:#f8f7f4;border-top:1px solid #efefef;">
+        <div style="max-width:800px;margin:0 auto;padding:0 40px;">
+            <p class="sec-label">Common Questions</p>
+            <h2 class="sec-title" style="margin-bottom:36px;">Valuation <em>FAQs</em></h2>
+            <div id="faqList">
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">How accurate is the instant estimate?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">Our algorithm is typically within 5–8% of actual transacted prices, based on back-testing against 12 months of URA data. For the highest accuracy, we recommend pairing the instant estimate with a free in-person appraisal from a Dwelro
+                        agent.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">Is there any cost or obligation?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">Absolutely none. The instant estimate and full agent appraisal are completely free. We don't charge homeowners for valuations — our business model is commission-based only if you choose to list with us.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">What data sources do you use?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">We use real-time data from the Urban Redevelopment Authority (URA), HDB Resale Portal, and our own proprietary database of off-market transactions. This is supplemented by local agent intelligence from our network of 120+ CEA-certified
+                        advisors.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">How soon will an agent contact me?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">Our agents typically reach out within 2 hours during business hours (9am–7pm), and by 9am the following morning for evening submissions. You can also choose to book directly via WhatsApp for immediate assistance.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">Does my valuation expire?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">Market conditions change, so we recommend refreshing your estimate every 3–6 months if you are actively monitoring your property's value. You can re-run the instant estimate anytime at no cost.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <span class="faq-q-text">I'm not selling — can I still get a valuation?</span>
+                        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#333" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="faq-a">Of course. Many of our clients request valuations for estate planning, refinancing, divorce proceedings, or simply out of curiosity. There is no requirement to sell, and no pressure from our team to do so.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ AGENT CTA ══ -->
+    <section style="padding:80px 0;background:#fff;">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+            <div class="agent-cta">
+                <div>
+                    <h3 class="agent-cta-title">Prefer a human <em>expert?</em></h3>
+                    <p class="agent-cta-sub">Skip the form and speak directly with one of our senior valuers. We'll arrange a home visit at a time that suits you — free of charge, no strings attached.</p>
+                </div>
+                <div class="agent-cta-btns">
+                    <a href="agents.php" class="btn-dark">Meet Our Agents</a>
+                    <a href="https://wa.me/6591234567" class="btn-ghost">WhatsApp Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div style="padding:40px;border-bottom:1px solid rgba(255,255,255,.07);">
+            <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+                <div>
+                    <div style="font-family:'DM Serif Display',serif;font-size:24px;font-weight:400;color:#fff;letter-spacing:-.5px;">Dwelro</div>
+                    <p style="font-size:12px;color:rgba(255,255,255,.35);margin-top:6px;">Europe's Premier Property Partner since 2010.</p>
+                </div>
+                <div style="display:flex;gap:24px;flex-wrap:wrap;">
+                    <a href="buy.html" style="font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;">Buy</a>
+                    <a href="rent.html" style="font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;">Rent</a>
+                    <a href="#" style="font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;">Sell</a>
+                    <a href="agents.php" style="font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;">Our Agents</a>
+                    <a href="valuation.html" style="font-size:12px;color:rgba(255,255,255,.7);text-decoration:none;">Valuation</a>
+                    <a href="#" style="font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <span style="font-size:12px;color:rgba(255,255,255,.2);">© 2026 Dwelro Pte Ltd.</span>
+            <div class="footer-bottom-links"><a href="#">Terms</a><a href="#">Privacy Policy</a></div>
+        </div>
+    </footer>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #f0f0f0;">
+            <div style="font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:#1a1a1a;">Dwelro</div>
+            <button onclick="toggleMobileMenu()" style="padding:8px;" aria-label="Close">
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M16 1L9 8.5M9 8.5L16 16M9 8.5L1 1M9 8.5L1 16" stroke="#333" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+        <ul>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="index.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Home</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="buy.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Buy</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="rent.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Rent</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="#" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Sell</a></li>
+            <li style="margin:0 20px;padding:16px 0;border-bottom:1px solid #f5f5f5;"><a href="agents.php" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#333;letter-spacing:.5px;text-decoration:none;">Our Agents</a></li>
+            <li style="margin:0 20px;padding:16px 0;"><a href="valuation.html" style="font-size:13px;font-weight:600;text-transform:uppercase;color:#1a1a1a;letter-spacing:.5px;text-decoration:none;">Valuation</a></li>
+        </ul>
+        <div style="padding:20px;display:flex;gap:10px;">
+            <a href="https://wa.me/6591234567" style="flex:1;background:#25D366;color:#fff;text-align:center;padding:12px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;text-decoration:none;border-radius:2px;">WhatsApp Us</a>
+            <a href="#valuationForm" onclick="toggleMobileMenu()" style="flex:1;background:#1a1a1a;color:#fff;text-align:center;padding:12px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;text-decoration:none;border-radius:2px;">Free Valuation</a>
+        </div>
+    </div>
+
+    <!-- WA FLOAT -->
+    <a href="https://wa.me/6591234567" class="wa-btn-float" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="#fff" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 7l5-5 5 5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <script>
+        // BACK TO TOP
+        window.addEventListener('scroll', function() {
+            document.getElementById('backToTop').classList.toggle('show', window.scrollY > 400);
+        });
+
+        // DROPDOWN NAV
+        var dropTimer;
+
+        function showDrop(n) {
+            clearTimeout(dropTimer);
+            ['sell', 'invest'].forEach(function(x) {
+                var el = document.getElementById('drop-' + x);
+                if (el) el.classList.remove('show');
+            });
+            var el = document.getElementById('drop-' + n);
+            if (el) {
+                el.classList.add('show');
+                document.getElementById('dropBackdrop').style.display = 'block';
+            }
+        }
+
+        function closeDrop() {
+            dropTimer = setTimeout(function() {
+                ['sell', 'invest'].forEach(function(x) {
+                    var el = document.getElementById('drop-' + x);
+                    if (el) el.classList.remove('show');
+                });
+                document.getElementById('dropBackdrop').style.display = 'none';
+            }, 120);
+        }
+
+        function scheduleDrop() {
+            closeDrop();
+        }
+
+        function cancelDrop() {
+            clearTimeout(dropTimer);
+        }
+
+        // MOBILE MENU
+        function toggleMobileMenu() {
+            var m = document.getElementById('mobileMenu');
+            m.classList.toggle('open');
+            document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+        }
+
+        // MULTI-STEP FORM
+        var selectedType = '';
+
+        function selectType(el, type) {
+            document.querySelectorAll('.type-opt').forEach(function(o) {
+                o.classList.remove('selected');
+            });
+            el.classList.add('selected');
+            selectedType = type;
+            document.getElementById('step1Btn').disabled = false;
+        }
+
+        function goStep(n) {
+            document.querySelectorAll('.form-step').forEach(function(s) {
+                s.classList.remove('active');
+            });
+            document.getElementById('step' + n).classList.add('active');
+            // progress bar
+            var segs = ['seg1', 'seg2', 'seg3'];
+            segs.forEach(function(id, i) {
+                document.getElementById(id).classList.toggle('done', i < n);
+            });
+        }
+
+        function showResult() {
+            // Hide form steps
+            document.querySelectorAll('.form-step').forEach(function(s) {
+                s.classList.remove('active');
+            });
+            document.querySelectorAll('.sp-seg').forEach(function(s) {
+                s.classList.add('done');
+            });
+
+            // Simulate a value range
+            var baseValues = {
+                'HDB Flat': [480000, 720000],
+                'Condominium': [1200000, 2800000],
+                'Landed Home': [3200000, 5800000],
+                'Commercial': [900000, 2400000]
+            };
+            var range = baseValues[selectedType] || [800000, 1600000];
+            var low = range[0],
+                high = range[1];
+            var addr = document.getElementById('postal').value || 'your property';
+
+            function fmt(n) {
+                return '$' + (n >= 1000000 ? (n / 1000000).toFixed(2) + 'M' : (n / 1000).toFixed(0) + 'K');
+            }
+            document.getElementById('resultRange').textContent = fmt(low) + ' – ' + fmt(high);
+            document.getElementById('resultAddr').textContent = addr;
+            document.getElementById('barLow').textContent = fmt(low);
+            document.getElementById('barHigh').textContent = fmt(high);
+
+            var panel = document.getElementById('resultPanel');
+            panel.style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('barFill').style.width = '72%';
+            }, 100);
+        }
+
+        function resetForm() {
+            document.getElementById('resultPanel').style.display = 'none';
+            document.getElementById('barFill').style.width = '0';
+            selectedType = '';
+            document.querySelectorAll('.type-opt').forEach(function(o) {
+                o.classList.remove('selected');
+            });
+            document.getElementById('step1Btn').disabled = true;
+            goStep(1);
+        }
+
+        // FAQ accordion
+        function toggleFaq(el) {
+            var item = el.parentElement;
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(function(f) {
+                f.classList.remove('open');
+            });
+            if (!isOpen) item.classList.add('open');
+        }
+
+        // Bar chart animation on scroll
+        var barObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    e.target.style.width = e.target.dataset.w;
+                    barObs.unobserve(e.target);
+                }
+            });
+        }, {
+            threshold: .3
+        });
+        document.querySelectorAll('.bc-fill').forEach(function(b) {
+            b.dataset.w = b.getAttribute('data-w') || '50%';
+            b.style.width = '0%';
+            barObs.observe(b);
+        });
+    </script>
+    <script src="dwelro-api.js"></script>
+</body>
+
+</html>

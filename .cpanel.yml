@@ -1,0 +1,6 @@
+deployment:
+  tasks:
+    - task: deploy
+      description: "Deploy repository files to public_html"
+      commands:
+        - rsync -av --exclude='.git' ./ /home/vyjcjbwj/public_html/
